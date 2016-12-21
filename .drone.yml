@@ -172,3 +172,4 @@ build:
         branch: "!beta"
         event: push
         success: true
+        
