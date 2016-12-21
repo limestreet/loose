@@ -272,8 +272,3 @@ require get_template_directory() . '/inc/class-category-meta.php';
  * Load TGMPA recommended plugins.
  */
 require_once get_template_directory() . '/inc/tgmpa-plugins.php';
-
-/**
- * Theme updater.
- */
-require_once get_template_directory() . '/inc/update.php';
