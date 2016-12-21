@@ -160,7 +160,8 @@ build:
     - rm -rf .git* .drone* .jshint* .netbeans* .travis* node_modules vendor tests Gruntfile.js casper-tests.js composer.* package.json *.ruleset.xml netbeans* *.rb *.tmp *.log Dockerfile
     - wp vip-scanner scan-theme --theme=$THEME_SLUG --scan_type="Undefined Function Check" --allow-root
     when:
-      branch: alpha
+      branch: "!beta"
+      event: push
     
   deploy:
     git_push:
@@ -168,5 +169,7 @@ build:
       remote: git@bitbucket.org:fatthemes/loose.git
       force: true
       when:
-        branch: alpha
-        #success: true
+        branch: "!beta"
+        event: push
+        success: true
+        

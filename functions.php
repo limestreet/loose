@@ -1,6 +1,6 @@
 <?php
 /**
- * loose functions and definitions.
+ * Loose functions and definitions.
  *
  * @link https://codex.wordpress.org/Functions_File_Explained
  *

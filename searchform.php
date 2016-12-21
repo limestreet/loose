@@ -11,5 +11,5 @@
 			<span class="screen-reader-text"><?php esc_html_e( 'Search for: ', 'loose' ); ?></span>
 			<input type="search" class="search-field" placeholder="<?php esc_html_e( 'Type and hit enter', 'loose' ); ?>" value="" name="s" title="<?php esc_html_e( 'Search for:', 'loose' ); ?>" />
 	</label>
-	<input type="submit" class="search-submit" value="Search" />
+	<input type="submit" class="search-submit" value="<?php esc_html_e( 'Search', 'loose' ); ?>" />
 </form>   
