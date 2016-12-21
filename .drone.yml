@@ -163,13 +163,12 @@ build:
       branch: "!beta"
       event: push
     
-  deploy:
-    git_push:
-      branch: beta
-      remote: git@bitbucket.org:fatthemes/loose.git
-      force: true
-      when:
-        branch: "!beta"
-        event: push
-        success: true
-        
+#deploy:
+#  git_push:
+#    branch: beta
+#    remote: git@bitbucket.org:fatthemes/loose.git
+#    force: true
+#    when:
+#      branch: "!beta"
+#      event: push
+#      success: true

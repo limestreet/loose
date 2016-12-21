@@ -49,9 +49,10 @@
 		    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 			<img src="<?php echo esc_url( $loose_header_logo ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
 		    </a>
-		<?php endif;
-		echo wp_kses_post( get_theme_mod( 'footer_text', '<p>&copy; 2016 ' . get_bloginfo( 'name' ) . '</p>' ) );
-		?>
+		<?php endif; ?>
+		    <a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
+			<span class="sep"> | </span>
+		    <?php printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 		
