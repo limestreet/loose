@@ -196,10 +196,11 @@ endif;
  */
 function loose_scripts() {
 
+	$loose_theme_info = wp_get_theme();
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'loose-fonts', loose_fonts_url(), array(), null );
 
-	wp_enqueue_style( 'loose-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'loose-style', get_stylesheet_uri(), array(), $loose_theme_info->get( 'Version' ) );
 
 	wp_enqueue_script( 'slick', get_template_directory_uri() . '/slick/slick.min.js', array( 'jquery' ), '20150828', true );
 
@@ -213,7 +214,7 @@ function loose_scripts() {
 
 	wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20150829', true );
 
-	wp_enqueue_script( 'loose-scripts', get_template_directory_uri() . '/js/loose.min.js', array( 'jquery', 'jquery-effects-core', 'jquery-effects-slide' ), '20151029', true );
+	wp_enqueue_script( 'loose-scripts', get_template_directory_uri() . '/js/loose.min.js', array( 'jquery', 'jquery-effects-core', 'jquery-effects-slide' ), $loose_theme_info->get( 'Version' ), true );
 
 	wp_enqueue_script( 'loose-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.min.js', array(), '20130115', true );
 
