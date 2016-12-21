@@ -1,6 +1,6 @@
 <?php
 /**
- * loose Theme Customizer.
+ * Loose Theme Customizer.
  *
  * @package loose
  */

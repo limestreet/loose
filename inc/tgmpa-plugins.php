@@ -1,6 +1,6 @@
 <?php
 /**
- * loose Theme Dependencies
+ * Loose Theme Dependencies
  *
  * @package    TGM-Plugin-Activation
  * @author     Thomas Griffin <thomasgriffinmedia.com> and Gary Jones <gamajo.com>
