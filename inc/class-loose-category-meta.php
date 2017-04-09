@@ -9,12 +9,12 @@
  * @package loose
  */
 
-if ( ! class_exists( 'Meta_For_Categories' ) ) {
+if ( ! class_exists( 'Loose_Category_Meta' ) ) {
 
 /**
  * Class for managing extra metadata for categories.
  */
-class Meta_For_Categories {
+class Loose_Category_Meta {
 
 		/**
 		 * Class constructor.
@@ -108,11 +108,11 @@ class Meta_For_Categories {
 		 */
 		function new_term_bg_color_field() {
 
-				wp_nonce_field( basename( __FILE__ ), 'mfc_term_bg_color_nonce' ); ?>
+				wp_nonce_field( basename( __FILE__ ), 'loose_term_bg_color_nonce' ); ?>
 
-				<div class="form-field mfc-term-bg-color-wrap">
-					<label for="mfc-term-bg-color"><?php esc_html_e( 'Background Color', 'loose' ); ?></label>
-					<input type="text" name="mfc_term_bg_color" id="mfc-term-bg-color" value="" class="mfc-bg-color-field" data-default-color="#fff" />
+				<div class="form-field loose-term-bg-color-wrap">
+					<label for="loose-term-bg-color"><?php esc_html_e( 'Background Color', 'loose' ); ?></label>
+					<input type="text" name="loose_term_bg_color" id="loose-term-bg-color" value="" class="loose-bg-color-field" data-default-color="#fff" />
 				</div>
 		<?php }
 
@@ -121,11 +121,11 @@ class Meta_For_Categories {
 				 */
 		function new_term_text_color_field() {
 
-				wp_nonce_field( basename( __FILE__ ), 'mfc_term_text_color_nonce' ); ?>
+				wp_nonce_field( basename( __FILE__ ), 'loose_term_text_color_nonce' ); ?>
 
-				<div class="form-field mfc-term-text-color-wrap">
-					<label for="mfc-term-text-color"><?php esc_html_e( 'Text Color', 'loose' ); ?></label>
-					<input type="text" name="mfc_term_text_color" id="mfc-term-text-color" value="" class="mfc-text-color-field" data-default-color="#000" />
+				<div class="form-field loose-term-text-color-wrap">
+					<label for="loose-term-text-color"><?php esc_html_e( 'Text Color', 'loose' ); ?></label>
+					<input type="text" name="loose_term_text_color" id="loose-term-text-color" value="" class="loose-text-color-field" data-default-color="#000" />
 				</div>
 		<?php }
 
@@ -142,11 +142,11 @@ class Meta_For_Categories {
 				if ( ! $color ) {
 				$color = $default; } ?>
 
-				<tr class="form-field mfc-term-bg-color-wrap">
-					<th scope="row"><label for="mfc-term-bg-color"><?php esc_html_e( 'Background Color', 'loose' ); ?></label></th>
+				<tr class="form-field loose-term-bg-color-wrap">
+					<th scope="row"><label for="loose-term-bg-color"><?php esc_html_e( 'Background Color', 'loose' ); ?></label></th>
 					<td>
-						<?php wp_nonce_field( basename( __FILE__ ), 'mfc_term_bg_color_nonce' ); ?>
-						<input type="text" name="mfc_term_bg_color" id="mfc-term-bg-color" value="<?php echo esc_attr( $color ); ?>" class="mfc-bg-color-field" data-default-color="<?php echo esc_attr( $default ); ?>" />
+						<?php wp_nonce_field( basename( __FILE__ ), 'loose_term_bg_color_nonce' ); ?>
+						<input type="text" name="loose_term_bg_color" id="loose-term-bg-color" value="<?php echo esc_attr( $color ); ?>" class="loose-bg-color-field" data-default-color="<?php echo esc_attr( $default ); ?>" />
 					</td>
 				</tr>
 		<?php }
@@ -164,11 +164,11 @@ class Meta_For_Categories {
 				if ( ! $color ) {
 				$color = $default; } ?>
 
-				<tr class="form-field mfc-term-text-color-wrap">
-					<th scope="row"><label for="mfc-term-text-color"><?php esc_html_e( 'Text Color', 'loose' ); ?></label></th>
+				<tr class="form-field loose-term-text-color-wrap">
+					<th scope="row"><label for="loose-term-text-color"><?php esc_html_e( 'Text Color', 'loose' ); ?></label></th>
 					<td>
-						<?php wp_nonce_field( basename( __FILE__ ), 'mfc_term_text_color_nonce' ); ?>
-						<input type="text" name="mfc_term_text_color" id="mfc-term-text-color" value="<?php echo esc_attr( $color ); ?>" class="mfc-text-color-field" data-default-color="<?php echo esc_attr( $default ); ?>" />
+						<?php wp_nonce_field( basename( __FILE__ ), 'loose_term_text_color_nonce' ); ?>
+						<input type="text" name="loose_term_text_color" id="loose-term-text-color" value="<?php echo esc_attr( $color ); ?>" class="loose-text-color-field" data-default-color="<?php echo esc_attr( $default ); ?>" />
 					</td>
 				</tr>
 		<?php }
@@ -180,16 +180,16 @@ class Meta_For_Categories {
 		 */
 		function new_term_image_field( $term ) {
 
-				wp_nonce_field( basename( __FILE__ ), 'mfc_term_image_nonce' ); ?>
+				wp_nonce_field( basename( __FILE__ ), 'loose_term_image_nonce' ); ?>
 
-				<div class="form-field mfc-category-form-field">
-					<label for="mfc_category_image_imageholder"><?php esc_html_e( 'Image', 'loose' ); ?></label>
+				<div class="form-field loose-category-form-field">
+					<label for="loose_category_image_imageholder"><?php esc_html_e( 'Image', 'loose' ); ?></label>
 
-					<div id="mfc_category_image_imageholder" name="mfc_category_image_imageholder"></div>
+					<div id="loose_category_image_imageholder" name="loose_category_image_imageholder"></div>
 
-					<div class="options" name="mfc_category_image_imageholder">
-							<button class="button" id="mfc_category_image_upload_button"><?php esc_html_e( 'Upload', 'loose' ); ?></button>
-							<button class="button" id="mfc_category_image_remove_button"><?php esc_html_e( 'Remove', 'loose' ); ?></button>
+					<div class="options" name="loose_category_image_imageholder">
+							<button class="button" id="loose_category_image_upload_button"><?php esc_html_e( 'Upload', 'loose' ); ?></button>
+							<button class="button" id="loose_category_image_remove_button"><?php esc_html_e( 'Remove', 'loose' ); ?></button>
 					</div>
 				</div>
 
@@ -212,25 +212,25 @@ class Meta_For_Categories {
 				if ( ! $imageid ) {
 				$imageid = $default; } ?>
 
-				<tr class="form-field mfc-category-form-field">
+				<tr class="form-field loose-category-form-field">
 
 				<th scope="row">
 					<label for="taxonomy_image"><?php esc_html_e( 'Category Image', 'loose' ); ?></label>
 				</th>
 
 				<td>
-					<?php wp_nonce_field( basename( __FILE__ ), 'mfc_term_image_nonce' ); ?>
-					<input type="hidden" name="mfc_term_image" id="mfc_category_image_attachment" value="<?php echo esc_attr( $imageid ); ?>">
+					<?php wp_nonce_field( basename( __FILE__ ), 'loose_term_image_nonce' ); ?>
+					<input type="hidden" name="loose_term_image" id="loose_category_image_attachment" value="<?php echo esc_attr( $imageid ); ?>">
 
-					<div id="mfc_category_image_imageholder">
+					<div id="loose_category_image_imageholder">
 						<?php if ( ! empty( $imageid ) ) : ?>
-							<img src="<?php echo esc_url( $image[0] ); ?>" width="180" id="mfc_category_image_image" />
+							<img src="<?php echo esc_url( $image[0] ); ?>" width="180" id="loose_category_image_image" />
 						<?php endif; ?>
 					</div>
 
 					<div class="options">
-							<button class="button" id="mfc_category_image_upload_button"><?php esc_html_e( 'Upload', 'loose' ); ?></button>
-							<button class="button" id="mfc_category_image_remove_button"><?php esc_html_e( 'Remove', 'loose' ); ?></button>
+							<button class="button" id="loose_category_image_upload_button"><?php esc_html_e( 'Upload', 'loose' ); ?></button>
+							<button class="button" id="loose_category_image_remove_button"><?php esc_html_e( 'Remove', 'loose' ); ?></button>
 					</div>
 				</td>
 			</tr>    
@@ -245,11 +245,11 @@ class Meta_For_Categories {
 		 */
 		function save_term_bg_color( $term_id ) {
 
-				if ( ! isset( $_POST['mfc_term_bg_color_nonce'] ) || ! wp_verify_nonce( $_POST['mfc_term_bg_color_nonce'], basename( __FILE__ ) ) ) {
+				if ( ! isset( $_POST['loose_term_bg_color_nonce'] ) || ! wp_verify_nonce( $_POST['loose_term_bg_color_nonce'], basename( __FILE__ ) ) ) {
 				return; }
 
 				$old_color = $this->get_term_bg_color( $term_id );
-				$new_color = isset( $_POST['mfc_term_bg_color'] ) ? $this->sanitize_hex( $_POST['mfc_term_bg_color'] ) : '';
+				$new_color = isset( $_POST['loose_term_bg_color'] ) ? $this->sanitize_hex( $_POST['loose_term_bg_color'] ) : '';
 
 				if ( $old_color && '' === $new_color ) {
 				delete_term_meta( $term_id, 'bg_color' ); } else if ( $old_color !== $new_color ) {
@@ -264,11 +264,11 @@ class Meta_For_Categories {
 				 */
 		function save_term_text_color( $term_id ) {
 
-				if ( ! isset( $_POST['mfc_term_text_color_nonce'] ) || ! wp_verify_nonce( $_POST['mfc_term_text_color_nonce'], basename( __FILE__ ) ) ) {
+				if ( ! isset( $_POST['loose_term_text_color_nonce'] ) || ! wp_verify_nonce( $_POST['loose_term_text_color_nonce'], basename( __FILE__ ) ) ) {
 				return; }
 
 				$old_color = $this->get_term_text_color( $term_id );
-				$new_color = isset( $_POST['mfc_term_text_color'] ) ? $this->sanitize_hex( $_POST['mfc_term_text_color'] ) : '';
+				$new_color = isset( $_POST['loose_term_text_color'] ) ? $this->sanitize_hex( $_POST['loose_term_text_color'] ) : '';
 
 				if ( $old_color && '' === $new_color ) {
 				delete_term_meta( $term_id, 'text_color' ); } else if ( $old_color !== $new_color ) {
@@ -283,11 +283,11 @@ class Meta_For_Categories {
 		 */
 		function save_term_image( $term_id ) {
 
-				if ( ! isset( $_POST['mfc_term_image_nonce'] ) || ! wp_verify_nonce( $_POST['mfc_term_image_nonce'], basename( __FILE__ ) ) ) {
+				if ( ! isset( $_POST['loose_term_image_nonce'] ) || ! wp_verify_nonce( $_POST['loose_term_image_nonce'], basename( __FILE__ ) ) ) {
 			 return; }
 
 				$old_image = $this->get_term_image( $term_id );
-				$new_image = isset( $_POST['mfc_term_image'] ) ? absint( $_POST['mfc_term_image'] ) : '';
+				$new_image = isset( $_POST['loose_term_image'] ) ? absint( $_POST['loose_term_image'] ) : '';
 
 				if ( $old_image && '' === $new_image ) {
 				delete_term_meta( $term_id, 'image' ); } else if ( $old_image !== $new_image ) {
@@ -308,7 +308,7 @@ class Meta_For_Categories {
 				wp_enqueue_media();
 
 				wp_enqueue_script(
-						'category-image-js',
+						'loose-category-image-js',
 						get_template_directory_uri() . '/inc/js/categoryimage.js',
 						array( 'jquery', 'wp-color-picker' ),
 						'1.0.0',
@@ -324,7 +324,7 @@ class Meta_For_Categories {
 				);
 
 				wp_localize_script(
-						'category-image-js',
+						'loose-category-image-js',
 						'CategoryImage',
 						$data
 				);
@@ -335,6 +335,6 @@ class Meta_For_Categories {
 				}
 }
 
-new Meta_For_Categories;
+new Loose_Category_Meta;
 
 }// End if().

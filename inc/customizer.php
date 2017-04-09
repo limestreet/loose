@@ -63,9 +63,9 @@ function loose_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'sidebar_bg_color_1', array(
-		    'label'   => esc_html__( 'Sidebar Background Color 1', 'loose' ),
-		    'section'     => 'colors',
-		    'priority'       => 110,
+			'label'   => esc_html__( 'Sidebar Background Color 1', 'loose' ),
+			'section'     => 'colors',
+			'priority'       => 110,
 		) ) );
 
 		$wp_customize->add_setting( 'sidebar_bg_color_2', array(
@@ -75,9 +75,9 @@ function loose_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'sidebar_bg_color_2', array(
-		    'label'   => esc_html__( 'Sidebar Background Color 2', 'loose' ),
-		    'section'     => 'colors',
-		    'priority'       => 120,
+			'label'   => esc_html__( 'Sidebar Background Color 2', 'loose' ),
+			'section'     => 'colors',
+			'priority'       => 120,
 		) ) );
 
 		$wp_customize->add_setting( 'sidebar_bg_color_3', array(
@@ -87,9 +87,9 @@ function loose_customize_register( $wp_customize ) {
 		) );
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'sidebar_bg_color_3', array(
-		    'label'   => esc_html__( 'Sidebar Background Color 3', 'loose' ),
-		    'section'     => 'colors',
-		    'priority'       => 130,
+			'label'   => esc_html__( 'Sidebar Background Color 3', 'loose' ),
+			'section'     => 'colors',
+			'priority'       => 130,
 		) ) );
 
 		$wp_customize->add_section( 'home_page', array(

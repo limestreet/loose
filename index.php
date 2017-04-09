@@ -19,7 +19,7 @@ get_header(); ?>
 		<?php get_template_part( 'template-parts/content', 'home-slider' ); ?>
 
 	<?php endif; ?>
-	     <?php get_sidebar( 'top' ); ?>
+		 <?php get_sidebar( 'top' ); ?>
 	<div class="row">
 
 	<div id="primary" class="content-area<?php $loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );

@@ -28,14 +28,17 @@
 					</div>
 					</div>
 					<nav id="site-navigation" class="main-navigation" role="navigation">
-								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+								<?php wp_nav_menu( array(
+	'theme_location' => 'primary',
+	'menu_id' => 'primary-menu',
+) ); ?>
 					</nav><!-- #site-navigation -->
 					<div class="left-nav-social">
-					    <?php echo loose_social_profiles(); // WPCS: XSS OK. ?>
+						<?php echo loose_social_profiles(); // WPCS: XSS OK. ?>
 					</div>
 					<?php get_sidebar( 'left' ); ?>
 					<div class="site-info">
-			<?php echo wp_kses_post( get_theme_mod( 'footer_text', '<p>&copy; 2016 ' . get_bloginfo( 'name' ) . '</p>' ) ); ?>
+			<?php echo wp_kses_post( get_theme_mod( 'footer_text', '<p>&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) . '</p>' ) ); ?>
 					</div><!-- .site-info -->
 				</div>
 			</div> 
@@ -46,13 +49,16 @@
 		<div class="site-info">
 		<?php if ( ! empty( $loose_header_logo ) ) :
 		?>
-		    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 			<img src="<?php echo esc_url( $loose_header_logo ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
-		    </a>
+			</a>
 		<?php endif; ?>
-		    <a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php
+				// translators: WordPress.
+				printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-		    <?php printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' ); ?>
+			<?php // translators: theme neame and theme author..
+				printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 		

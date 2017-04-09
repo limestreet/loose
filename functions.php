@@ -206,7 +206,7 @@ function loose_scripts() {
 
 	if ( ! is_singular() && ! is_404() && have_posts() ) {
 
-	wp_enqueue_script( 'infinite-scroll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array( 'jquery', 'masonry', 'images-loaded' ), '2.1.0', true );
+	wp_enqueue_script( 'infinite-scroll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array( 'jquery', 'masonry' ), '2.1.0', true );
 
 	}
 
@@ -226,12 +226,8 @@ function loose_scripts() {
 	// Passing theme options to loose.js.
 	wp_localize_script( 'loose-scripts', 'loose', array(
 		'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
-		// 'loadMoreText' => esc_html__('Load more posts', 'loose'),
-		'loadingText' => esc_html__( ' ', 'loose' ),
-		'noMorePostsText' => esc_html__( ' ', 'loose' ),
-		// 'startPage' => $loose_ajax_paged,
-		// 'maxPages' => $loose_ajax_max_pages,
-		// 'nextLink' => next_posts($loose_ajax_max_pages, false)
+		'loadingText' => '',
+		'noMorePostsText' => '',
 		'getTemplateDirectoryUri' => esc_url( get_template_directory_uri() ),
 		'months' => loose_months(),
 		'days' => loose_days(),
@@ -266,7 +262,7 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Some meta fields for category styling.
  */
-require get_template_directory() . '/inc/class-category-meta.php';
+require get_template_directory() . '/inc/class-loose-category-meta.php';
 
 /**
  * Load TGMPA recommended plugins.
