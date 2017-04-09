@@ -35,7 +35,7 @@
 					</div>
 					<?php get_sidebar( 'left' ); ?>
 					<div class="site-info">
-			<?php echo wp_kses_post( get_theme_mod( 'footer_text', '<p>&copy; 2016 ' . get_bloginfo( 'name' ) . '</p>' ) ); ?>
+			<?php echo wp_kses_post( get_theme_mod( 'footer_text', '<p>&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) . '</p>' ) ); ?>
 					</div><!-- .site-info -->
 				</div>
 			</div> 
