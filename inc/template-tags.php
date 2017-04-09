@@ -20,11 +20,13 @@ function loose_posted_on() {
 			);
 
 			$posted_on = sprintf(
+			/* translators: time ago */
 			esc_html_x( '%s ago', 'post date', 'loose' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 			);
 
 			$byline = sprintf(
+			/* translators: post author */
 			esc_html_x( ' by %s', 'post author', 'loose' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 			);
@@ -42,8 +44,9 @@ function loose_entry_footer() {
 		if ( 'post' == get_post_type() ) {
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'loose' ) );
+			$tags_list = get_the_tag_list( '', ', ' );
 			if ( $tags_list ) {
+				/* translators: tag list */
 				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'loose' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 			}
@@ -65,7 +68,8 @@ if ( ! function_exists( 'loose_categorized_blog' ) ) :
  * @return bool
  */
 function loose_categorized_blog() {
-		if ( false === ( $all_the_cool_cats = get_transient( 'loose_categories' ) ) ) {
+		$all_the_cool_cats = get_transient( 'loose_categories' );
+		if ( false === $all_the_cool_cats ) {
 			// Create an array of all the categories that are attached to posts.
 			$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -134,14 +138,20 @@ function loose_comment( $comment, $args, $depth ) {
 							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time datetime="<?php comment_time( 'c' ); ?>">
 							<?php
 							/* translators: 1: date, 2: time */
-							printf( esc_html__( '%s ago', 'loose' ), esc_html( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) );                                    ?>
-																																																		</time></a>
-																																																		<span class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => 'REPLY', 'before' => ' &#8901; ' ) ) ); ?></span><!-- .reply -->
-																																																		<?php edit_comment_link( __( 'Edit', 'loose' ), ' &#8901; ' );
-																																																		?>
-																																																		</div><!-- .comment-meta .commentmetadata -->
-																																																		</div><!-- .comment-author .vcard -->
-																																																		<?php if ( '0' == $comment->comment_approved ) : ?>
+							printf( esc_html__( '%s ago', 'loose' ), esc_html( human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ) ); ?>
+							</time></a>
+							<span class="reply"><?php comment_reply_link( array_merge( $args,
+							array(
+								'depth' => $depth,
+								'max_depth' => $args['max_depth'],
+								'reply_text' => 'REPLY',
+								'before' => ' &#8901; ',
+							) ) ); ?>
+							</span><!-- .reply -->
+							<?php edit_comment_link( __( 'Edit', 'loose' ), ' &#8901; ' ); ?>
+							</div><!-- .comment-meta .commentmetadata -->
+							</div><!-- .comment-author .vcard -->
+							<?php if ( '0' == $comment->comment_approved ) : ?>
 						<em><?php esc_html_e( 'Your comment is awaiting moderation.', 'loose' ); ?></em>
 						<br />
 					<?php endif; ?>
@@ -177,11 +187,11 @@ function loose_comments_fields( $fields ) {
 
 		$fields   = array(
 		'author' => '<div class="comment-fields"><p class="comment-form-author">' . '<label for="author">' . esc_html__( 'Name', 'loose' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-		            '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Name', 'loose' ) . '" /></p>',
+					'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Name', 'loose' ) . '" /></p>',
 		'email'  => '<p class="comment-form-email"><label for="email">' . esc_html__( 'Email', 'loose' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-		            '<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Email', 'loose' ) . '" /></p>',
+					'<input id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '"' . $aria_req . $html_req . ' placeholder="' . esc_html__( 'Email', 'loose' ) . '" /></p>',
 		'url'    => '<p class="comment-form-ur"><label for="url">' . esc_html__( 'Website', 'loose' ) . '</label> ' .
-		            '<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" placeholder="' . esc_html__( 'Website', 'loose' ) . '" /></p></div>',
+					'<input id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" placeholder="' . esc_html__( 'Website', 'loose' ) . '" /></p></div>',
 			);
 
 			return $fields;
@@ -232,7 +242,12 @@ function loose_custom_popular_posts_html_list( $mostpopular, $instance ) {
 		foreach ( $mostpopular as $popular ) {
 
 			// $post_cat = get_the_category_list( esc_html__( '<span> &#124; </span>', 'loose' ), '', $popular->id );
-			$post_cat = wp_kses( get_the_category_list( __( '<span>&#124;</span>', 'loose' ), '', $popular->id ), array( 'a' => array( 'href' => array() ), 'span' => '' ) );
+			$post_cat = wp_kses( get_the_category_list( __( '<span>&#124;</span>', 'loose' ), '', $popular->id ), array(
+				'a' => array(
+					'href' => array(),
+				),
+				'span' => '',
+			) );
 
 			$thumb = get_the_post_thumbnail( $popular->id, 'medium' );
 
@@ -264,7 +279,7 @@ if ( ! function_exists( 'loose_gallery_content' ) ) :
  * @since loose 1.0
  */
 function loose_gallery_content() {
-
+		/* translators: post title */
 		$content = get_the_content( sprintf( __( 'Read more %s <span class="meta-nav">&rarr;</span>', 'loose' ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
 		$pattern = '#\[gallery[^\]]*\]#';
 		$replacement = '';
@@ -283,6 +298,7 @@ if ( ! function_exists( 'loose_media_content' ) ) :
  * @since loose 1.0
  */
 function loose_media_content() {
+		/* translators: post title */
 		$content = get_the_content( sprintf( esc_html__( 'Read more %s <span class="meta-nav">&rarr;</span>', 'loose' ), the_title( '<span class="screen-reader-text">"', '"</span>', false ) ) );
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content );
@@ -310,9 +326,11 @@ if ( ! function_exists( 'loose_gallery_shortcode' ) ) :
 function loose_gallery_shortcode( $output = '', $atts, $instance ) {
 		$return = $output; // Fallback.
 
-		$atts = array( 'size' => 'medium' );
+		$atts = array(
+			'size' => 'medium',
+			);
 
-		return $output;
+			return $output;
 }
 
 add_filter( 'post_gallery', 'loose_gallery_shortcode', 10, 3 );
@@ -371,15 +389,15 @@ function loose_customize_css() {
 		$custom_css .= '#secondary .widget:nth-of-type(3n+3){background-color:' . esc_attr( get_theme_mod( 'sidebar_bg_color_3', '#f5f8fa' ) ) . ';}';
 		if ( $hide_title_on_home_archive ) {
 			$custom_css .= '.blog .content-area .entry-title, .archive .content-area .entry-title, .search .content-area .entry-title {display:none;}';
-		}
+			}
 		if ( $hide_meta_on_home_archive ) {
 			$custom_css .= '.blog .content-area .entry-meta, .archive .content-area .entry-meta, .search .content-area .entry-meta {display:none;}';
-		}
+			}
 		$custom_css .= '@media screen and (min-width: ' . absint( get_theme_mod( 'show_top_menu_width', 768 ) ) . 'px )  {';
 		$custom_css .= '.menu-logo {float:left;}';
 		$custom_css .= '.navbar-navigation ul, .nav-social {display:block;}';
 		$custom_css .= '.loose-featured-slider, .loose-featured-slider .featured-image, .loose-featured-slider .no-featured-image {height:' . absint( get_theme_mod( 'home_page_slider_height', 500 ) ) . 'px;}';
-		
+
 		wp_add_inline_style( 'loose-style', $custom_css );
 }
 add_action( 'wp_enqueue_scripts', 'loose_customize_css' );

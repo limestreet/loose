@@ -20,7 +20,12 @@
 				<?php endif; ?>
 				<?php echo loose_post_format_icon( get_the_ID() ); // WPCS: XSS OK. ?>
 				<div class="featured-image-cat">
-				<?php echo wp_kses( get_the_category_list( __( '<span> &#124; </span>', 'loose' ) ), array( 'a' => array( 'href' => array() ), 'span' => '' ) );?>
+				<?php echo wp_kses( get_the_category_list( __( '<span> &#124; </span>', 'loose' ) ), array(
+	'a' => array(
+		'href' => array(),
+	),
+	'span' => '',
+) );?>
 				</div>
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 

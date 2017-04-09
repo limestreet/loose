@@ -17,7 +17,8 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<div class="loose-page-intro">
-						<h2><?php printf( esc_html__( 'Search Results for: %s', 'loose' ), '<span>' . get_search_query() . '</span>' );?></h2>
+						<h2><?php // translators: search term.
+						printf( esc_html__( 'Search Results for: %s', 'loose' ), '<span>' . get_search_query() . '</span>' );?></h2>
 			</div>
 		<main id="main" class="site-main row masonry-container" role="main">
 

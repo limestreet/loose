@@ -24,7 +24,11 @@ get_header(); ?>
 					<?php elseif ( is_single() ) : ?>
 					<div class="col-md-12">
 						<div class="category-list">
-							<?php echo wp_kses( get_the_category_list( __( ' &#124; ', 'loose' ) ), array( 'a' => array( 'href' => array() ) ) );?>
+							<?php echo wp_kses( get_the_category_list( __( ' &#124; ', 'loose' ) ), array(
+'a' => array(
+	'href' => array(),
+),
+) );?>
 						</div>
 					</div>
 					<?php endif; ?>
@@ -46,7 +50,7 @@ get_header(); ?>
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
-					comments_template();
+				comments_template();
 				endif;
 			?>
 

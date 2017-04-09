@@ -11,20 +11,20 @@ get_header(); ?>
 	<?php if ( is_category() ) : ?>
 
 		<?php
-		    $catmeta = get_term_meta( $cat );
-		    $cat_bg_color = ( ! empty( $catmeta['bg_color'][0] ) ) ? '#' . $catmeta['bg_color'][0] : '';
-		    $cat_text_color = ( ! empty( $catmeta['text_color'][0] ) ) ? '#' . $catmeta['text_color'][0] : '';
-		    $catimage = ( ! empty( $catmeta['image'][0] ) ) ? $catmeta['image'][0] : '';
-		    $catimgsrc = wp_get_attachment_image_src( $catimage, 'full' );
+			$catmeta = get_term_meta( $cat );
+			$cat_bg_color = ( ! empty( $catmeta['bg_color'][0] ) ) ? '#' . $catmeta['bg_color'][0] : '';
+			$cat_text_color = ( ! empty( $catmeta['text_color'][0] ) ) ? '#' . $catmeta['text_color'][0] : '';
+			$catimage = ( ! empty( $catmeta['image'][0] ) ) ? $catmeta['image'][0] : '';
+			$catimgsrc = wp_get_attachment_image_src( $catimage, 'full' );
 		?>
-	    <div class="row archive-loose-page-intro-row">
+		<div class="row archive-loose-page-intro-row">
 		<div class="loose-page-intro col-xs-12" style="<?php echo 'background:' . esc_attr( $cat_bg_color ) . ' url(' . esc_url( $catimgsrc[0] ) . ') no-repeat center;color:' . esc_attr( $cat_text_color ) . ';'; ?>background-size:cover;">
 			<h1><?php echo esc_html( single_cat_title( '', false ) ); ?></h1>
 			<div class="row">
 			<?php the_archive_description( '<div class="taxonomy-description col-md-8 col-md-offset-2">', '</div>' ); ?>
 			</div>
 		</div>
-	    </div>
+		</div>
 	<?php endif; ?>
 	<?php get_sidebar( 'top' ); ?>
 	<div class="row">
