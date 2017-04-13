@@ -13,7 +13,7 @@
 	<header class="entry-header">
 				<?php if ( has_post_thumbnail() ) : ?>
 				<div class="featured-image">
-				<a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">
+				<a href="<?php the_permalink(); ?>" rel="bookmark">
 				<?php the_post_thumbnail( 'medium' ); ?>   
 				</a>
 				</div>

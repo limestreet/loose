@@ -131,6 +131,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks( 'grunt-rtlcss' );
 
     //grunt.registerTask('default', [ 'watch']);
-    grunt.registerTask('default', [ 'addtextdomain', 'makepot', 'postcss', 'wpcss', 'rtlcss']);
+    grunt.registerTask('default', [ 'addtextdomain', 'makepot', 'postcss', 'wpcss' ]);
 
 };

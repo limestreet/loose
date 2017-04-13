@@ -75,6 +75,9 @@ function loose_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+	
+	// Enable support for Site Logo.
+	add_theme_support( 'custom-logo' );
 
 }
 endif; // End of loose_setup.
