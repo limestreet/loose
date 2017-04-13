@@ -35,7 +35,7 @@
 						<?php endif; ?>
 					</a></h1>
 
-			<?php if ( !has_custom_logo() ) : ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif;?>
+			<?php if ( ! has_custom_logo() ) : ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif;?>
 						
 			<div class="nav-social">
 				<?php echo loose_social_profiles(); // WPCS: XSS OK. ?>

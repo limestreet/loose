@@ -15,7 +15,6 @@ function loose_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-
 		$wp_customize->add_setting( 'show_top_menu_width', array(
 		'default'        => 768,
 				'sanitize_callback' => 'absint',
