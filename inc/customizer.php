@@ -372,7 +372,9 @@ function loose_sanitize_select_home_page_layout( $value ) {
  * @return type
  */
 function loose_sanitize_select_home_page_slider_img_size( $value ) {
-	if ( in_array( $value, array( 'thumbnail', 'medium', 'large', 'full' ), true ) ) {
+	if ( in_array( $value, array( 'thumbnail', 'medium', 'large' ), true ) ) {
 		return $value;
+	} else {
+		return 'full';
 	}
 }
