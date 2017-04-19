@@ -18,9 +18,8 @@
 				<div class="left-sidebar-content">
 					<div class="left-header">
 					<div class="left-logo">
-						<?php $loose_header_logo = get_theme_mod( 'header_logo' );
-							if ( ! empty( $loose_header_logo ) ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>" alt="<?php bloginfo( 'name' ); ?>" ></a>
+						<?php if ( has_custom_logo() ) : ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php the_custom_logo(); ?></a>
 						<?php else : ?>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 						<?php endif; ?>
@@ -47,18 +46,20 @@
 		
 		<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-		<?php if ( ! empty( $loose_header_logo ) ) :
-		?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<img src="<?php echo esc_url( $loose_header_logo ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
-			</a>
-		<?php endif; ?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php
+			<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<?php if ( has_custom_logo() ) :
+				the_custom_logo();
+			else :
+				bloginfo( 'name' );
+			endif; ?>
+			</a></p>
+			<p><a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php
 				// translators: WordPress.
 				printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
 			<?php // translators: theme neame and theme author..
 				printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' ); ?>
+			</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 		

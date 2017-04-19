@@ -17,6 +17,8 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+if( !class_exists( 'Hybrid_Media_Grabber' ) ) :
+
 /**
  * Wrapper function for the Hybrid_Media_Grabber class.  Returns the HTML output for the found media.
  *
@@ -520,3 +522,5 @@ class Hybrid_Media_Grabber {
 		return array( $max_width, $max_height );
 	}
 }
+
+endif;

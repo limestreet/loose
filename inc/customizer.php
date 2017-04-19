@@ -15,17 +15,6 @@ function loose_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-		$wp_customize->add_setting( 'header_logo', array(
-		'type'           => 'theme_mod',
-				'sanitize_callback' => 'esc_url_raw',
-		) );
-
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_logo', array(
-		'label'   => esc_html__( 'Header Logo', 'loose' ),
-		'section'     => 'title_tagline',
-				'priority'       => 70,
-		) ) );
-
 		$wp_customize->add_setting( 'show_top_menu_width', array(
 		'default'        => 768,
 				'sanitize_callback' => 'absint',
@@ -231,7 +220,7 @@ function loose_customize_register( $wp_customize ) {
 		) );
 
 	$wp_customize->add_setting( 'single_post_navigation_next_label', array(
-		'default'        => 'Next Article',
+		'default'        => esc_html__( 'Next Article', 'loose' ),
 				'sanitize_callback' => 'esc_html',
 		) );
 
@@ -242,7 +231,7 @@ function loose_customize_register( $wp_customize ) {
 		) );
 
 	$wp_customize->add_setting( 'single_post_navigation_previous_label', array(
-		'default'        => 'Previous Article',
+		'default'        => esc_html__( 'Previous Article', 'loose' ),
 				'sanitize_callback' => 'esc_html',
 		) );
 
@@ -383,7 +372,9 @@ function loose_sanitize_select_home_page_layout( $value ) {
  * @return type
  */
 function loose_sanitize_select_home_page_slider_img_size( $value ) {
-	if ( in_array( $value, array( 'thumbnail', 'medium', 'large', 'full' ), true ) ) {
+	if ( in_array( $value, array( 'thumbnail', 'medium', 'large' ), true ) ) {
 		return $value;
+	} else {
+		return 'full';
 	}
 }

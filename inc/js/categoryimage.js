@@ -17,12 +17,6 @@
 	var $mAttachment   = $('#loose_category_image_attachment');
 
 
-	//var clearAttachment = function(){
-	//	$mAttachment.val('');
-	//	$mImageHolder.html('');
-	//};
-
-
 	CategoryImage = $.extend(CategoryImage,{
 
 		options:{

@@ -241,7 +241,6 @@ function loose_custom_popular_posts_html_list( $mostpopular, $instance ) {
 		// Loop the array of popular posts objects.
 		foreach ( $mostpopular as $popular ) {
 
-			// $post_cat = get_the_category_list( esc_html__( '<span> &#124; </span>', 'loose' ), '', $popular->id );
 			$post_cat = wp_kses( get_the_category_list( __( '<span>&#124;</span>', 'loose' ), '', $popular->id ), array(
 				'a' => array(
 					'href' => array(),
@@ -257,8 +256,6 @@ function loose_custom_popular_posts_html_list( $mostpopular, $instance ) {
 			$output .= ( ! empty( $post_cat )) ? '<div class="fat-wpp-image-cat">' . $post_cat . '</div>' : '';
 			$output .= ( ! empty( $thumb )) ? '</div>' : '';
 			$output .= '<h2 class="entry-title"><a href="' . esc_url( get_the_permalink( $popular->id ) ) . '" title="' . esc_attr( $popular->title ) . '">' . $popular->title . '</a></h2>';
-			// $output .= ( ! empty ($stats)) ? $stats : "";
-			// $output .= $excerpt;
 			$output .= '</li>';
 
 			}

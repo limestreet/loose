@@ -15,7 +15,7 @@
 				<?php if ( has_post_thumbnail() ) : ?>
 					
 					<div class="featured-image col-xs-12 col-sm-6">
-						<a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">
+						<a href="<?php the_permalink(); ?>" rel="bookmark">
 						<?php the_post_thumbnail( 'medium' ); ?>   
 						</a>  
 						<?php echo loose_post_format_icon( get_the_ID() ); // WPCS: XSS OK. ?>

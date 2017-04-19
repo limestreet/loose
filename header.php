@@ -25,18 +25,17 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'loose' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<?php $loose_header_logo = get_theme_mod( 'header_logo' );
-		if ( is_front_page() && is_home() ) :
-		?>
+		<?php if ( is_front_page() && is_home() ) : ?>
 		<div class="site-branding">
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<?php if ( ! empty( $loose_header_logo ) ) : ?>
-							<img src="<?php echo esc_url( $loose_header_logo ); ?>" alt="<?php bloginfo( 'name' ); ?>" >
-						<?php else : bloginfo( 'name' );
-												endif; ?>
+						<?php if ( has_custom_logo() ) :
+							the_custom_logo();
+						else : ?>
+						<?php bloginfo( 'name' ); ?>
+						<?php endif; ?>
 					</a></h1>
 
-			<?php if ( empty( $loose_header_logo ) ) : ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif;?>
+			<?php if ( ! has_custom_logo() ) : ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif;?>
 						
 			<div class="nav-social">
 				<?php echo loose_social_profiles(); // WPCS: XSS OK. ?>
@@ -53,9 +52,9 @@
 						<?php get_search_form(); ?>
 					</div>
 					<div class="menu-logo">
-						<?php if ( ! empty( $loose_header_logo ) ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( $loose_header_logo ); ?>" alt="<?php bloginfo( 'name' ); ?>" ></a>
-						<?php else : ?>
+						<?php if ( has_custom_logo() ) :
+							the_custom_logo();
+						else : ?>
 						<p class="menu-blogname"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" ><?php bloginfo( 'name' ); ?></a></p>
 						<?php endif; ?>
 					</div>

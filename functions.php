@@ -16,65 +16,68 @@ if ( ! function_exists( 'loose_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function loose_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on loose, use a find and replace
-	 * to change 'loose' to the name of your theme in all the template files
-	 */
-	load_theme_textdomain( 'loose', get_template_directory() . '/languages' );
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on loose, use a find and replace
+		 * to change 'loose' to the name of your theme in all the template files
+		 */
+		load_theme_textdomain( 'loose', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
+		/*
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
-	add_theme_support( 'post-thumbnails' );
+		/*
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
+		add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
+		// This theme uses wp_nav_menu() in one location.
+		register_nav_menus( array(
 		'primary' => esc_html__( 'Left Menu', 'loose' ),
 				'top' => esc_html__( 'Top Menu', 'loose' ),
-	) );
+		) );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+			/*
+			 * Switch default core markup for search form, comment form, and comments
+			 * to output valid HTML5.
+			 */
+			add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+			) );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-	add_theme_support( 'post-formats', array(
-		'audio',
-		'video',
-		'gallery',
-	) );
+			/*
+			 * Enable support for Post Formats.
+			 * See https://developer.wordpress.org/themes/functionality/post-formats/
+			 */
+			add_theme_support( 'post-formats', array(
+			'audio',
+			'video',
+			'gallery',
+			) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'loose_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+			// Set up the WordPress core custom background feature.
+			add_theme_support( 'custom-background', apply_filters( 'loose_custom_background_args', array(
+			'default-color' => 'ffffff',
+			'default-image' => '',
+			) ) );
+
+			// Enable support for Site Logo.
+			add_theme_support( 'custom-logo' );
 
 }
 endif; // End of loose_setup.
@@ -139,55 +142,55 @@ if ( ! function_exists( 'loose_fonts_url' ) ) :
  * @return string Google fonts URL for the theme.
  */
 function loose_fonts_url() {
-	$fonts_url = '';
-	$fonts     = array();
-	$subsets   = 'latin,latin-ext';
-
-	/*
-	 * Translators: If there are characters in your language that are not supported
-	 * by Roboto, translate this to 'off'. Do not translate into your own language.
-	 */
-	if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'loose' ) ) {
-		$fonts[] = 'Roboto:700,400';
-	}
+		$fonts_url = '';
+		$fonts     = array();
+		$subsets   = 'latin,latin-ext';
 
 		/*
-	 * Translators: If there are characters in your language that are not supported
-	 * by Playfair Display, translate this to 'off'. Do not translate into your own language.
-	 */
+		 * Translators: If there are characters in your language that are not supported
+		 * by Roboto, translate this to 'off'. Do not translate into your own language.
+		 */
+		if ( 'off' !== _x( 'on', 'Roboto font: on or off', 'loose' ) ) {
+			$fonts[] = 'Roboto:700,400';
+			}
+
+		/*
+		 * Translators: If there are characters in your language that are not supported
+		 * by Playfair Display, translate this to 'off'. Do not translate into your own language.
+		 */
 
 		 /*
-	 * Translators: If there are characters in your language that are not supported
-	 * by Merriweather, translate this to 'off'. Do not translate into your own language.
-	 */
-	if ( 'off' !== _x( 'on', 'Merriweather font: on or off', 'loose' ) ) {
-		$fonts[] = 'Merriweather:700,300,300italic';
-	}
+		 * Translators: If there are characters in your language that are not supported
+		 * by Merriweather, translate this to 'off'. Do not translate into your own language.
+		 */
+		if ( 'off' !== _x( 'on', 'Merriweather font: on or off', 'loose' ) ) {
+			$fonts[] = 'Merriweather:700,300,300italic';
+			}
 
-	/*
-	 * Translators: To add an additional character subset specific to your language,
-	 * translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language.
-	 */
-	$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'loose' );
+		/*
+		 * Translators: To add an additional character subset specific to your language,
+		 * translate this to 'greek', 'cyrillic', 'devanagari' or 'vietnamese'. Do not translate into your own language.
+		 */
+		$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'loose' );
 
-	if ( 'cyrillic' == $subset ) {
-		$subsets .= ',cyrillic,cyrillic-ext';
-	} elseif ( 'greek' == $subset ) {
-		$subsets .= ',greek,greek-ext';
-	} elseif ( 'devanagari' == $subset ) {
-		$subsets .= ',devanagari';
-	} elseif ( 'vietnamese' == $subset ) {
-		$subsets .= ',vietnamese';
-	}
+		if ( 'cyrillic' == $subset ) {
+			$subsets .= ',cyrillic,cyrillic-ext';
+			} elseif ( 'greek' == $subset ) {
+			$subsets .= ',greek,greek-ext';
+			} elseif ( 'devanagari' == $subset ) {
+			$subsets .= ',devanagari';
+			} elseif ( 'vietnamese' == $subset ) {
+			$subsets .= ',vietnamese';
+			}
 
-	if ( $fonts ) {
-		$fonts_url = esc_url( add_query_arg( array(
+			if ( $fonts ) {
+			$fonts_url = esc_url( add_query_arg( array(
 			'family' => urlencode( implode( '|', $fonts ) ),
 			'subset' => urlencode( $subsets ),
-		), 'https://fonts.googleapis.com/css' ) );
-	}
+			), 'https://fonts.googleapis.com/css' ) );
+			}
 
-	return $fonts_url;
+			return $fonts_url;
 }
 endif;
 
