@@ -37,7 +37,7 @@
 					</div>
 					<?php get_sidebar( 'left' ); ?>
 					<div class="site-info">
-			<?php echo '<p>&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) . '</p>'; ?>
+			<?php echo '<p>&copy; ' . esc_html( date( 'Y' ) ) . ' ' . esc_html( get_bloginfo( 'name' ) ) . '</p>'; ?>
 					</div><!-- .site-info -->
 				</div>
 			</div> 

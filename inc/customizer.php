@@ -167,7 +167,7 @@ function loose_customize_register( $wp_customize ) {
 		'section' => 'home_page',
 		'type'    => 'checkbox',
 		) );
-	
+
 		$wp_customize->add_setting( 'home_page_latest_posts_text', array(
 		'default'        => 1,
 				'sanitize_callback' => 'wp_validate_boolean',
@@ -324,7 +324,7 @@ function loose_customize_register( $wp_customize ) {
 		'section' => 'social_icons',
 		'type'    => 'text',
 		) );
-		
+
 		$wp_customize->add_setting( 'social_icons_youtube', array(
 		'default'        => '',
 				'sanitize_callback' => 'esc_url_raw',
