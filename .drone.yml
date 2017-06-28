@@ -18,7 +18,7 @@ build:
       - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 /opt/source/php-5.2.17/bin/php -l
     when:
       #event: push
-      branch: "!dev"
+      #branch: "!dev"
       
   wptest:
     image: limestreet/apache-php-7
@@ -49,12 +49,11 @@ build:
       - wp theme activate twentyseventeen --allow-root
       - wp theme activate $THEME_SLUG --allow-root
       - wp rewrite structure '/%postname%/' --allow-root
-      - phpunit --version
       - phpunit --group themes
 
     when:
       #event: push
-      branch: "!dev"
+      #branch: "!dev"
   
 compose:
   database:
