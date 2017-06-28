@@ -157,6 +157,17 @@ function loose_customize_register( $wp_customize ) {
 			),
 		) );
 
+	$wp_customize->add_setting( 'home_page_show_sticky', array(
+		'default'        => 0,
+				'sanitize_callback' => 'wp_validate_boolean',
+		) );
+
+	$wp_customize->add_control( 'home_page_show_sticky', array(
+		'label'   => esc_html__( 'Show Sticky Posts Below Slider', 'loose' ),
+		'section' => 'home_page',
+		'type'    => 'checkbox',
+		) );
+
 		$wp_customize->add_setting( 'home_page_latest_posts_text', array(
 		'default'        => 1,
 				'sanitize_callback' => 'wp_validate_boolean',
@@ -310,6 +321,17 @@ function loose_customize_register( $wp_customize ) {
 
 		$wp_customize->add_control( 'social_icons_pinterest', array(
 		'label'   => esc_html__( 'Pinterest', 'loose' ),
+		'section' => 'social_icons',
+		'type'    => 'text',
+		) );
+
+		$wp_customize->add_setting( 'social_icons_youtube', array(
+		'default'        => '',
+				'sanitize_callback' => 'esc_url_raw',
+		) );
+
+		$wp_customize->add_control( 'social_icons_youtube', array(
+		'label'   => esc_html__( 'Youtube', 'loose' ),
 		'section' => 'social_icons',
 		'type'    => 'text',
 		) );
