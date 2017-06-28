@@ -401,6 +401,8 @@ add_action( 'wp_enqueue_scripts', 'loose_customize_css' );
 
 endif;
 
+
+if ( ! function_exists( 'loose_months' ) ) :
 /**
  * Months with translations for js.
  *
@@ -428,6 +430,11 @@ function loose_months() {
 	return $months;
 }
 
+endif;
+
+
+if ( ! function_exists( 'loose_days' ) ) :
+
 /**
  * Days with translations for js.
  *
@@ -448,6 +455,11 @@ function loose_days() {
 
 	return $days;
 }
+
+endif;
+
+
+if ( ! function_exists( 'loose_submenu_span' ) ) :
 
 /**
  * Function add span to menu elements which has children.
@@ -472,6 +484,12 @@ function loose_submenu_span( $item_output, $item, $depth, $args ) {
 
 add_filter( 'walker_nav_menu_start_el', 'loose_submenu_span', 10, 4 );
 
+
+endif;
+
+
+if ( ! function_exists( 'loose_social_profiles' ) ) :
+
 /**
  * Function for displaying social profiles from customizer settings.
  *
@@ -486,12 +504,32 @@ function loose_social_profiles() {
 	$loose_social_icons_googleplus = get_theme_mod( 'social_icons_googleplus' );
 	$loose_social_icons_instagram = get_theme_mod( 'social_icons_instagram' );
 	$loose_social_icons_pinterest = get_theme_mod( 'social_icons_pinterest' );
+	$loose_social_icons_youtube = get_theme_mod( 'social_icons_youtube' );
 
 	if ( ! empty( $loose_social_icons_twitter ) ) { $output .= '<a href="' . esc_url( $loose_social_icons_twitter ) . '" title="' . esc_html__( 'Twitter', 'loose' ) . '"><span class="screen-reader-text">' . esc_html__( 'Twitter', 'loose' ) . '</span><svg viewBox="0 0 26 28"><path d="M25.312 6.375q-1.047 1.531-2.531 2.609 0.016 0.219 0.016 0.656 0 2.031-0.594 4.055t-1.805 3.883-2.883 3.289-4.031 2.281-5.047 0.852q-4.234 0-7.75-2.266 0.547 0.063 1.219 0.063 3.516 0 6.266-2.156-1.641-0.031-2.938-1.008t-1.781-2.492q0.516 0.078 0.953 0.078 0.672 0 1.328-0.172-1.75-0.359-2.898-1.742t-1.148-3.211v-0.063q1.062 0.594 2.281 0.641-1.031-0.688-1.641-1.797t-0.609-2.406q0-1.375 0.688-2.547 1.891 2.328 4.602 3.727t5.805 1.555q-0.125-0.594-0.125-1.156 0-2.094 1.477-3.57t3.57-1.477q2.188 0 3.687 1.594 1.703-0.328 3.203-1.219-0.578 1.797-2.219 2.781 1.453-0.156 2.906-0.781z"></path></svg></a>'; }
 	if ( ! empty( $loose_social_icons_facebook ) ) { $output .= '<a href="' . esc_url( $loose_social_icons_facebook ) . '" title="' . esc_html__( 'Facebook', 'loose' ) . '"><span class="screen-reader-text">' . esc_html__( 'Facebook', 'loose' ) . '</span><svg viewBox="0 0 16 28"><path d="M14.984 0.187v4.125h-2.453q-1.344 0-1.813 0.562t-0.469 1.687v2.953h4.578l-0.609 4.625h-3.969v11.859h-4.781v-11.859h-3.984v-4.625h3.984v-3.406q0-2.906 1.625-4.508t4.328-1.602q2.297 0 3.563 0.187z"></path></svg></a>'; }
 	if ( ! empty( $loose_social_icons_googleplus ) ) { $output .= '<a href="' . esc_url( $loose_social_icons_googleplus ) . '" title="' . esc_html__( 'Google Plus', 'loose' ) . '"><span class="screen-reader-text">' . esc_html__( 'Google Plus', 'loose' ) . '</span><svg viewBox="0 0 36 28"><path d="M22.453 14.266q0 3.25-1.359 5.789t-3.875 3.969-5.766 1.43q-2.328 0-4.453-0.906t-3.656-2.438-2.438-3.656-0.906-4.453 0.906-4.453 2.438-3.656 3.656-2.438 4.453-0.906q4.469 0 7.672 3l-3.109 2.984q-1.828-1.766-4.562-1.766-1.922 0-3.555 0.969t-2.586 2.633-0.953 3.633 0.953 3.633 2.586 2.633 3.555 0.969q1.297 0 2.383-0.359t1.789-0.898 1.227-1.227 0.766-1.297 0.336-1.156h-6.5v-3.938h10.813q0.187 0.984 0.187 1.906zM36 12.359v3.281h-3.266v3.266h-3.281v-3.266h-3.266v-3.281h3.266v-3.266h3.281v3.266h3.266z"></path></svg></a>'; }
 	if ( ! empty( $loose_social_icons_instagram ) ) { $output .= '<a href="' . esc_url( $loose_social_icons_instagram ) . '" title="' . esc_html__( 'Instagram', 'loose' ) . '"><span class="screen-reader-text">' . esc_html__( 'Instagram', 'loose' ) . '</span><svg viewBox="0 0 24 28"><path d="M21.281 22.281v-10.125h-2.109q0.313 0.984 0.313 2.047 0 1.969-1 3.633t-2.719 2.633-3.75 0.969q-3.078 0-5.266-2.117t-2.188-5.117q0-1.062 0.313-2.047h-2.203v10.125q0 0.406 0.273 0.68t0.68 0.273h16.703q0.391 0 0.672-0.273t0.281-0.68zM16.844 13.953q0-1.937-1.414-3.305t-3.414-1.367q-1.984 0-3.398 1.367t-1.414 3.305 1.414 3.305 3.398 1.367q2 0 3.414-1.367t1.414-3.305zM21.281 8.328v-2.578q0-0.438-0.313-0.758t-0.766-0.32h-2.719q-0.453 0-0.766 0.32t-0.313 0.758v2.578q0 0.453 0.313 0.766t0.766 0.313h2.719q0.453 0 0.766-0.313t0.313-0.766zM24 5.078v17.844q0 1.266-0.906 2.172t-2.172 0.906h-17.844q-1.266 0-2.172-0.906t-0.906-2.172v-17.844q0-1.266 0.906-2.172t2.172-0.906h17.844q1.266 0 2.172 0.906t0.906 2.172z"></path></svg></a>'; }
 	if ( ! empty( $loose_social_icons_pinterest ) ) { $output .= '<a href="' . esc_url( $loose_social_icons_pinterest ) . '" title="' . esc_html__( 'Pinterest', 'loose' ) . '"><span class="screen-reader-text">' . esc_html__( 'Pinterest', 'loose' ) . '</span><svg viewBox="0 0 24 28"><path d="M24 14q0 3.266-1.609 6.023t-4.367 4.367-6.023 1.609q-1.734 0-3.406-0.5 0.922-1.453 1.219-2.562 0.141-0.531 0.844-3.297 0.313 0.609 1.141 1.055t1.781 0.445q1.891 0 3.375-1.070t2.297-2.945 0.812-4.219q0-1.781-0.93-3.344t-2.695-2.547-3.984-0.984q-1.641 0-3.063 0.453t-2.414 1.203-1.703 1.727-1.047 2.023-0.336 2.094q0 1.625 0.625 2.859t1.828 1.734q0.469 0.187 0.594-0.313 0.031-0.109 0.125-0.484t0.125-0.469q0.094-0.359-0.172-0.672-0.797-0.953-0.797-2.359 0-2.359 1.633-4.055t4.273-1.695q2.359 0 3.68 1.281t1.32 3.328q0 2.656-1.070 4.516t-2.742 1.859q-0.953 0-1.531-0.68t-0.359-1.633q0.125-0.547 0.414-1.461t0.469-1.609 0.18-1.18q0-0.781-0.422-1.297t-1.203-0.516q-0.969 0-1.641 0.891t-0.672 2.219q0 1.141 0.391 1.906l-1.547 6.531q-0.266 1.094-0.203 2.766-3.219-1.422-5.203-4.391t-1.984-6.609q0-3.266 1.609-6.023t4.367-4.367 6.023-1.609 6.023 1.609 4.367 4.367 1.609 6.023z"></path></svg></a>'; }
+	if ( ! empty( $loose_social_icons_youtube ) ) { $output .= '<a href="' . esc_url( $loose_social_icons_youtube ) . '" title="' . esc_html__( 'Youtube', 'loose' ) . '"><span class="screen-reader-text">' . esc_html__( 'Youtube', 'loose' ) . '</span><svg viewBox="0 0 15 18"><path d="M9.753 12.496v2.119q0 0.673-0.392 0.673-0.231 0-0.452-0.221v-3.023q0.221-0.221 0.452-0.221 0.392 0 0.392 0.673zM13.148 12.506v0.462h-0.904v-0.462q0-0.683 0.452-0.683t0.452 0.683zM3.445 10.316h1.075v-0.944h-3.134v0.944h1.055v5.715h1.004v-5.715zM6.338 16.031h0.894v-4.962h-0.894v3.797q-0.301 0.422-0.573 0.422-0.181 0-0.211-0.211-0.010-0.030-0.010-0.352v-3.656h-0.894v3.927q0 0.492 0.080 0.733 0.121 0.372 0.583 0.372 0.482 0 1.025-0.613v0.542zM10.647 14.545v-1.979q0-0.733-0.090-0.994-0.171-0.563-0.713-0.563-0.502 0-0.934 0.542v-2.18h-0.894v6.66h0.894v-0.482q0.452 0.552 0.934 0.552 0.542 0 0.713-0.552 0.090-0.271 0.090-1.004zM14.042 14.444v-0.131h-0.914q0 0.512-0.020 0.613-0.070 0.362-0.402 0.362-0.462 0-0.462-0.693v-0.874h1.798v-1.035q0-0.794-0.271-1.165-0.392-0.512-1.065-0.512-0.683 0-1.075 0.512-0.281 0.372-0.281 1.165v1.738q0 0.794 0.291 1.165 0.392 0.512 1.085 0.512 0.723 0 1.085-0.532 0.181-0.271 0.211-0.542 0.020-0.090 0.020-0.583zM7.935 5.273v-2.109q0-0.693-0.432-0.693t-0.432 0.693v2.109q0 0.703 0.432 0.703t0.432-0.703zM15.157 12.817q0 2.35-0.261 3.516-0.141 0.593-0.583 0.994t-1.025 0.462q-1.848 0.211-5.575 0.211t-5.575-0.211q-0.583-0.060-1.030-0.462t-0.578-0.994q-0.261-1.125-0.261-3.516 0-2.35 0.261-3.516 0.141-0.593 0.583-0.994t1.035-0.472q1.838-0.201 5.565-0.201t5.575 0.201q0.583 0.070 1.030 0.472t0.578 0.994q0.261 1.125 0.261 3.516zM5.133 0h1.025l-1.215 4.008v2.722h-1.004v-2.722q-0.141-0.743-0.613-2.129-0.372-1.035-0.653-1.878h1.065l0.713 2.642zM8.849 3.345v1.758q0 0.814-0.281 1.185-0.372 0.512-1.065 0.512-0.673 0-1.055-0.512-0.281-0.382-0.281-1.185v-1.758q0-0.804 0.281-1.175 0.382-0.512 1.055-0.512 0.693 0 1.065 0.512 0.281 0.372 0.281 1.175zM12.214 1.718v5.012h-0.914v-0.552q-0.532 0.623-1.035 0.623-0.462 0-0.593-0.372-0.080-0.241-0.080-0.753v-3.958h0.914v3.686q0 0.331 0.010 0.352 0.030 0.221 0.211 0.221 0.271 0 0.573-0.432v-3.827h0.914z"></path></svg></a>'; }
 
 	return $output;
 }
+
+endif;
+
+if ( ! function_exists( 'loose_show_sticky' ) ) :
+    
+/**
+ * Show sticky posts below slider depends on option
+ * 
+ * return @bool
+ */
+function loose_show_sticky() {
+    if( is_sticky() && ! get_theme_mod( 'home_page_show_sticky', 0 ) ) {
+	return false;
+    }
+    return true;
+}
+
+endif;

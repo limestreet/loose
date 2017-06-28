@@ -45,7 +45,7 @@ if ( ! empty( $loose_sticky_posts ) ) :
 							</div>
 														<div class="loose-featured-slider-title-wrapper">
 									<div class="loose-featured-slider-title">
-											<span class="featured-category"><?php echo wp_kses( get_the_category_list( __( '<span> &#124; </span>', 'loose' ) ), array(
+											<span class="featured-category"><?php echo wp_kses( get_the_category_list( __( '<span> &#124; </span>', 'loose' ), '', $slide->ID ), array(
 	'a' => array(
 		'href' => array(),
 	),
@@ -57,7 +57,7 @@ if ( ! empty( $loose_sticky_posts ) ) :
 							<?php else : ?>
 							<div class="no-featured-image">
 									<div class="loose-featured-slider-title">
-										<span class="featured-category"><?php echo wp_kses( get_the_category_list( __( '<span> &#124; </span>', 'loose' ) ), array(
+										<span class="featured-category"><?php echo wp_kses( get_the_category_list( __( '<span> &#124; </span>', 'loose' ), '', $slide->ID ), array(
 	'a' => array(
 		'href' => array(),
 	),
