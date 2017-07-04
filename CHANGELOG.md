@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.1.1] - 2017-07-04
+
+### Fixed
+- small translation issue in footer.php
+
 ## [1.1] - 2017-06-28
 
 ### Added
