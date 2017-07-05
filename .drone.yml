@@ -26,7 +26,7 @@ pipeline:
     environment:
     commands:
     #- ls -la
-    #- printenv
+    - printenv
     - THEME_SLUG=$DRONE_REPO_NAME
     - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
     #- echo $THEME_LOW
@@ -39,7 +39,7 @@ pipeline:
     - REMOTEVERSION=$(curl $REMOTEURL | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
     - echo $REMOTEVERSION
     #- REMOTEVERSION=$(curl "http://loose.dev.limestreet.pl/wp-content/themes/loose/style.css" | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
-    - LOCALVERSION=$(echo $PWD/style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
+    - LOCALVERSION=$(echo ./style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
     - echo $LOCALVERSION
     #- if [ $REMOTEVERSION != $LOCALVERSION ]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
     #- sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Gruntfile.js
