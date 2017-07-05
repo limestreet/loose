@@ -1,4 +1,4 @@
-build:
+pipeline:
   codetest:
     image: limestreet/php-cli
     environment:
