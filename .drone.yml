@@ -39,8 +39,8 @@ pipeline:
     - REMOTEVERSION=$(curl $REMOTEURL | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
     - echo $REMOTEVERSION
     #- REMOTEVERSION=$(curl "http://loose.dev.limestreet.pl/wp-content/themes/loose/style.css" | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
-    #- LOCALVERSION=$(echo $PWD/style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
-    #- echo $LOCALVERSION
+    - LOCALVERSION=$(echo $PWD/style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
+    - echo $LOCALVERSION
     #- if [ $REMOTEVERSION != $LOCALVERSION ]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
     #- sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Gruntfile.js
 #    - pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/
