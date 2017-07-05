@@ -17,8 +17,9 @@ build:
       - /opt/source/php-5.2.17/bin/php -v
       - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 /opt/source/php-5.2.17/bin/php -l
     when:
-      #event: push
-      #branch: "!dev"
+      event: push
+      branch:
+        exclude: dev
       
   wptest:
     image: limestreet/apache-php-7
@@ -52,9 +53,47 @@ build:
       - phpunit --group themes
 
     when:
-      #event: push
-      #branch: "!dev"
-  
+      event: push
+      branch:
+        exclude: dev
+        
+  performancetest:
+    image: limestreet/apache-php-7
+    environment:
+    commands:
+    #- ls -la
+    #- printenv
+    - THEME_SLUG=$(basename $(pwd))
+    - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
+    #- THEME_NAME=`echo "$THEME_LOW" | sed 's/\b\w/\U&/'`
+    #- npm install --silent
+    - REMOTEVERSION = curl http://$THEME_LOW.dev.limestreet.pl/wp-content/themes/$THEME_LOW/style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)"
+    - LOCALVERSION = echo $PWD/style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)"
+    - if [[ $REMOTEVERSION != $LOCALVERSION ]]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
+    - sleep 15
+    - sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Gruntfile.js
+#    - pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/
+#    - pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/sample-page/
+    #- pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/cart/
+    #- pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/product-category/summer-2016/
+    #- pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/product/black-concrete-planter-for-succulents/
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/?s=post
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/?s=gergeafer
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/the-padded-seat-means-you-sit-comfortably/
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/category/design/
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/audio-post-abstrait/
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/how-to-design-more-with-less/
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/video-post-to-bring-you-joy/
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/author/martha-inez/
+    #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/tag/wordpress/
+    - grunt pagespeed
+    - grunt perfbudget
+    when:
+      event: push
+      branch:
+        exclude: dev
+      
 compose:
   database:
     image: mysql:5.6
