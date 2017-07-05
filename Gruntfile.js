@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 
 		watch: {
 			css: {
-				files: '**/*.scss',
+				files: 'scss/**/*.scss',
 				tasks: ['sass']
 			}
 		},
@@ -65,7 +65,6 @@ module.exports = function (grunt) {
                 //require("postcss-import")(),
                 //require("postcss-url")(),
                 require('postcss-cssnext')(),
-                //require('pixrem')(), // add fallbacks for rem units
                 //require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
                 require('postcss-discard-duplicates')()
                 //require('cssnano')(), // minify the result
@@ -89,14 +88,72 @@ module.exports = function (grunt) {
                 //files: {'rtl.css' : 'rtl.css'}
             }
         },
-        rtlcss: {
+/*        rtlcss: {
             'default':{
                 target: 'style.css',
                 expand : true,
                 //dest   : '',
                 src    : 'rtl.css'
             }
+        },
+*/
+        perfbudget: {
+          default: {
+            options: {
+              url: 'http://THEME_SLUG.dev.limestreet.pl/',
+              key: 'A.eac3cfd59f876326152463fcacabf220',
+	      timeout: '600',
+	      //repeatView: true,
+	      //location: 'ec2-eu-central-1',
+	      budget: {
+		visualComplete: '10000',
+		render: '10000',
+		//requests: '100',
+		SpeedIndex: '10000'
+	      }
+            }
           }
+        },
+
+        pagespeed: {
+          options: {
+            //nokey: true,
+	    key: 'AIzaSyBnA8a5PGowgM6PqFVBUHyEKNrLtnEuJBA',
+            url: 'http://THEME_SLUG.dev.limestreet.pl/'
+          },
+          desktop: {
+            options: {
+              url: 'http://THEME_SLUG.dev.limestreet.pl/',
+	      paths: [ '/', 'shop/', '?s=post', '?s=gergeafer', 'blog/', 'blog/the-padded-seat-means-you-sit-comfortably/', 'blog/category/design/', 'blog/audio-post-abstrait/', 'blog/how-to-design-more-with-less/', 'blog/video-post-to-bring-you-joy/', 'blog/author/martha-inez/', 'blog/tag/wordpress/', 'cart/', 'product-category/summer-2016/', 'product/black-concrete-planter-for-succulents/' ],
+              locale: 'en_GB',
+              strategy: 'desktop',
+              threshold: 20
+            }
+          },
+	  mobile: {
+            options: {
+              url: 'http://THEME_SLUG.dev.limestreet.pl/',
+	      paths: [ '/', 'shop/', '?s=post', '?s=gergeafer', 'blog/', 'blog/the-padded-seat-means-you-sit-comfortably/', 'blog/category/design/', 'blog/audio-post-abstrait/', 'blog/how-to-design-more-with-less/', 'blog/video-post-to-bring-you-joy/', 'blog/author/martha-inez/', 'blog/tag/wordpress/', 'cart/', 'product-category/summer-2016/', 'product/black-concrete-planter-for-succulents/' ],
+              locale: 'en_GB',
+              strategy: 'mobile',
+              threshold: 20
+            }
+          }
+        },
+	
+/*	uncss: {
+	    dist: {
+	      options: {
+		stylesheet: ['style.css']
+	      },
+	      files: [{
+		nonull: true,
+		src: [''],
+		dest: 'style.css'
+	      }]
+	    }
+	}
+*/
         //jshint: {
             //options: grunt.file.readJSON('.jshintrc'),
             //target: [
@@ -122,15 +179,17 @@ module.exports = function (grunt) {
     });
 
     //grunt.loadNpmTasks( 'grunt-contrib-sass' );
-    grunt.loadNpmTasks( 'grunt-sass' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
     grunt.loadNpmTasks( 'grunt-postcss' );
     grunt.loadNpmTasks( 'grunt-wp-css' );
     //grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-    grunt.loadNpmTasks( 'grunt-rtlcss' );
-
+    //grunt.loadNpmTasks( 'grunt-rtlcss' );
+    grunt.loadNpmTasks( 'grunt-perfbudget' );
+    grunt.loadNpmTasks( 'grunt-pagespeed' );
+    grunt.loadNpmTasks( 'grunt-sass' );
+    grunt.loadNpmTasks( 'grunt-contrib-watch' );
+    //grunt.loadNpmTasks( 'grunt-uncss' );
     //grunt.registerTask('default', [ 'watch']);
-    grunt.registerTask('default', [ 'addtextdomain', 'makepot', 'postcss', 'wpcss' ]);
+    grunt.registerTask('default', [ 'addtextdomain', 'makepot', 'postcss', 'wpcss']);
 
 };
