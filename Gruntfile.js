@@ -124,7 +124,7 @@ module.exports = function (grunt) {
           desktop: {
             options: {
               url: 'http://THEME_SLUG.dev.limestreet.pl/',
-	      paths: [ '/', 'shop/', '?s=post', '?s=gergeafer', 'blog/', 'blog/the-padded-seat-means-you-sit-comfortably/', 'blog/category/design/', 'blog/audio-post-abstrait/', 'blog/how-to-design-more-with-less/', 'blog/video-post-to-bring-you-joy/', 'blog/author/martha-inez/', 'blog/tag/wordpress/', 'cart/', 'product-category/summer-2016/', 'product/black-concrete-planter-for-succulents/' ],
+	      paths: [ '/', 'sample-page/', '?s=post', '?s=gergeafer', '2017/07/05/hello-world/', '2013/01/10/markup-image-alignment/', 'category/post-formats/', '2013/01/10/markup-image-alignment/', '2013/01/11/markup-html-tags-and-formatting/', 'tag/template/', 'segtegdfgdfg', 'author/themedemos/' ],
               locale: 'en_GB',
               strategy: 'desktop',
               threshold: 20
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
 	  mobile: {
             options: {
               url: 'http://THEME_SLUG.dev.limestreet.pl/',
-	      paths: [ '/', 'shop/', '?s=post', '?s=gergeafer', 'blog/', 'blog/the-padded-seat-means-you-sit-comfortably/', 'blog/category/design/', 'blog/audio-post-abstrait/', 'blog/how-to-design-more-with-less/', 'blog/video-post-to-bring-you-joy/', 'blog/author/martha-inez/', 'blog/tag/wordpress/', 'cart/', 'product-category/summer-2016/', 'product/black-concrete-planter-for-succulents/' ],
+	      paths: [ '/', 'sample-page/', '?s=post', '?s=gergeafer', '2017/07/05/hello-world/', '2013/01/10/markup-image-alignment/', 'category/post-formats/', '2013/01/10/markup-image-alignment/', '2013/01/11/markup-html-tags-and-formatting/', 'tag/template/', 'segtegdfgdfg', 'author/themedemos/' ],
               locale: 'en_GB',
               strategy: 'mobile',
               threshold: 20
