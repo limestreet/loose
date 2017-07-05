@@ -38,12 +38,12 @@ build:
       - cp -r $THEME_SLUG $THEME_DIR
       - cd $WP_DEVELOP_DIR
       - cp wp-tests-config-sample.php wp-tests-config.php
-      - sed -i "s/localhost/127.0.0.1:3306/" wp-tests-config.php
+      - sed -i "s/localhost/database:3306/" wp-tests-config.php
       - sed -i "s/youremptytestdbnamehere/wordpress_test/" wp-tests-config.php
       - sed -i "s/yourusernamehere/wp/" wp-tests-config.php
       - sed -i "s/yourpasswordhere/wp/" wp-tests-config.php
       - wp cli update --yes --allow-root
-      - wp core config --dbhost=127.0.0.1:3306 --dbname=wordpress_test --dbuser=wp --dbpass=wp --allow-root # --extra-php <<PHP define( 'WP_DEBUG', true ); PHP
+      - wp core config --dbhost=database:3306 --dbname=wordpress_test --dbuser=wp --dbpass=wp --allow-root # --extra-php <<PHP define( 'WP_DEBUG', true ); PHP
       - wp core install --url=wp.test --title="Local WordPress" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
       - wp theme activate $THEME_SLUG --allow-root
       - wp tgmpa-plugin install --all --activate --allow-root
@@ -51,7 +51,6 @@ build:
       - wp theme activate $THEME_SLUG --allow-root
       - wp rewrite structure '/%postname%/' --allow-root
       - phpunit --group themes
-
     when:
       event: push
       branch:
@@ -94,7 +93,7 @@ build:
       branch:
         exclude: dev
       
-compose:
+services:
   database:
     image: mysql:5.6
     environment:
