@@ -21,28 +21,99 @@ pipeline:
       branch:
         exclude: dev
 
+  wptest:
+    image: limestreet/apache-php-7
+    environment:
+      - WP_VERSION=master
+      - WP_DEVELOP_DIR=/tmp/wp
+    commands:
+      - echo "wptest"
+      - php -v
+      - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 php -l
+      - THEME_SLUG=$(basename $(pwd))
+      - mkdir -p $WP_DEVELOP_DIR
+      - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
+      - THEME_DIR=$WP_DEVELOP_DIR/src/wp-content/themes
+      - cd ..
+      - cp -r $THEME_SLUG $THEME_DIR
+      - cd $WP_DEVELOP_DIR
+      - cp wp-tests-config-sample.php wp-tests-config.php
+      - sed -i "s/localhost/database:3306/" wp-tests-config.php
+      - sed -i "s/youremptytestdbnamehere/wordpress_test/" wp-tests-config.php
+      - sed -i "s/yourusernamehere/wp/" wp-tests-config.php
+      - sed -i "s/yourpasswordhere/wp/" wp-tests-config.php
+      - wp cli update --yes --allow-root
+      - wp core config --dbhost=database:3306 --dbname=wordpress_test --dbuser=wp --dbpass=wp --allow-root # --extra-php <<PHP define( 'WP_DEBUG', true ); PHP
+      - wp core install --url=wp.test --title="Local WordPress" --admin_name=admin --admin_email="admin@local.dev" --admin_password="password" --allow-root
+      - wp theme activate $THEME_SLUG --allow-root
+      - wp tgmpa-plugin install --all --activate --allow-root
+      - wp theme activate twentyseventeen --allow-root
+      - wp theme activate $THEME_SLUG --allow-root
+      - wp rewrite structure '/%postname%/' --allow-root
+      - phpunit --group themes
+    when:
+      event: push
+      branch:
+        exclude: dev
+
+  pushed:
+    image: limestreet/apache-php-7
+    environment:
+    commands:
+      #- $DRONE_TAG
+      - git config --global user.email "$DOCKER_EMAIL"
+      #- git reset --hard
+      #- git clean -f
+      - VERSION_LINE=$(grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" $PWD/style.css)
+      #- echo $VERSION_LINE
+      - VERSION=$(echo $VERSION_LINE | grep -Po "\d\d?\.\d\d?\.\d\d?")
+      #- VERSION=`grep -Po "(\d\d?\.\d\d?\.\d\d?)" <<< "$VERSION_LINE"`
+      - sed -i "s/$VERSION_LINE/Version:\ $VERSION+build$DRONE_BUILD_NUMBER/" $PWD/scss/underscores/style.scss
+      - sed -i "s/$VERSION_LINE/Version:\ $VERSION+build$DRONE_BUILD_NUMBER/" $PWD/style.css
+      #- COMPOSER_THEME_VERSION_LINE=$(grep -Po '"version"\s?\s?:\s?\s?"\d\d?\.\d\d?\.\d\d?.*"' $PWD/composer.json)
+      #- echo $COMPOSER_THEME_VERSION_LINE
+      #- COMPOSER_THEME_VERSION=$(echo $COMPOSER_THEME_VERSION_LINE | grep -Po "(\d\d?\.\d\d?\.\d\d?)")
+    #- COMPOSER_THEME_VERSION=`grep -Po "(\d\d?\.\d\d?\.\d\d?)" <<< "$COMPOSER_THEME_VERSION_LINE"`
+      #- sed -i "s/$COMPOSER_THEME_VERSION_LINE/\"version\"\ :\ \"$COMPOSER_THEME_VERSION+build$DRONE_BUILD_NUMBER\"/" $PWD/composer.json
+      #- cat composer.json
+      #- git fetch
+      #- git status
+      - npm install --silent
+      - git add .
+    #- git status
+      - git commit -m "Drone build nr $DRONE_BUILD_NUMBER"
+      - git checkout -b dev
+      - git merge master
+      - git push origin dev --force
+    #- git push origin/beta
+    secrets: [ DOCKER_EMAIL ]
+    when:
+      event: push
+      branch:
+        exclude: dev
+
   performancetest:
     image: limestreet/apache-php-7
     environment:
     commands:
-    - ls -la
-    - printenv
+    #- ls -la
+    #- printenv
     - THEME_SLUG=$DRONE_REPO_NAME
     - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
     #- echo $THEME_LOW
     #- echo $PWD
     #- THEME_NAME=`echo "$THEME_LOW" | sed 's/\b\w/\U&/'`
     #- npm install --silent
-    #- sleep 15
+    - sleep 15
     - REMOTEURL="http://$THEME_LOW.dev.limestreet.pl/wp-content/themes/$THEME_LOW/style.css"
-    - echo $REMOTEURL
+    #- echo $REMOTEURL
     - REMOTEVERSION=$(curl $REMOTEURL | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
-    - echo $REMOTEVERSION
+    #- echo $REMOTEVERSION
     #- REMOTEVERSION=$(curl "http://loose.dev.limestreet.pl/wp-content/themes/loose/style.css" | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
     - LOCALVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.\d\d?.*" | grep -Po "(\d\d?\.\d\d?\.\d\d?.*)")
-    - echo $LOCALVERSION
-    #- if [ $REMOTEVERSION != $LOCALVERSION ]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
-    #- sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Gruntfile.js
+    #- echo $LOCALVERSION
+    - if [ $REMOTEVERSION != $LOCALVERSION ]; then echo "Wrong theme version - $REMOTEVERSION instead of $LOCALVERSION" && exit 1 ;fi
+    - sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Gruntfile.js
 #    - pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/
 #    - pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/sample-page/
     #- pa11y --ignore "warning;notice" http://$THEME_SLUG.dev.fatthemes.com/cart/
@@ -58,8 +129,8 @@ pipeline:
     #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/video-post-to-bring-you-joy/
     #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/author/martha-inez/
     #- pa11y --ignore "warning;notice" http://beta.$THEME_LOW.fatthemes.com/blog/tag/wordpress/
-    #- grunt pagespeed
-    #- grunt perfbudget
+    - grunt pagespeed
+    - grunt perfbudget
     when:
       event: push
       branch:
