@@ -1,6 +1,6 @@
 # Change Log - Loose
 
-## [1.2] - 2017-08-11
+## [1.1.2] - 2017-08-11
 
 ### Fixed
 - Navigation not shown properly in iOS/MacOS.
