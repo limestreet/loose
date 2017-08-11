@@ -114,20 +114,23 @@ class Loose_Category_Meta {
 					<label for="loose-term-bg-color"><?php esc_html_e( 'Background Color', 'loose' ); ?></label>
 					<input type="text" name="loose_term_bg_color" id="loose-term-bg-color" value="" class="loose-bg-color-field" data-default-color="#fff" />
 				</div>
-		<?php }
+		<?php
+		}
 
 				/**
 				 * New term screen text color field.
 				 */
 		function new_term_text_color_field() {
 
-				wp_nonce_field( basename( __FILE__ ), 'loose_term_text_color_nonce' ); ?>
+				wp_nonce_field( basename( __FILE__ ), 'loose_term_text_color_nonce' );
+				?>
 
 				<div class="form-field loose-term-text-color-wrap">
 					<label for="loose-term-text-color"><?php esc_html_e( 'Text Color', 'loose' ); ?></label>
 					<input type="text" name="loose_term_text_color" id="loose-term-text-color" value="" class="loose-text-color-field" data-default-color="#000" />
 				</div>
-		<?php }
+		<?php
+		}
 
 		/**
 		 * Edit term screen bg color field.
@@ -140,7 +143,8 @@ class Loose_Category_Meta {
 				$color   = $this->get_term_bg_color( $term->term_id, true );
 
 				if ( ! $color ) {
-				$color = $default; } ?>
+				$color = $default; }
+				?>
 
 				<tr class="form-field loose-term-bg-color-wrap">
 					<th scope="row"><label for="loose-term-bg-color"><?php esc_html_e( 'Background Color', 'loose' ); ?></label></th>
@@ -149,7 +153,8 @@ class Loose_Category_Meta {
 						<input type="text" name="loose_term_bg_color" id="loose-term-bg-color" value="<?php echo esc_attr( $color ); ?>" class="loose-bg-color-field" data-default-color="<?php echo esc_attr( $default ); ?>" />
 					</td>
 				</tr>
-		<?php }
+		<?php
+		}
 
 				/**
 				 * Edit term screen bg color field.
@@ -162,7 +167,8 @@ class Loose_Category_Meta {
 				$color   = $this->get_term_text_color( $term->term_id, true );
 
 				if ( ! $color ) {
-				$color = $default; } ?>
+				$color = $default; }
+				?>
 
 				<tr class="form-field loose-term-text-color-wrap">
 					<th scope="row"><label for="loose-term-text-color"><?php esc_html_e( 'Text Color', 'loose' ); ?></label></th>
@@ -171,7 +177,8 @@ class Loose_Category_Meta {
 						<input type="text" name="loose_term_text_color" id="loose-term-text-color" value="<?php echo esc_attr( $color ); ?>" class="loose-text-color-field" data-default-color="<?php echo esc_attr( $default ); ?>" />
 					</td>
 				</tr>
-		<?php }
+		<?php
+		}
 
 		/**
 		 * New term screen image field.
@@ -180,7 +187,8 @@ class Loose_Category_Meta {
 		 */
 		function new_term_image_field( $term ) {
 
-				wp_nonce_field( basename( __FILE__ ), 'loose_term_image_nonce' ); ?>
+				wp_nonce_field( basename( __FILE__ ), 'loose_term_image_nonce' );
+				?>
 
 				<div class="form-field loose-category-form-field">
 					<label for="loose_category_image_imageholder"><?php esc_html_e( 'Image', 'loose' ); ?></label>
@@ -193,7 +201,8 @@ class Loose_Category_Meta {
 					</div>
 				</div>
 
-		<?php }
+		<?php
+		}
 
 		/**
 		 * Edit term screen image field.
@@ -210,7 +219,8 @@ class Loose_Category_Meta {
 				$image = $default; }
 
 				if ( ! $imageid ) {
-				$imageid = $default; } ?>
+				$imageid = $default; }
+				?>
 
 				<tr class="form-field loose-category-form-field">
 
@@ -235,7 +245,8 @@ class Loose_Category_Meta {
 				</td>
 			</tr>    
 
-		<?php }
+		<?php
+		}
 
 		/**
 		 * Saving meta data - bg color.
@@ -316,11 +327,11 @@ class Loose_Category_Meta {
 				);
 
 				$data = array(
-						// 'wp_version' => WP_VERSION,
-						'label'      => array(
-								'title'  => esc_html__( 'Choose Category Image', 'loose' ),
-								'button' => esc_html__( 'Choose Image', 'loose' ),
-						),
+					// 'wp_version' => WP_VERSION,
+					'label'      => array(
+						'title'  => esc_html__( 'Choose Category Image', 'loose' ),
+						'button' => esc_html__( 'Choose Image', 'loose' ),
+					),
 				);
 
 				wp_localize_script(
@@ -335,6 +346,6 @@ class Loose_Category_Meta {
 				}
 }
 
-new Loose_Category_Meta;
+new Loose_Category_Meta();
 
 }// End if().

@@ -28,14 +28,19 @@
 		<?php if ( is_front_page() && is_home() ) : ?>
 		<div class="site-branding">
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-						<?php if ( has_custom_logo() ) :
+						<?php
+						if ( has_custom_logo() ) :
 							the_custom_logo();
-						else : ?>
+						else :
+						?>
 						<?php bloginfo( 'name' ); ?>
 						<?php endif; ?>
 					</a></h1>
 
-			<?php if ( ! has_custom_logo() ) : ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif;?>
+			<?php
+			if ( ! has_custom_logo() ) :
+?>
+<p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif; ?>
 						
 			<div class="nav-social">
 				<?php echo loose_social_profiles(); // WPCS: XSS OK. ?>
@@ -52,17 +57,23 @@
 						<?php get_search_form(); ?>
 					</div>
 					<div class="menu-logo">
-						<?php if ( has_custom_logo() ) :
+						<?php
+						if ( has_custom_logo() ) :
 							the_custom_logo();
-						else : ?>
+						else :
+						?>
 						<p class="menu-blogname"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" ><?php bloginfo( 'name' ); ?></a></p>
 						<?php endif; ?>
 					</div>
-						<?php wp_nav_menu( array(
-	'theme_location' => 'top',
-	'menu_id' => 'top-menu',
-	'depth' => 2,
-) ); ?>
+						<?php
+						wp_nav_menu(
+							 array(
+								 'theme_location' => 'top',
+								 'menu_id' => 'top-menu',
+								 'depth' => 2,
+							 )
+							);
+?>
 		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->

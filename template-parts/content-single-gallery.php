@@ -22,20 +22,27 @@
 		
 	<div class="featured-media row">
 		<div class="featured-image col-md-12"> 
-		<?php echo hybrid_media_grabber( array( // WPCS: XSS OK.
-			'type' => 'gallery',
-		) ); ?>  
-		</div>
+		<?php
+		echo hybrid_media_grabber( // WPCS: XSS OK.
+			 array(
+				 'type' => 'gallery',
+			 )
+			);
+		?>
+
+				  </div>
 	</div>
 		
 	<div class="row">
 		<div class="entry-content col-md-10 col-md-push-2">
 			<?php loose_gallery_content(); ?>
 			<?php
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'loose' ),
-					'after'  => '</div>',
-				) );
+				wp_link_pages(
+					 array(
+						 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'loose' ),
+						 'after'  => '</div>',
+					 )
+					);
 			?>
 		</div><!-- .entry-content -->
 

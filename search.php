@@ -9,21 +9,33 @@
 
 get_header(); ?>
 	 <div class="row">
-	<div id="primary" class="content-area<?php $loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
+	<div id="primary" class="content-area
+	<?php
+	$loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 											echo ( empty( $loose_home_page_layout ) ) ? ' col-md-12' : ' col-lg-8';
-											if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) : echo ' col-lg-push-2';
-											endif;?>">
+											if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
+echo ' col-lg-push-2';
+											endif;
+											?>
+											">
 
 		<?php if ( have_posts() ) : ?>
 
 			<div class="loose-page-intro">
-						<h2><?php // translators: search term.
-						printf( esc_html__( 'Search Results for: %s', 'loose' ), '<span>' . get_search_query() . '</span>' );?></h2>
+						<h2>
+						<?php
+						// translators: search term.
+						printf( esc_html__( 'Search Results for: %s', 'loose' ), '<span>' . get_search_query() . '</span>' );
+						?>
+						</h2>
 			</div>
 		<main id="main" class="site-main row masonry-container" role="main">
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php ;/* Start the Loop */ ?>
+			<?php
+			while ( have_posts() ) :
+the_post();
+?>
 
 				<?php
 
@@ -42,7 +54,7 @@ get_header(); ?>
 
 		<?php else : ?>
 				<div class="loose-page-intro">
-						<?php echo esc_html__( 'Nothing Found', 'loose' );?>
+						<?php echo esc_html__( 'Nothing Found', 'loose' ); ?>
 				</div>
 		<main id="main" class="site-main row" role="main">
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>
@@ -52,6 +64,9 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( ! empty( $loose_home_page_layout ) ) { get_sidebar();} ?>
+<?php
+if ( ! empty( $loose_home_page_layout ) ) {
+get_sidebar();}
+?>
 	</div><!-- .row -->
 <?php get_footer(); ?>

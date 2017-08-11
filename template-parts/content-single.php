@@ -25,10 +25,12 @@
 	<div class="entry-content col-md-10 col-md-push-2">
 		<?php the_content(); ?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'loose' ),
-				'after'  => '</div>',
-			) );
+			wp_link_pages(
+				 array(
+					 'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'loose' ),
+					 'after'  => '</div>',
+				 )
+				);
 		?>
 	</div><!-- .entry-content -->
 
