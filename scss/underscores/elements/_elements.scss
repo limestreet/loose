@@ -97,8 +97,8 @@ img, figure {
 button > svg,
 a > button > svg,
 span > svg {
-    max-width:24px;
-    max-height: 24px;
+    width:24px;
+    height: 24px;
     fill: $color__text-main;
     &:hover {
 	fill: $color__link-hover;
