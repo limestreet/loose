@@ -28,13 +28,18 @@ get_header(); ?>
 	<?php endif; ?>
 	<?php get_sidebar( 'top' ); ?>
 	<div class="row">
-	<div id="primary" class="content-area<?php $loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
+	<div id="primary" class="content-area
+	<?php
+	$loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 			echo ( empty( $loose_home_page_layout ) ) ? ' col-md-12' : ' col-lg-8';
-			if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) : echo ' col-lg-push-2';
-			endif;?>">
+			if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
+echo ' col-lg-push-2';
+			endif;
+			?>
+			">
 			<?php if ( ! is_category() ) : ?>
 				<div class="loose-page-intro">
-			<h1><?php the_archive_title();?></h1>
+			<h1><?php the_archive_title(); ?></h1>
 			<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
 		</div>
 			<?php endif; ?>
@@ -42,8 +47,11 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php ;/* Start the Loop */ ?>
+			<?php
+			while ( have_posts() ) :
+the_post();
+?>
 
 				<?php
 
@@ -68,6 +76,9 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php if ( ! empty( $loose_home_page_layout ) ) { get_sidebar();} ?>
+<?php
+if ( ! empty( $loose_home_page_layout ) ) {
+get_sidebar();}
+?>
 	</div><!-- .row -->
 <?php get_footer(); ?>

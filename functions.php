@@ -43,38 +43,48 @@ function loose_setup() {
 		add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-		'primary' => esc_html__( 'Left Menu', 'loose' ),
-				'top' => esc_html__( 'Top Menu', 'loose' ),
-		) );
+		register_nav_menus(
+			 array(
+				 'primary' => esc_html__( 'Left Menu', 'loose' ),
+				 'top' => esc_html__( 'Top Menu', 'loose' ),
+			 )
+			);
 
 			/*
 			 * Switch default core markup for search form, comment form, and comments
 			 * to output valid HTML5.
 			 */
-			add_theme_support( 'html5', array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			) );
+			add_theme_support(
+				 'html5', array(
+					 'search-form',
+					 'comment-form',
+					 'comment-list',
+					 'gallery',
+					 'caption',
+				 )
+				);
 
 			/*
 			 * Enable support for Post Formats.
 			 * See https://developer.wordpress.org/themes/functionality/post-formats/
 			 */
-			add_theme_support( 'post-formats', array(
-			'audio',
-			'video',
-			'gallery',
-			) );
+			add_theme_support(
+				 'post-formats', array(
+					 'audio',
+					 'video',
+					 'gallery',
+				 )
+				);
 
 			// Set up the WordPress core custom background feature.
-			add_theme_support( 'custom-background', apply_filters( 'loose_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-			) ) );
+			add_theme_support(
+				 'custom-background', apply_filters(
+				 'loose_custom_background_args', array(
+					 'default-color' => 'ffffff',
+					 'default-image' => '',
+				 )
+				)
+				);
 
 			// Enable support for Site Logo.
 			add_theme_support( 'custom-logo' );
@@ -101,35 +111,41 @@ add_action( 'after_setup_theme', 'loose_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function loose_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Right Sidebar', 'loose' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Right Sidebar Widget Area', 'loose' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title"><span>',
-		'after_title'   => '</span></h2>',
-	) );
+	register_sidebar(
+		 array(
+			 'name'          => esc_html__( 'Right Sidebar', 'loose' ),
+			 'id'            => 'sidebar-1',
+			 'description'   => esc_html__( 'Right Sidebar Widget Area', 'loose' ),
+			 'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			 'after_widget'  => '</aside>',
+			 'before_title'  => '<h2 class="widget-title"><span>',
+			 'after_title'   => '</span></h2>',
+		 )
+		);
 
-		register_sidebar( array(
-		'name'          => esc_html__( 'Left Sidebar', 'loose' ),
-		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'Right Sidebar Widget Area', 'loose' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+		register_sidebar(
+			 array(
+				 'name'          => esc_html__( 'Left Sidebar', 'loose' ),
+				 'id'            => 'sidebar-2',
+				 'description'   => esc_html__( 'Right Sidebar Widget Area', 'loose' ),
+				 'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				 'after_widget'  => '</aside>',
+				 'before_title'  => '<h2 class="widget-title">',
+				 'after_title'   => '</h2>',
+			 )
+			);
 
-				register_sidebar( array(
-		'name'          => esc_html__( 'Top', 'loose' ),
-		'id'            => 'top-1',
-		'description'   => esc_html__( 'Top Widget Area. Above the content - on home and archive pages', 'loose' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+				register_sidebar(
+					 array(
+						 'name'          => esc_html__( 'Top', 'loose' ),
+						 'id'            => 'top-1',
+						 'description'   => esc_html__( 'Top Widget Area. Above the content - on home and archive pages', 'loose' ),
+						 'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+						 'after_widget'  => '</aside>',
+						 'before_title'  => '<h2 class="widget-title">',
+						 'after_title'   => '</h2>',
+					 )
+					);
 }
 add_action( 'widgets_init', 'loose_widgets_init' );
 
@@ -184,10 +200,14 @@ function loose_fonts_url() {
 			}
 
 			if ( $fonts ) {
-			$fonts_url = esc_url( add_query_arg( array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
-			), 'https://fonts.googleapis.com/css' ) );
+			$fonts_url = esc_url(
+		 add_query_arg(
+		 array(
+			 'family' => urlencode( implode( '|', $fonts ) ),
+			 'subset' => urlencode( $subsets ),
+		 ), 'https://fonts.googleapis.com/css'
+			)
+		);
 			}
 
 			return $fonts_url;
@@ -213,7 +233,8 @@ function loose_scripts() {
 
 	}
 
-	if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) { wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array( 'jquery' ), '1.2.2', true ); }
+	if ( get_theme_mod( 'sticky_sidebar', 1 ) && is_active_sidebar( 'sidebar-1' ) ) {
+wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/theia-sticky-sidebar.min.js', array( 'jquery' ), '1.2.2', true ); }
 
 	wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', array( 'jquery' ), '20150829', true );
 
@@ -227,14 +248,16 @@ function loose_scripts() {
 	$loose_ajax_paged = ( get_query_var( 'paged' ) > 1 ) ? get_query_var( 'paged' ) : 1;
 
 	// Passing theme options to loose.js.
-	wp_localize_script( 'loose-scripts', 'loose', array(
-		'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
-		'loadingText' => '',
-		'noMorePostsText' => '',
-		'getTemplateDirectoryUri' => esc_url( get_template_directory_uri() ),
-		'months' => loose_months(),
-		'days' => loose_days(),
-		) );
+	wp_localize_script(
+		 'loose-scripts', 'loose', array(
+			 'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
+			 'loadingText' => '',
+			 'noMorePostsText' => '',
+			 'getTemplateDirectoryUri' => esc_url( get_template_directory_uri() ),
+			 'months' => loose_months(),
+			 'days' => loose_days(),
+		 )
+		);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

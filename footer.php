@@ -27,10 +27,14 @@
 					</div>
 					</div>
 					<nav id="site-navigation" class="main-navigation" role="navigation">
-								<?php wp_nav_menu( array(
-	'theme_location' => 'primary',
-	'menu_id' => 'primary-menu',
-) ); ?>
+								<?php
+								wp_nav_menu(
+									 array(
+										 'theme_location' => 'primary',
+										 'menu_id' => 'primary-menu',
+									 )
+									);
+?>
 					</nav><!-- #site-navigation -->
 					<div class="left-nav-social">
 						<?php echo loose_social_profiles(); // WPCS: XSS OK. ?>
@@ -47,18 +51,25 @@
 		<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
 			<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<?php if ( has_custom_logo() ) :
+			<?php
+			if ( has_custom_logo() ) :
 				the_custom_logo();
 			else :
 				bloginfo( 'name' );
-			endif; ?>
+			endif;
+			?>
 			</a></p>
-			<p><a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>"><?php
+			<p><a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
+								   <?php
 				// translators: WordPress.
-				printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
+				printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' );
+				?>
+				</a>
 			<span class="sep"> | </span>
-			<?php // translators: theme neame and theme author..
-				printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' ); ?>
+			<?php
+			// translators: theme neame and theme author..
+				printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' );
+				?>
 			</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

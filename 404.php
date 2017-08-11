@@ -9,10 +9,15 @@
 
 get_header(); ?>
 	 <div class="row">
-	<div id="primary" class="content-area<?php $loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
+	<div id="primary" class="content-area
+	<?php
+	$loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 				echo ( empty( $loose_home_page_layout ) ) ? ' col-md-12' : ' col-lg-8';
-				if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) : echo ' col-lg-push-2';
-				endif;?>">
+				if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
+echo ' col-lg-push-2';
+				endif;
+				?>
+				">
 
 			<div class="loose-page-intro">
 						<h2><?php echo esc_html__( 'Error 404', 'loose' ); ?></h2>
@@ -35,6 +40,9 @@ get_header(); ?>
 
 	</div><!-- #primary -->
 
-<?php if ( ! empty( $loose_home_page_layout ) ) { get_sidebar(); } ?>
+<?php
+if ( ! empty( $loose_home_page_layout ) ) {
+get_sidebar(); }
+?>
 	</div><!-- .row -->
 <?php get_footer(); ?>
