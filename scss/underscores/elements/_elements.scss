@@ -94,7 +94,9 @@ img, figure {
     outline: transparent;
 }
 
-svg {
+button > svg,
+a > button > svg,
+span > svg {
     max-width:24px;
     max-height: 24px;
     fill: $color__text-main;

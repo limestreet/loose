@@ -1570,11 +1570,15 @@ table {
 :focus {
   outline: transparent; }
 
-svg {
+button > svg,
+a > button > svg,
+span > svg {
   max-width: 24px;
   max-height: 24px;
   fill: #363636; }
-  svg:hover {
+  button > svg:hover,
+  a > button > svg:hover,
+  span > svg:hover {
     fill: #b55f3a; }
 
 /*--------------------------------------------------------------
@@ -3268,5 +3272,14 @@ img.mfp-img {
 .shareaholic-canvas div.shareaholic-recommendations-header {
   color: #000;
   text-transform: uppercase; }
+
+.left-widget-area .widget_social_media_icons_widget_by_fat ul {
+  text-align: center; }
+
+.left-widget-area .widget_social_media_icons_widget_by_fat ul li {
+  display: inline-block;
+  margin-bottom: .75em;
+  display: inline-block;
+  padding: .5em; }
 
 /*# sourceMappingURL=style.css.map */
