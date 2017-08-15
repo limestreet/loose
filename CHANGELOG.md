@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.1.3] - 2017-08-15
+
+### Fixed
+- Social icons styling in widget areas.
+
 ## [1.1.2] - 2017-08-11
 
 ### Fixed
