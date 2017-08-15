@@ -3272,13 +3272,14 @@ img.mfp-img {
   color: #000;
   text-transform: uppercase; }
 
-.left-widget-area .widget_social_media_icons_widget_by_fat ul {
+.left-widget-area .widget_social_media_icons_widget_by_fat ul,
+#secondary .widget_social_media_icons_widget_by_fat ul {
   text-align: center; }
-
-.left-widget-area .widget_social_media_icons_widget_by_fat ul li {
-  display: inline-block;
-  margin-bottom: .75em;
-  display: inline-block;
-  padding: .5em; }
+  .left-widget-area .widget_social_media_icons_widget_by_fat ul li,
+  #secondary .widget_social_media_icons_widget_by_fat ul li {
+    display: inline-block;
+    margin-bottom: .75em;
+    display: inline-block;
+    padding: .5em; }
 
 /*# sourceMappingURL=style.css.map */
