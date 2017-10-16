@@ -23,7 +23,9 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'loose' ); ?></a>
-
+	<?php if( !get_theme_mod( 'show_menu_on_scroll', 1 ) ) : ?>
+	<a id="loose-back-to-top" class="loose-back-to-top" href="#masthead"><span class="loose-arrow-top">&#x2191;</span></a>
+	<?php endif; ?>
 	<header id="masthead" class="site-header" role="banner">
 		<?php if ( is_front_page() && is_home() ) : ?>
 		<div class="site-branding">

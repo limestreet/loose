@@ -256,6 +256,7 @@ wp_enqueue_script( 'theia-sticky-sidebar', get_template_directory_uri() . '/js/t
 			 'getTemplateDirectoryUri' => esc_url( get_template_directory_uri() ),
 			 'months' => loose_months(),
 			 'days' => loose_days(),
+			 'show_menu_on_scroll' => get_theme_mod( 'show_menu_on_scroll', 1 ),
 		 )
 		);
 

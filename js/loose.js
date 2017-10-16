@@ -107,7 +107,8 @@ var $looseSearchToggle = $('.search-toggle');
 	$looseSearchToggle.attr('aria-expanded', 'false');
         });
         
-
+if( loose.show_menu_on_scroll ) {
+    console.log( loose.show_menu_on_scroll );
 //Sticky menu
 var $looseSiteNavigation = $('#top-navigation');
 var $looseHomeSiteNavigation = $('.home #top-navigation');
@@ -141,7 +142,20 @@ var stickyMenuTop = $looseSiteNavigation.offset().top;
        }
        lastScrollTop = st;
     });
-
+} else {
+    
+    function looseScroll(){
+	console.log( 'dupa' );
+	var backToTop = document.getElementById("loose-back-to-top");
+	if(window.pageYOffset>150) {
+	    backToTop.className = 'loose-back-to-top loose-show';
+	} else {
+	    backToTop.className = 'loose-back-to-top';
+	};
+    }
+    
+    window.onscroll=looseScroll;
+}
 	var button, closeButton, menu, bgmenu;
 
 	button = $( '#left-navbar-toggle' );
