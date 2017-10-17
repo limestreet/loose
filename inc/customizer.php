@@ -484,7 +484,7 @@ function loose_customize_register( $wp_customize ) {
 			 'type'    => 'checkbox',
 		 )
 		);
-	
+
 			$wp_customize->add_setting(
 			 'show_menu_on_scroll', array(
 				 'default'        => 1,
