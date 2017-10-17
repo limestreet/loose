@@ -106,7 +106,16 @@ var $looseSearchToggle = $('.search-toggle');
         $looseSearchPanel.slideToggle(250).css('z-index', '');
 	$looseSearchToggle.attr('aria-expanded', 'false');
         });
-        
+
+function looseScroll(){
+    var backToTop = document.getElementById('loose-back-to-top');
+    if(window.pageYOffset>150) {
+        backToTop.className = 'loose-back-to-top loose-show';
+    } else {
+        backToTop.className = 'loose-back-to-top';
+    }
+}
+
 if( loose.show_menu_on_scroll ) {
     console.log( loose.show_menu_on_scroll );
 //Sticky menu
@@ -143,16 +152,6 @@ var stickyMenuTop = $looseSiteNavigation.offset().top;
        lastScrollTop = st;
     });
 } else {
-    
-    function looseScroll(){
-	console.log( 'dupa' );
-	var backToTop = document.getElementById("loose-back-to-top");
-	if(window.pageYOffset>150) {
-	    backToTop.className = 'loose-back-to-top loose-show';
-	} else {
-	    backToTop.className = 'loose-back-to-top';
-	};
-    }
     
     window.onscroll=looseScroll;
 }
