@@ -106,8 +106,18 @@ var $looseSearchToggle = $('.search-toggle');
         $looseSearchPanel.slideToggle(250).css('z-index', '');
 	$looseSearchToggle.attr('aria-expanded', 'false');
         });
-        
 
+function looseScroll(){
+    var backToTop = document.getElementById('loose-back-to-top');
+    if(window.pageYOffset>150) {
+        backToTop.className = 'loose-back-to-top loose-show';
+    } else {
+        backToTop.className = 'loose-back-to-top';
+    }
+}
+
+if( loose.show_menu_on_scroll ) {
+    console.log( loose.show_menu_on_scroll );
 //Sticky menu
 var $looseSiteNavigation = $('#top-navigation');
 var $looseHomeSiteNavigation = $('.home #top-navigation');
@@ -141,7 +151,10 @@ var stickyMenuTop = $looseSiteNavigation.offset().top;
        }
        lastScrollTop = st;
     });
-
+} else {
+    
+    window.onscroll=looseScroll;
+}
 	var button, closeButton, menu, bgmenu;
 
 	button = $( '#left-navbar-toggle' );

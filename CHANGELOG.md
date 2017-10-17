@@ -1,5 +1,9 @@
 # Change Log - Loose
 
+## [1.1.3] - 2017-10-16
+### Added
+- Option to not show top menu when scrolling
+
 ## [1.1.2] - 2017-08-15
 
 ### Fixed

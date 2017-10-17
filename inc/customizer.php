@@ -484,6 +484,21 @@ function loose_customize_register( $wp_customize ) {
 			 'type'    => 'checkbox',
 		 )
 		);
+
+			$wp_customize->add_setting(
+			 'show_menu_on_scroll', array(
+				 'default'        => 1,
+				 'sanitize_callback' => 'wp_validate_boolean',
+			 )
+			);
+
+	$wp_customize->add_control(
+		 'show_menu_on_scroll', array(
+			 'label'   => esc_html__( 'Show menu when scrolling top', 'loose' ),
+			 'section' => 'other_settings',
+			 'type'    => 'checkbox',
+		 )
+		);
 }
 add_action( 'customize_register', 'loose_customize_register' );
 
@@ -504,6 +519,8 @@ add_action( 'customize_preview_init', 'loose_customize_preview_js' );
 function loose_sanitize_select_home_page_layout( $value ) {
 	if ( in_array( $value, array( '', 'list', 'masonry' ), true ) ) {
 		return $value;
+	} else {
+		return '';
 	}
 }
 
