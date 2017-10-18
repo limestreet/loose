@@ -59,16 +59,16 @@
 			endif;
 			?>
 			</a></p>
-			<p><a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
+			<p><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'loose' ) ); ?>">
 								   <?php
 				// translators: WordPress.
-				printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' );
+				printf( esc_html__( 'Proudly powered by %s', 'loose' ), 'WordPress' );
 				?>
 				</a>
 			<span class="sep"> | </span>
 			<?php
 			// translators: theme neame and theme author..
-				printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'loose' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' );
 				?>
 			</p>
 		</div><!-- .site-info -->
