@@ -1,5 +1,9 @@
 # Change Log - Loose
 
+## [1.1.4] - 2017-10-18
+### Added
+- Double text domain issue solved
+
 ## [1.1.3] - 2017-10-16
 ### Added
 - Option to not show top menu when scrolling
