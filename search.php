@@ -31,13 +31,10 @@ echo ' col-lg-push-2';
 			</div>
 		<main id="main" class="site-main row masonry-container" role="main">
 
-			<?php ;/* Start the Loop */ ?>
 			<?php
+			/* Start the Loop */
 			while ( have_posts() ) :
-the_post();
-?>
-
-				<?php
+				the_post();
 
 					/*
 					 * Include the Post-Format-specific template for the content.

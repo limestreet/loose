@@ -27,10 +27,10 @@ get_header(); ?>
 	$loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 			echo ( empty( $loose_home_page_layout ) ) ? ' col-md-12' : ' col-lg-8';
 			if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
-echo ' col-lg-push-2';
-endif;
-?>
-">
+			echo ' col-lg-push-2';
+			endif;
+			?>
+			">
 			<?php if ( get_theme_mod( 'home_page_latest_posts_text', 1 ) ) : ?>
 			<div class="loose-page-intro">
 				<h2><span><?php echo esc_html__( 'Latest Posts', 'loose' ); ?></span></h2>
@@ -39,13 +39,12 @@ endif;
 			<?php endif; ?>
 		<main id="main" class="site-main row masonry-container" role="main">
 
-		<?php if ( have_posts() ) : ?>
-
-			<?php ;/* Start the Loop */ ?>
-			<?php
+		<?php if ( have_posts() ) :
+			
+			/* Start the Loop */
 			while ( have_posts() ) :
-the_post();
-?>
+				the_post();
+				?>
 				<?php
 				if ( loose_show_sticky() ) :
 					/*

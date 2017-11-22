@@ -45,13 +45,12 @@ echo ' col-lg-push-2';
 			<?php endif; ?>
 		<main id="main" class="site-main row masonry-container" role="main">
 
-		<?php if ( have_posts() ) : ?>
-
-			<?php ;/* Start the Loop */ ?>
-			<?php
+		<?php if ( have_posts() ) :
+			
+			/* Start the Loop */
 			while ( have_posts() ) :
-the_post();
-?>
+			the_post();
+			?>
 
 				<?php
 
