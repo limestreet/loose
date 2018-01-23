@@ -204,3 +204,4 @@ pipeline:
       #- docker push to registry
     when:
       event: tag
+
