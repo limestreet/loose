@@ -73,6 +73,10 @@ function loose_setup() {
 					 'audio',
 					 'video',
 					 'gallery',
+					 'quote',
+					 'link',
+					 'aside',
+					 'image',
 				 )
 				);
 
