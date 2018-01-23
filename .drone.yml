@@ -120,18 +120,18 @@ pipeline:
     - sed -i "s/THEME_SLUG/$THEME_SLUG/g" ./Gruntfile.js
     - sed -i "s/WEBPAGETEST_API_KEY/$WEBPAGETEST_API_KEY/g" ./Gruntfile.js
     - sed -i "s/PAGESPEED_API_KEY/$PAGESPEED_API_KEY/g" ./Gruntfile.js
-    - pa11y -V
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/sample-page/
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/?s=post
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/?s=gergeafer
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/gergeafer
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2013/01/10/markup-image-alignment/
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2013/01/11/markup-html-tags-and-formatting/
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/category/aciform/
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2012/01/03/template-comments/
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/author/patryk/
-    - pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/tag/template/
+    #- pa11y -V
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/sample-page/
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/?s=post
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/?s=gergeafer
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/gergeafer
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2013/01/10/markup-image-alignment/
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2013/01/11/markup-html-tags-and-formatting/
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/category/aciform/
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/2012/01/03/template-comments/
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/author/patryk/
+    #- pa11y --ignore "warning;notice" http://$THEME_LOW.dev.limestreet.pl/tag/template/
     - grunt pagespeed
     - grunt perfbudget
     when:
