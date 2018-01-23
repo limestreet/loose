@@ -101,6 +101,8 @@ pipeline:
   performancetest:
     image: limestreet/apache-php-7
     commands:
+    #- ls -la
+    #- printenv
     - THEME_SLUG=$DRONE_REPO_NAME
     - THEME_LOW=`echo "$THEME_SLUG" | sed 's/-by-fat//'`
     #- echo $THEME_LOW
