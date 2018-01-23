@@ -27,7 +27,7 @@ get_header(); ?>
 	$loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 			echo ( empty( $loose_home_page_layout ) ) ? ' col-md-12' : ' col-lg-8';
 			if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
-			echo ' col-lg-push-2';
+	echo ' col-lg-push-2';
 			endif;
 			?>
 			">
@@ -39,8 +39,9 @@ get_header(); ?>
 			<?php endif; ?>
 		<main id="main" class="site-main row masonry-container" role="main">
 
-		<?php if ( have_posts() ) :
-			
+		<?php
+		if ( have_posts() ) :
+
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();

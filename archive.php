@@ -45,8 +45,9 @@ echo ' col-lg-push-2';
 			<?php endif; ?>
 		<main id="main" class="site-main row masonry-container" role="main">
 
-		<?php if ( have_posts() ) :
-			
+		<?php
+		if ( have_posts() ) :
+
 			/* Start the Loop */
 			while ( have_posts() ) :
 			the_post();
