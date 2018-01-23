@@ -92,7 +92,6 @@ pipeline:
       - git checkout -b dev
       - git merge master
       - git push origin dev --force
-    #- git push origin/beta
     secrets: [ DOCKER_EMAIL ]
     when:
       event: push
