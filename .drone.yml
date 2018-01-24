@@ -145,9 +145,9 @@ pipeline:
   version_check_and_build:
     image: limestreet/apache-php-7
     commands:
-      - echo $pwd
-      - ls -la $pwd
-      - DRONE_DIR=$pwd
+      #- echo $pwd
+      #- ls -la $pwd
+      #- DRONE_DIR=$pwd
       - THEME_SLUG=$DRONE_REPO_NAME
       - THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")
       - REPOTAG=`echo "${DRONE_TAG}" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")`
@@ -160,14 +160,14 @@ pipeline:
       - cd ..
       #- mkdir -p /tmp/dist
       #- mkdir -p $pwd/dist
-      - ls -la $DRONE_DIR
-      - ls -la
+      #- ls -la $DRONE_DIR
+      #- ls -la
       #- cd /tmp/dist
       - zip -FSr $THEME_SLUG.zip $THEME_SLUG
-      - ls -la $DRONE_DIR
       - ls -la
-      - mkdir -p $DRONE_DIR/dist
-      - cp $THEME_SLUG.zip $DRONE_DIR/dist/$THEME_SLUG.zip
+      - mkdir -p $DRONE_REPO_NAME/dist
+      - cp $THEME_SLUG.zip $DRONE_REPO_NAME/dist/$THEME_SLUG.zip
+      - ls -la $DRONE_REPO_NAME/dist
     when:
       event: tag
 
