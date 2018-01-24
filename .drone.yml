@@ -151,9 +151,10 @@ pipeline:
       - REPOTAG=`echo "${DRONE_TAG}" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")`
       - echo $REPOTAG
       - if [ $REPOTAG != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag is $REPOTAG (${DRONE_TAG}) but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
+      - apt-get update && apt-get install -y zip
       - npm install --silent
       - grunt
-      - rm -rf *.yml .g* .j* .n* scss node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map *.log Dockerfile
+      - rm -rf *.yml .drone.yml .g* .j* .n* scss node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map *.log Dockerfile
       - mkdir -p /tmp/dist
       - mkdir -p $pwd/dist
       - ls -la
