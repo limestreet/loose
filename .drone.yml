@@ -140,13 +140,31 @@ pipeline:
       #branch:
       #  exclude: dev
 
-  version_check:
+  version_check_and_build:
     image: limestreet/apache-php-7
     commands:
+      - DRONE_DIR=$pwd
+      - THEME_SLUG=$DRONE_REPO_NAME
       - THEMEVERSION=$(cat style.css | grep -Po "Version:\s?\s?\d\d?\.\d\d?\.?\d?\d?" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")
       - REPOTAG=`echo "${DRONE_TAG}" | grep -Po "(\d\d?\.\d\d?\.?\d?\d?)")`
       - echo $REPOTAG
       - if [ $REPOTAG != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag is $REPOTAG (${DRONE_TAG}) but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
+      - npm install --silent
+      - grunt
+      - rm -rf .* scss node_modules vendor tests Gruntfile.js casper-tests.js composer.* package.json *.ruleset.xml netbeans* *.rb *.tmp *.map *.log Dockerfile
+      - mkdir -p /tmp/dist
+      - mkdir -p $pwd/dist
+      - cd /tmp/dist
+      - zip -FSr $THEME_SLUG.zip $DRONE_DIR
+      - cp /tmp/dist/$THEME_SLUG.zip $pwd/dist/$THEME_SLUG.zip
+    when:
+      event: tag
+
+  github_release:
+    image: plugins/github-release
+    secrets: [ github_token ]
+    files: dist/*
+    prerelease: true
     when:
       event: tag
 
