@@ -7,6 +7,8 @@ pipeline:
       - MYSQL_USER=wp
       - MYSQL_PASSWORD=wp
       - MYSQL_DATABASE=wordpress_test
+    when:
+      event: push
 
   codetest:
     image: limestreet/php-cli
@@ -151,9 +153,10 @@ pipeline:
       - if [ $REPOTAG != $THEMEVERSION ]; then echo "Wrong theme/tag version - version from repo tag is $REPOTAG (${DRONE_TAG}) but theme version from style.css is $THEMEVERSION" && exit 1 ;fi
       - npm install --silent
       - grunt
-      - rm -rf .* scss node_modules vendor tests Gruntfile.js casper-tests.js composer.* package.json *.ruleset.xml netbeans* *.rb *.tmp *.map *.log Dockerfile
+      - rm -rf *.yml .g* .j* .n* scss node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map *.log Dockerfile
       - mkdir -p /tmp/dist
       - mkdir -p $pwd/dist
+      - ls -la
       - cd /tmp/dist
       - zip -FSr $THEME_SLUG.zip $DRONE_DIR
       - cp /tmp/dist/$THEME_SLUG.zip $pwd/dist/$THEME_SLUG.zip
