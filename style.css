@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*
 Theme Name: Loose
-Theme URI: http://fatthemes.com/loose
+Theme URI: https://fatthemes.com/loose
 Author: Fat Themes
-Author URI: http://fatthemes.com
+Author URI: https://fatthemes.com
 Description: Loose is a simply, elegant & modern WordPress Blog Theme. Elegantly showcase your articles, photos, videos and more. This clean layout suitable for any type of site. Can be used for blog, magazine, news or fashion website. Loose is a minimal blog and magazine WordPress theme focused on content. With Loose you can create your own unique layout and style. Loose is fully responsive and looks great on any device. Loose have many features including: 3 Homepage Layouts, 4 Post Formats, 2 Page Layouts, 2 Single Post Layouts, 3 Widget Areas: Right Sidebar, Left Sidebar / Left Menu & Top, Sticky Sidebar, 2 Menus: Top Menu & Left Menu (main, mobile menu – toggled with button), all Theme Options Easily Customized by Native WordPress Customizer (Live Preview), Translation Ready, Child Template Included and much much more. Loose is easy to customize and well documented with great support and friendly help:) Enjoy:)
-Version: 1.1.4
+Version: 1.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: loose
@@ -2171,16 +2171,21 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a, .entry
   font-size: .7rem;
   font-weight: 700;
   text-transform: uppercase; }
-
 .single .entry-meta .byline, .single .entry-meta .byline a, .page .entry-meta .byline, .page .entry-meta .byline a {
   color: #666; }
-
 .single .entry-meta, .page .entry-meta {
   min-width: 100px;
   padding-right: 0.3125rem; }
-
 .single .entry-meta .posted-on, .single .entry-meta .posted-on a, .page .entry-meta .posted-on, .page .entry-meta .posted-on a {
   color: #666; }
+.single article, .page article {
+  padding-bottom: 1.875rem; }
+  .single article h1, .single article .site-title, .single article h2, .single article h3, .single article h4, .single article h5, .single article h6, .single article .entry-meta .byline, .entry-meta .single article .byline, .single article .entry-meta .posted-on, .entry-meta .single article .posted-on, .page article h1, .page article .site-title, .page article h2, .page article h3, .page article h4, .page article h5, .page article h6, .page article .entry-meta .byline, .entry-meta .page article .byline, .page article .entry-meta .posted-on, .entry-meta .page article .posted-on {
+    font-weight: 700; }
+.single .post_format-post-format-aside, .page .post_format-post-format-aside {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  font-weight: 400; }
 
 .page-links {
   clear: both;
@@ -2233,8 +2238,67 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a, .entry
   box-shadow: 0 2px 6px #dddbdb;
   background-color: #fff;
   padding: 1.25rem; }
+.blog .post_format-post-format-quote, .archive .post_format-post-format-quote, .search .post_format-post-format-quote {
+  font-size: 1.2rem;
+  color: #ffffff;
+  line-height: 1.6;
+  font-weight: 700; }
+  .blog .post_format-post-format-quote a, .blog .post_format-post-format-quote a:hover, .archive .post_format-post-format-quote a, .archive .post_format-post-format-quote a:hover, .search .post_format-post-format-quote a, .search .post_format-post-format-quote a:hover {
+    color: #ffffff; }
+  .blog .post_format-post-format-quote .entry-meta, .archive .post_format-post-format-quote .entry-meta, .search .post_format-post-format-quote .entry-meta {
+    color: #ffffff; }
+  .blog .post_format-post-format-quote .loose-post-format-icon, .archive .post_format-post-format-quote .loose-post-format-icon, .search .post_format-post-format-quote .loose-post-format-icon {
+    position: inherit;
+    float: right;
+    line-height: 1;
+    margin-left: 8px;
+    right: 0; }
+  .blog .post_format-post-format-quote .title-meta-wrapper, .archive .post_format-post-format-quote .title-meta-wrapper, .search .post_format-post-format-quote .title-meta-wrapper {
+    padding-top: 1.25rem; }
+  .blog .post_format-post-format-quote p, .archive .post_format-post-format-quote p, .search .post_format-post-format-quote p {
+    padding-top: 1.25rem; }
+.blog .post_format-post-format-link, .archive .post_format-post-format-link, .search .post_format-post-format-link {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 700; }
+  .blog .post_format-post-format-link a, .blog .post_format-post-format-link a:hover, .archive .post_format-post-format-link a, .archive .post_format-post-format-link a:hover, .search .post_format-post-format-link a, .search .post_format-post-format-link a:hover {
+    color: #ffffff; }
+  .blog .post_format-post-format-link .entry-meta, .archive .post_format-post-format-link .entry-meta, .search .post_format-post-format-link .entry-meta {
+    color: #ffffff;
+    text-align: left; }
+  .blog .post_format-post-format-link .loose-post-format-icon, .archive .post_format-post-format-link .loose-post-format-icon, .search .post_format-post-format-link .loose-post-format-icon {
+    position: inherit;
+    float: right;
+    line-height: 1;
+    margin-left: 8px;
+    right: 0; }
+  .blog .post_format-post-format-link .title-meta-wrapper, .archive .post_format-post-format-link .title-meta-wrapper, .search .post_format-post-format-link .title-meta-wrapper {
+    padding-top: 1.25rem; }
+  .blog .post_format-post-format-link p, .archive .post_format-post-format-link p, .search .post_format-post-format-link p {
+    padding-top: 1.25rem; }
+.blog .post_format-post-format-aside, .archive .post_format-post-format-aside, .search .post_format-post-format-aside {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  font-weight: 400; }
+  .blog .post_format-post-format-aside .loose-post-format-icon, .archive .post_format-post-format-aside .loose-post-format-icon, .search .post_format-post-format-aside .loose-post-format-icon {
+    position: inherit;
+    float: right;
+    line-height: 1;
+    margin-left: 8px;
+    right: 0; }
+  .blog .post_format-post-format-aside .title-meta-wrapper, .archive .post_format-post-format-aside .title-meta-wrapper, .search .post_format-post-format-aside .title-meta-wrapper {
+    padding-top: 1.25rem; }
 .blog .masonry, .archive .masonry, .search .masonry {
   margin-bottom: 2.5rem; }
+.blog .post blockquote, .blog .post q, .blog .post .entry-content img.alignleft, .blog .post .entry-content img.alignnone, .blog .post .entry-content figure.alignleft, .blog .post .entry-content figure.alignnone, .archive .post blockquote, .archive .post q, .archive .post .entry-content img.alignleft, .archive .post .entry-content img.alignnone, .archive .post .entry-content figure.alignleft, .archive .post .entry-content figure.alignnone, .search .post blockquote, .search .post q, .search .post .entry-content img.alignleft, .search .post .entry-content img.alignnone, .search .post .entry-content figure.alignleft, .search .post .entry-content figure.alignnone {
+  margin-left: 0;
+  font-style: normal; }
+.blog blockquote cite, .blog q cite, .archive blockquote cite, .archive q cite, .search blockquote cite, .search q cite {
+  width: 100%;
+  display: inline-block;
+  text-align: right; }
 
 .blog .post .row, .archive .post .row, .search .post .row, .single .post .entry-header, .single .attachment .entry-header, .page .page .entry-header, .page .attachment .entry-header {
   margin-bottom: 2.5rem; }
@@ -2263,11 +2327,6 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a, .entry
     color: #666; }
   .featured-image-cat span {
     margin: .25em; }
-
-.single article, .page article {
-  padding-bottom: 1.875rem; }
-  .single article h1, .single article .site-title, .single article h2, .single article h3, .single article h4, .single article h5, .single article h6, .single article .entry-meta .byline, .entry-meta .single article .byline, .single article .entry-meta .posted-on, .entry-meta .single article .posted-on, .page article h1, .page article .site-title, .page article h2, .page article h3, .page article h4, .page article h5, .page article h6, .page article .entry-meta .byline, .entry-meta .page article .byline, .page article .entry-meta .posted-on, .entry-meta .page article .posted-on {
-    font-weight: 700; }
 
 .about-author {
   padding-bottom: 2em; }

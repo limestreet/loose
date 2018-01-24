@@ -117,7 +117,6 @@ function looseScroll(){
 }
 
 if( loose.show_menu_on_scroll ) {
-    console.log( loose.show_menu_on_scroll );
 //Sticky menu
 var $looseSiteNavigation = $('#top-navigation');
 var $looseHomeSiteNavigation = $('.home #top-navigation');
