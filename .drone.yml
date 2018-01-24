@@ -157,13 +157,17 @@ pipeline:
       - npm install --silent
       - grunt
       - rm -rf *.yml .drone.yml .g* .j* .n* scss node_modules vendor tests Gruntfile.js casper-tests.js package.json *.ruleset.xml nbproject *.rb *.tmp *.map *.log Dockerfile
-      - mkdir -p /tmp/dist
-      - mkdir -p $pwd/dist
+      - cd ..
+      #- mkdir -p /tmp/dist
+      #- mkdir -p $pwd/dist
       - ls -la $DRONE_DIR
       - ls -la
-      - cd /tmp/dist
-      - zip -FSr $THEME_SLUG.zip $DRONE_DIR
-      - cp /tmp/dist/$THEME_SLUG.zip $pwd/dist/$THEME_SLUG.zip
+      #- cd /tmp/dist
+      - zip -FSr $THEME_SLUG.zip $THEME_SLUG
+      - ls -la $DRONE_DIR
+      - ls -la
+      - mkdir -p $DRONE_DIR/dist
+      - cp $THEME_SLUG.zip $DRONE_DIR/dist/$THEME_SLUG.zip
     when:
       event: tag
 
