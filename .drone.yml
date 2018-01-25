@@ -9,6 +9,8 @@ pipeline:
       - MYSQL_DATABASE=wordpress_test
     when:
       event: push
+      branch:
+        - exclude: [master]
 
   codetest:
     image: limestreet/php-cli
@@ -28,8 +30,8 @@ pipeline:
       - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 /opt/source/php-5.2.17/bin/php -l
     when:
       event: push
-      #branch:
-      #  exclude: dev
+      branch:
+        - exclude: [master]
 
   wptest:
     image: limestreet/apache-php-7
@@ -63,8 +65,8 @@ pipeline:
       - phpunit --group themes
     when:
       event: push
-      #branch:
-      #  exclude: dev
+      branch:
+        - exclude: [master]
 
   push_to_dev:
     image: limestreet/apache-php-7
@@ -97,8 +99,8 @@ pipeline:
     secrets: [ DOCKER_EMAIL ]
     when:
       event: push
-      #branch:
-      #  exclude: dev
+      branch:
+        - exclude: [master]
 
   performancetest:
     image: limestreet/apache-php-7
@@ -139,8 +141,8 @@ pipeline:
     secrets: [ WEBPAGETEST_API_KEY, PAGESPEED_API_KEY ]
     when:
       event: push
-      #branch:
-      #  exclude: dev
+      branch:
+        - exclude: [master]
 
   version_check_and_build:
     image: limestreet/apache-php-7
@@ -160,6 +162,8 @@ pipeline:
       - cp $THEME_SLUG.zip $DRONE_REPO_NAME/dist/$THEME_SLUG.zip
     when:
       event: tag
+      branch:
+        - exclude: [master]
 
   github_release:
     image: plugins/github-release
@@ -168,6 +172,8 @@ pipeline:
     prerelease: true
     when:
       event: tag
+      branch:
+        - exclude: [master]
 
 #  trigger_fatthemes_build:
 #    image: plugins/downstream
@@ -178,3 +184,6 @@ pipeline:
 #      - fatthemes/fatthemes.com
 #    when:
 #      event: tag
+
+branches:
+  exclude: [master]
