@@ -64,8 +64,8 @@ module.exports = function (grunt) {
               processors: [
                 //require("postcss-import")(),
                 //require("postcss-url")(),
-                require('postcss-cssnext')(),
-                //require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+                //require('postcss-cssnext')(),
+                require('autoprefixer')({browsers: ['last 2 versions', '> 0.5%']}), // add vendor prefixes
                 require('postcss-discard-duplicates')()
                 //require('cssnano')(), // minify the result
                 //require('rtlcss')() // right to left
@@ -106,10 +106,10 @@ module.exports = function (grunt) {
 	      //repeatView: true,
 	      //location: 'ec2-eu-central-1',
 	      budget: {
-		visualComplete: '10000',
-		render: '10000',
+		visualComplete: '5000',
+		render: '3000',
 		//requests: '100',
-		SpeedIndex: '10000'
+		SpeedIndex: '3000'
 	      }
             }
           }
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
 	      paths: [ '/', 'sample-page/', '?s=post', '?s=gergeafer', '2017/07/05/hello-world/', '2013/01/10/markup-image-alignment/', 'category/post-formats/', '2013/01/10/markup-image-alignment/', '2013/01/11/markup-html-tags-and-formatting/', 'tag/template/', 'segtegdfgdfg', 'author/themedemos/' ],
               locale: 'en_GB',
               strategy: 'desktop',
-              threshold: 20
+              threshold: 50
             }
           },
 	  mobile: {
@@ -136,10 +136,10 @@ module.exports = function (grunt) {
 	      paths: [ '/', 'sample-page/', '?s=post', '?s=gergeafer', '2017/07/05/hello-world/', '2013/01/10/markup-image-alignment/', 'category/post-formats/', '2013/01/10/markup-image-alignment/', '2013/01/11/markup-html-tags-and-formatting/', 'tag/template/', 'segtegdfgdfg', 'author/themedemos/' ],
               locale: 'en_GB',
               strategy: 'mobile',
-              threshold: 20
+              threshold: 50
             }
           }
-        },
+        }
 	
 /*	uncss: {
 	    dist: {
@@ -186,8 +186,8 @@ module.exports = function (grunt) {
     //grunt.loadNpmTasks( 'grunt-rtlcss' );
     grunt.loadNpmTasks( 'grunt-perfbudget' );
     grunt.loadNpmTasks( 'grunt-pagespeed' );
-    grunt.loadNpmTasks( 'grunt-sass' );
-    grunt.loadNpmTasks( 'grunt-contrib-watch' );
+    //grunt.loadNpmTasks( 'grunt-sass' );
+    //grunt.loadNpmTasks( 'grunt-contrib-watch' );
     //grunt.loadNpmTasks( 'grunt-uncss' );
     //grunt.registerTask('default', [ 'watch']);
     grunt.registerTask('default', [ 'addtextdomain', 'makepot', 'postcss', 'wpcss']);
