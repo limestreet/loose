@@ -28,8 +28,6 @@ pipeline:
       - find -L . -name '*.php' -not -path "*node_modules*" -not -path "*vendor*" -not -path "*php-codesniffer*" -not -path ".*" -print0 | xargs -0 -n 1 -P 4 /opt/source/php-5.2.17/bin/php -l
     when:
       event: push
-      #branch:
-      #  exclude: dev
 
   wptest:
     image: limestreet/apache-php-7
@@ -63,8 +61,6 @@ pipeline:
       - phpunit --group themes
     when:
       event: push
-      #branch:
-      #  exclude: dev
 
   push_to_dev:
     image: limestreet/apache-php-7
@@ -97,8 +93,6 @@ pipeline:
     secrets: [ DOCKER_EMAIL ]
     when:
       event: push
-      #branch:
-      #  exclude: dev
 
   performancetest:
     image: limestreet/apache-php-7
@@ -139,8 +133,6 @@ pipeline:
     secrets: [ WEBPAGETEST_API_KEY, PAGESPEED_API_KEY ]
     when:
       event: push
-      #branch:
-      #  exclude: dev
 
   version_check_and_build:
     image: limestreet/apache-php-7
@@ -168,6 +160,8 @@ pipeline:
     prerelease: true
     when:
       event: tag
+      #branch:
+      #  - exclude: [master]
 
 #  trigger_fatthemes_build:
 #    image: plugins/downstream
@@ -178,3 +172,6 @@ pipeline:
 #      - fatthemes/fatthemes.com
 #    when:
 #      event: tag
+
+branches:
+  exclude: [master]
