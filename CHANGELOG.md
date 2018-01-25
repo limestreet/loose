@@ -1,7 +1,6 @@
 # Change Log - Loose
 
 ## [1.2] - 2018-01-25
-
 ### Added
 - Multiple post formats.
 - Possibility to use excerpts.
