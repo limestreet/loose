@@ -414,7 +414,7 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		$custom_css .= '#secondary .widget:nth-of-type(3n+2){background-color:' . esc_attr( get_theme_mod( 'sidebar_bg_color_2', '#fbf5bc' ) ) . ';}';
 		$custom_css .= '#secondary .widget:nth-of-type(3n+3){background-color:' . esc_attr( get_theme_mod( 'sidebar_bg_color_3', '#f5f8fa' ) ) . ';}';
 		$custom_css .= '.home .container, .archive .container, .search .container {max-width:' . absint( get_theme_mod( 'home_page_container_width', 1156 ) ) . 'px;}';
-		$custom_css .= '.home .post_format-post-format-quote, .archive .post_format-post-format-quote, .search .post_format-post-format-quote {background-color:' . esc_attr( get_theme_mod( 'quote_post_format_bg', '#ea4848' ) ) . ';}';
+		$custom_css .= '.home .post_format-post-format-quote, .archive .post_format-post-format-quote, .search .post_format-post-format-quote, .single .post_format-post-format-quote {background-color:' . esc_attr( get_theme_mod( 'quote_post_format_bg', '#ea4848' ) ) . ';}';
 		$custom_css .= '.home .post_format-post-format-link, .archive .post_format-post-format-link, .search .post_format-post-format-link {background-color:' . esc_attr( get_theme_mod( 'link_post_format_bg', '#414244' ) ) . ';}';
 		if ( $hide_title_on_home_archive ) {
 			$custom_css .= '.blog .content-area .entry-title, .archive .content-area .entry-title, .search .content-area .entry-title {display:none;}';
@@ -592,3 +592,111 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		return get_theme_mod( 'excerpt_length', 55 );
 		}
 	endif;
+
+	if ( ! function_exists( 'loose_the_title' ) ) :
+	/**
+	 * Title wrapper function to handle multiple post formats.
+	 *
+	 * @return string
+	 */
+	function loose_the_title() {
+		if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && ! has_post_format( 'quote' ) && ! has_post_format( 'image' ) ) {
+			the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+		}
+	}
+	endif;
+	
+	if ( ! function_exists( 'loose_the_content' ) ) :
+	/**
+	 * Content wrapper function to handle multiple post formats.
+	 *
+	 * @return string
+	 */
+	function loose_the_content() {
+		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) ) {
+			the_content( __( 'Continue reading &rarr;', 'loose' ) );
+		} elseif( has_post_format( 'quote' ) ) {
+			$content = get_the_content( __( 'Continue reading &rarr;', 'loose' ) );
+			$content = apply_filters( 'the_content', $content );
+			$content = str_replace( ']]>', ']]&gt;', $content );
+			$regex = "/<cite>.*<\/cite>/";
+			$content = preg_replace($regex, '', $content);
+			if( is_single() ) {
+				echo $content; // WPCS: XSS OK.
+			} else {
+				echo '<a href="' . get_permalink() . '">' . $content . '</a>'; // WPCS: XSS OK.
+			}
+		} else {
+			if ( 'content' === get_theme_mod( 'show_content_or_excerpt', 'title' ) ) {
+				the_content( __( 'Continue reading &rarr;', 'loose' ) );
+			} elseif ( 'excerpt' === get_theme_mod( 'show_content_or_excerpt', 'title' ) ) {
+				the_excerpt();
+			}
+		}
+	}
+	endif;
+	
+	if ( ! function_exists( 'loose_entry_meta' ) ) :
+	/**
+	 * Function to handle displaying entry meta section for multiple post formats.
+	 *
+	 * @return string
+	 */
+	function loose_entry_meta() {
+		if ( 'post' == get_post_type() ) : ?>
+			<div class="entry-meta">
+			<?php
+			if( ! is_single() && has_post_format( 'link' ) ) {
+				// Extracting link from the content
+				$subject = get_the_content();
+				$subject = apply_filters('the_content', $subject);
+				$regex = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+				preg_match($regex, $subject, $matches);
+				if( $matches[0] ) {
+					$match = $matches[0];
+					echo '<span class="loose-post-format loose-link-post-format"><a href="' . esc_url( $match ) . '">' . esc_url( $match ) . '</a></span>';
+				}
+			} elseif ( has_post_format( 'quote' ) ) {
+				$subject = get_the_content();
+				$subject = apply_filters('the_content', $subject);
+				$regex = "/<cite>.*<\/cite>/";
+				preg_match($regex, $subject, $matches);
+				if( $matches && $match=$matches[0] ) {
+					//$match = $matches[0];
+					echo '<span class="loose-post-format loose-quote-post-format">' . wp_kses_post( $match ) . '</span>';
+				}
+			} elseif ( has_post_format( 'image' ) ) {
+				echo '';
+			} else {
+				loose_posted_on();
+			}
+			?>
+			</div><!-- .entry-meta -->
+		<?php endif;
+	}
+	endif;
+
+	
+	function loose_single_before_content() {
+		if ( is_attachment() ) : ?>
+			<div class="col-md-12">
+				<div class="category-list">
+					<?php echo esc_html__( 'Attachment page', 'loose' ); ?>
+				</div>
+			</div>
+		<?php elseif ( ! has_post_format( 'quote' ) ) : ?>
+			<div class="col-md-12">
+				<div class="category-list">
+				<?php
+				echo wp_kses(
+					 get_the_category_list( __( ' &#124; ', 'loose' ) ), array(
+						 'a' => array(
+						 'href' => array(),
+						 ),
+					 )
+				);
+				?>
+				</div>
+			</div>
+		<?php endif;
+	}

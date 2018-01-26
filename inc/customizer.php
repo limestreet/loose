@@ -122,7 +122,7 @@ function loose_customize_register( $wp_customize ) {
 		$wp_customize, 'quote_post_format_bg', array(
 			'label' => esc_html__( 'Quote Post Format Background Color', 'loose' ),
 			'section' => 'colors',
-			'priority' => 110,
+			'priority' => 140,
 		)
 		)
 	);
@@ -140,7 +140,7 @@ function loose_customize_register( $wp_customize ) {
 		$wp_customize, 'link_post_format_bg', array(
 			'label' => esc_html__( 'Link Post Format Background Color', 'loose' ),
 			'section' => 'colors',
-			'priority' => 120,
+			'priority' => 150,
 		)
 		)
 	);
@@ -184,6 +184,7 @@ function loose_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'home_page_container_width', array(
 			'label' => esc_html__( 'Max Home Page and Archive Pages Width on Desktops', 'loose' ),
+			'description' => esc_html__( '(in pixels, default: 1156)', 'loose' ),
 			'section' => 'home_page',
 			'type' => 'number',
 			'input_attrs' => array(

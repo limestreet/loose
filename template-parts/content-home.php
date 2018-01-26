@@ -11,8 +11,9 @@
 <div class=" col-xs-12 col-md-6 col-lg-4 masonry">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-
-		<?php if ( has_post_thumbnail() ) : ?>
+		<?php if( has_post_format( 'image' ) ) :
+			get_the_image( array( 'size' => 'medium' ) );
+		elseif ( has_post_thumbnail() ) : ?>
 			<div class="featured-image">
 			<a href="<?php the_permalink(); ?>" rel="bookmark">
 				<?php the_post_thumbnail( 'medium' ); ?>   
@@ -21,42 +22,26 @@
 		<?php endif; ?>
 		<?php echo loose_post_format_icon( get_the_ID() ); // WPCS: XSS OK. ?>
 		<?php
-		if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && ! has_post_format( 'quote' ) ) :
+		if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && ! has_post_format( 'quote' ) && ! has_post_format( 'image' ) ) :
 			?>
-		<div class="featured-image-cat">
-		<?php
-		echo wp_kses(
-			get_the_category_list( __( '<span> &#124; </span>', 'loose' ) ), array(
-				'a' => array(
-					'href' => array(),
-				),
-				'span' => '',
-			)
-		);
-		?>
-		</div>
-		<?php
+			<div class="featured-image-cat">
+			<?php
+			echo wp_kses(
+				get_the_category_list( __( '<span> &#124; </span>', 'loose' ) ), array(
+					'a' => array(
+						'href' => array(),
+					),
+					'span' => '',
+				)
+			);
+			?>
+			</div>
+			<?php
 		endif;
-
-			if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && ! has_post_format( 'quote' ) ) {
-	the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
-		}
-
-		if ( has_post_format( 'aside' ) || has_post_format( 'quote' ) || has_post_format( 'link' ) ) {
-	the_content( __( 'Continue reading &rarr;', 'loose' ) );
-		} else {
-	if ( 'content' === get_theme_mod( 'show_content_or_excerpt', 'title' ) ) {
-				the_content( __( 'Continue reading &rarr;', 'loose' ) );
-	} elseif ( 'excerpt' === get_theme_mod( 'show_content_or_excerpt', 'title' ) ) {
-				the_excerpt();
-	}
-		}
+			loose_the_title();
+			loose_the_content();
+			loose_entry_meta();
 		?>
-		<?php if ( 'post' == get_post_type() ) : ?>
-			<div class="entry-meta">
-			<?php loose_posted_on(); ?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
 	</header><!-- .entry-header -->
 	</article><!-- #post-## -->
 </div>

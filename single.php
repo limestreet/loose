@@ -19,33 +19,11 @@ echo ' col-lg-offset-2'; }
 
 		<?php
 		while ( have_posts() ) :
-the_post();
-?>
-					
-					<?php if ( is_attachment() ) : ?>
-					<div class="col-md-12">
-						<div class="category-list">
-							<?php echo esc_html__( 'Attachment page', 'loose' ); ?>
-						</div>
-					</div>
-					
-					<?php elseif ( is_single() ) : ?>
-					<div class="col-md-12">
-						<div class="category-list">
-							<?php
-							echo wp_kses(
-								 get_the_category_list( __( ' &#124; ', 'loose' ) ), array(
-									 'a' => array(
-										 'href' => array(),
-									 ),
-								 )
-								);
-?>
-						</div>
-					</div>
-					<?php endif; ?>
-					
-			<?php get_template_part( 'template-parts/content-single', get_post_format() ); ?>
+			the_post();
+			
+			loose_single_before_content();
+			
+			get_template_part( 'template-parts/content-single', get_post_format() ); ?>
 					
 			<?php
 			if ( get_theme_mod( 'single_post_navigation', 1 ) ) :
