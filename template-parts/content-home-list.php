@@ -13,7 +13,13 @@
 	<header class="entry-header row">
 		<?php
 		if ( has_post_format( 'image' ) ) :
-			get_the_image( array( 'scan' => true, 'scan_raw' => true, 'size' => 'medium' ) );
+			get_the_image(
+				 array(
+					 'scan' => true,
+					 'scan_raw' => true,
+					 'size' => 'medium',
+				 )
+				);
 		elseif ( has_post_thumbnail() ) :
 		?>
 
