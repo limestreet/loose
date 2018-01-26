@@ -20,10 +20,11 @@ echo ' col-lg-offset-2'; }
 		<?php
 		while ( have_posts() ) :
 			the_post();
-			
+
 			loose_single_before_content();
-			
-			get_template_part( 'template-parts/content-single', get_post_format() ); ?>
+
+			get_template_part( 'template-parts/content-single', get_post_format() );
+			?>
 					
 			<?php
 			if ( get_theme_mod( 'single_post_navigation', 1 ) ) :

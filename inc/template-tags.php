@@ -597,7 +597,7 @@ if ( ! function_exists( 'loose_comment' ) ) :
 	/**
 	 * Title wrapper function to handle multiple post formats.
 	 *
-	 * @return string
+	 * @return void
 	 */
 	function loose_the_title() {
 		if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && ! has_post_format( 'quote' ) && ! has_post_format( 'image' ) ) {
@@ -605,23 +605,23 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		}
 	}
 	endif;
-	
+
 	if ( ! function_exists( 'loose_the_content' ) ) :
 	/**
 	 * Content wrapper function to handle multiple post formats.
 	 *
-	 * @return string
+	 * @return void
 	 */
 	function loose_the_content() {
 		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) ) {
 			the_content( __( 'Continue reading &rarr;', 'loose' ) );
-		} elseif( has_post_format( 'quote' ) ) {
+		} elseif ( has_post_format( 'quote' ) ) {
 			$content = get_the_content( __( 'Continue reading &rarr;', 'loose' ) );
 			$content = apply_filters( 'the_content', $content );
 			$content = str_replace( ']]>', ']]&gt;', $content );
-			$regex = "/<cite>.*<\/cite>/";
-			$content = preg_replace($regex, '', $content);
-			if( is_single() ) {
+			$regex = '/<cite>.*<\/cite>/';
+			$content = preg_replace( $regex, '', $content );
+			if ( is_single() ) {
 				echo $content; // WPCS: XSS OK.
 			} else {
 				echo '<a href="' . get_permalink() . '">' . $content . '</a>'; // WPCS: XSS OK.
@@ -635,34 +635,35 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		}
 	}
 	endif;
-	
+
 	if ( ! function_exists( 'loose_entry_meta' ) ) :
 	/**
 	 * Function to handle displaying entry meta section for multiple post formats.
 	 *
-	 * @return string
+	 * @return void
 	 */
 	function loose_entry_meta() {
-		if ( 'post' == get_post_type() ) : ?>
+		if ( 'post' == get_post_type() ) :
+		?>
 			<div class="entry-meta">
 			<?php
-			if( ! is_single() && has_post_format( 'link' ) ) {
-				// Extracting link from the content
+			if ( ! is_single() && has_post_format( 'link' ) ) {
+				// Extracting link from the content.
 				$subject = get_the_content();
-				$subject = apply_filters('the_content', $subject);
-				$regex = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-				preg_match($regex, $subject, $matches);
-				if( $matches[0] ) {
+				$subject = apply_filters( 'the_content', $subject );
+				$regex = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/';
+				preg_match( $regex, $subject, $matches );
+				if ( $matches[0] ) {
 					$match = $matches[0];
 					echo '<span class="loose-post-format loose-link-post-format"><a href="' . esc_url( $match ) . '">' . esc_url( $match ) . '</a></span>';
 				}
 			} elseif ( has_post_format( 'quote' ) ) {
 				$subject = get_the_content();
-				$subject = apply_filters('the_content', $subject);
-				$regex = "/<cite>.*<\/cite>/";
-				preg_match($regex, $subject, $matches);
-				if( $matches && $match=$matches[0] ) {
-					//$match = $matches[0];
+				$subject = apply_filters( 'the_content', $subject );
+				$regex = '/<cite>.*<\/cite>/';
+				preg_match( $regex, $subject, $matches );
+				if ( $matches && $matches[0] ) {
+					$match = $matches[0];
 					echo '<span class="loose-post-format loose-quote-post-format">' . wp_kses_post( $match ) . '</span>';
 				}
 			} elseif ( has_post_format( 'image' ) ) {
@@ -672,13 +673,19 @@ if ( ! function_exists( 'loose_comment' ) ) :
 			}
 			?>
 			</div><!-- .entry-meta -->
-		<?php endif;
+		<?php
+		endif;
 	}
 	endif;
 
-	
+	/**
+	 * Function to handle displaying section before single content.
+	 *
+	 * @return void
+	 */
 	function loose_single_before_content() {
-		if ( is_attachment() ) : ?>
+	if ( is_attachment() ) :
+	?>
 			<div class="col-md-12">
 				<div class="category-list">
 					<?php echo esc_html__( 'Attachment page', 'loose' ); ?>
@@ -691,12 +698,13 @@ if ( ! function_exists( 'loose_comment' ) ) :
 				echo wp_kses(
 					 get_the_category_list( __( ' &#124; ', 'loose' ) ), array(
 						 'a' => array(
-						 'href' => array(),
+							 'href' => array(),
 						 ),
 					 )
 				);
 				?>
 				</div>
 			</div>
-		<?php endif;
+		<?php
+		endif;
 	}

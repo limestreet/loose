@@ -11,9 +11,11 @@
 <div class="col-md-12 masonry">
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'loose-list' ); ?>>
 	<header class="entry-header row">
-		<?php if( has_post_format( 'image' ) ) :
+		<?php
+		if ( has_post_format( 'image' ) ) :
 			get_the_image( array( 'size' => 'medium' ) );
-		elseif ( has_post_thumbnail() ) : ?>
+		elseif ( has_post_thumbnail() ) :
+		?>
 
 			<div class="featured-image col-xs-12 col-sm-6">
 			<a href="<?php the_permalink(); ?>" rel="bookmark">
