@@ -137,6 +137,7 @@ var stickyMenuTop = $looseSiteNavigation.offset().top;
        } else {
           var scrollTop = $(window).scrollTop();
 	    if (scrollTop > stickyMenuTop) { 
+		$looseContent.css({'padding-top': '85px'});
 		$looseSiteNavigation.css({'position': 'fixed', 'top': '0', 'z-index': '1000'});
 		$looseHomeSiteNavigation.css({'box-shadow': '0 1px 4px #ccc'});
 		$looseMenuLogo.show();
@@ -144,6 +145,7 @@ var stickyMenuTop = $looseSiteNavigation.offset().top;
 	    } else {
 
 		$looseSiteNavigation.css({'position': '', 'top': '', 'z-index': ''});
+		$looseContent.css({'padding-top': ''});
 		$looseHomeSiteNavigation.css({'box-shadow': 'none'});
 		$looseMenuLogo.hide();
 	    }

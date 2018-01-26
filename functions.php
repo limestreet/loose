@@ -281,6 +281,11 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/class-media-grabber.php';
 
 /**
+ * Get The Image for getting images from posts.
+ */
+require get_template_directory() . '/inc/get-the-image.php';
+
+/**
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';

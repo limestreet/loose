@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.2] - 2018-01-26
+### Added
+- Multiple post formats.
+- Possibility to use excerpts.
+
 ## [1.1.4] - 2017-10-18
 ### Added
 - Double text domain issue solved
