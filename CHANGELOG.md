@@ -1,15 +1,22 @@
 # Change Log - Loose
 
+## [1.2.1] - 2018-02-06
+
+### Fixed: PHP 7.2 compatibility.
+
 ## [1.2] - 2018-01-26
+
 ### Added
 - Multiple post formats.
 - Possibility to use excerpts.
 
 ## [1.1.4] - 2017-10-18
+
 ### Added
 - Double text domain issue solved
 
 ## [1.1.3] - 2017-10-16
+
 ### Added
 - Option to not show top menu when scrolling
 
