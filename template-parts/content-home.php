@@ -33,16 +33,7 @@
 		if ( ! has_post_format( 'aside' ) && ! has_post_format( 'link' ) && ! has_post_format( 'quote' ) && ! has_post_format( 'image' ) ) :
 			?>
 			<div class="featured-image-cat">
-			<?php
-			echo wp_kses(
-				get_the_category_list( __( '<span> &#124; </span>', 'loose' ) ), array(
-					'a' => array(
-						'href' => array(),
-					),
-					'span' => '',
-				)
-			);
-			?>
+				<?php the_category( __( '<span> &#124; </span>', 'loose' ) ); ?>
 			</div>
 			<?php
 		endif;
