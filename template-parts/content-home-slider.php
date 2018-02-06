@@ -43,40 +43,22 @@ if ( ! empty( $loose_sticky_posts ) ) :
 							<div class="featured-image" style="background:#000 url(<?php echo esc_url( $loose_wp_get_attachment_image_src[0] ); ?>) no-repeat center;background-size: cover;">
 	
 							</div>
-														<div class="loose-featured-slider-title-wrapper">
-									<div class="loose-featured-slider-title">
-											<span class="featured-category">
-											<?php
-											echo wp_kses(
-												 get_the_category_list( __( '<span> &#124; </span>', 'loose' ), '', $slide->ID ), array(
-													 'a' => array(
-														 'href' => array(),
-													 ),
-													 'span' => '',
-												 )
-												);
-?>
-</span>
-											<h2 class="loose-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
-									</div>
+							<div class="loose-featured-slider-title-wrapper">
+								<div class="loose-featured-slider-title">
+									<span class="featured-category">
+										<?php the_category( __( '<span> &#124; </span>', 'loose' ) ); ?>
+									</span>
+									<h2 class="loose-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
 								</div>
+							</div>
 							<?php else : ?>
 							<div class="no-featured-image">
-									<div class="loose-featured-slider-title">
-										<span class="featured-category">
-										<?php
-										echo wp_kses(
-											 get_the_category_list( __( '<span> &#124; </span>', 'loose' ), '', $slide->ID ), array(
-												 'a' => array(
-													 'href' => array(),
-												 ),
-												 'span' => '',
-											 )
-											);
-?>
-</span>
-										<h2 class="loose-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
-									</div>
+								<div class="loose-featured-slider-title">
+									<span class="featured-category">
+									<?php the_category( __( '<span> &#124; </span>', 'loose' ) ); ?>
+									</span>
+									<h2 class="loose-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
+								</div>
 							</div>
 							<?php endif; ?>
 						</div>
