@@ -259,14 +259,7 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		// Loop the array of popular posts objects.
 		foreach ( $mostpopular as $popular ) {
 
-			$post_cat = wp_kses(
-				get_the_category_list( __( '<span>&#124;</span>', 'loose' ), '', $popular->id ), array(
-					'a' => array(
-						'href' => array(),
-					),
-					'span' => '',
-				)
-			);
+			$post_cat = get_the_category_list( __( '<span>&#124;</span>', 'loose' ), '', $popular->id );
 
 			$thumb = get_the_post_thumbnail( $popular->id, 'medium' );
 
@@ -694,15 +687,7 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		<?php elseif ( ! has_post_format( 'quote' ) ) : ?>
 			<div class="col-md-12">
 				<div class="category-list">
-				<?php
-				echo wp_kses(
-					 get_the_category_list( __( ' &#124; ', 'loose' ) ), array(
-						 'a' => array(
-							 'href' => array(),
-						 ),
-					 )
-				);
-				?>
+				<?php get_the_category_list( __( ' &#124; ', 'loose' ) ); ?>
 				</div>
 			</div>
 		<?php
