@@ -1,5 +1,9 @@
 # Change Log - Loose
 
+## [1.2.3] - 2018-02-08
+
+### Fixed: PHP 7.2 compatibility.
+
 ## [1.2.2] - 2018-02-07
 
 ### Changed: testes up to 4.9.4 (WP version)
