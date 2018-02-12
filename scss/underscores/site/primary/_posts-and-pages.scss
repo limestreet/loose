@@ -235,17 +235,23 @@
 	}
     }
     .post_format-post-format-link {
-	font-size: 1.2rem;
 	color: #ffffff;
 	text-align: center;
-	line-height: 1.6;
-	font-weight: 700;
 	a, a:hover {
 	    color: #ffffff;
+	    font-size: 1.2rem;
+	    line-height: 1.6;
+	    font-weight: 700;
 	}
 	.entry-meta {
 	    color: #ffffff;
 	    text-align: left;
+	    a {
+		font-size: .75rem;
+		line-height: 1.1;
+		font-weight: 400;
+	    }
+
 	}
 	.loose-post-format-icon {
 	    svg {

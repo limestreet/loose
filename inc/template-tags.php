@@ -644,10 +644,12 @@ if ( ! function_exists( 'loose_comment' ) ) :
 				// Extracting link from the content.
 				$subject = get_the_content();
 				$subject = apply_filters( 'the_content', $subject );
-				$regex = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/';
+				//$regex = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/';
+				$regex = '#<a\s+(?:[^>]*?\s+)?href=[\"\'](.*?)[\"\']#';
 				preg_match( $regex, $subject, $matches );
-				if ( $matches[0] ) {
-					$match = $matches[0];
+				//var_dump($matches);
+				if ( ! empty( $matches[1] ) ) {
+					$match = $matches[1];
 					echo '<span class="loose-post-format loose-link-post-format"><a href="' . esc_url( $match ) . '">' . esc_url( $match ) . '</a></span>';
 				}
 			} elseif ( has_post_format( 'quote' ) ) {
