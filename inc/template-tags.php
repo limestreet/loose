@@ -610,7 +610,7 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) ) {
 			the_content( __( 'Continue reading &rarr;', 'loose' ) );
 		} elseif ( has_post_format( 'quote' ) ) {
-			
+
 			if ( is_single() ) {
 				the_content();
 			} else {
