@@ -2215,14 +2215,12 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a,
   line-height: 1.65;
   font-weight: 400; }
 
-.single .post_format-post-format-quote {
+.single .post_format-post-format-quote blockquote {
   color: #fff;
-  padding: 1.25rem;
-  margin-bottom: 1.25rem; }
-  .single .post_format-post-format-quote .loose-post-format-icon {
-    right: 1.25rem;
-    background-color: transparent;
-    fill: #fff; }
+  padding: 1.25rem 1.25rem 0.5rem; }
+  .single .post_format-post-format-quote blockquote cite,
+  .single .post_format-post-format-quote blockquote cite a {
+    color: #fff; }
 
 .page-links {
   clear: both;

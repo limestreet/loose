@@ -84,13 +84,14 @@
 
 .single {
     .post_format-post-format-quote {
-	color: #fff;
-	padding: $grid-gutter-width/2;
-	margin-bottom: $grid-gutter-width/2;
-	.loose-post-format-icon {
-	    right: $grid-gutter-width/2;
-	    background-color: transparent;
-	    fill: #fff;
+	blockquote {
+	    color: #fff;
+	    padding: $grid-gutter-width/2 $grid-gutter-width/2 $grid-gutter-width/5;
+	    //margin-bottom: $grid-gutter-width/2;
+	    cite,
+	    cite a {
+		color: #fff;
+	    }
 	}
     }
 }
