@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.2.4] - 2018-02-13
+
+### Fixed
+- Post formats layout issues.
+
 ## [1.2.3] - 2018-02-08
 
 ### Fixed: PHP 7.2 compatibility.
