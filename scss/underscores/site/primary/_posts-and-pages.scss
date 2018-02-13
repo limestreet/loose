@@ -84,13 +84,14 @@
 
 .single {
     .post_format-post-format-quote {
-	color: #fff;
-	padding: $grid-gutter-width/2;
-	margin-bottom: $grid-gutter-width/2;
-	.loose-post-format-icon {
-	    right: $grid-gutter-width/2;
-	    background-color: transparent;
-	    fill: #fff;
+	blockquote {
+	    color: #fff;
+	    padding: $grid-gutter-width/2 $grid-gutter-width/2 $grid-gutter-width/5;
+	    //margin-bottom: $grid-gutter-width/2;
+	    cite,
+	    cite a {
+		color: #fff;
+	    }
 	}
     }
 }
@@ -208,11 +209,20 @@
     
     .post_format-post-format-quote,
     .post_format-post-format-link,
-    .post_format-post-format-aside,
-    .post_format-post-format-image {
+    .post_format-post-format-aside {
 	.loose-post-format-icon {
 	    line-height: 1;
 	    bottom:0;
+	}
+    }
+    
+    .post_format-post-format-image {
+	.loose-post-format-icon {
+	    line-height: 1;
+	    top:0;
+	}
+	p {
+	    margin-top: 1rem
 	}
     }
     
@@ -233,19 +243,28 @@
 	    }
 	    background-color: transparent;
 	}
+	.entry-header {
+	    margin-top: $grid-gutter-width/4;
+	}
     }
     .post_format-post-format-link {
-	font-size: 1.2rem;
 	color: #ffffff;
 	text-align: center;
-	line-height: 1.6;
-	font-weight: 700;
 	a, a:hover {
 	    color: #ffffff;
+	    font-size: 1.2rem;
+	    line-height: 1.6;
+	    font-weight: 700;
 	}
 	.entry-meta {
 	    color: #ffffff;
 	    text-align: left;
+	    a {
+		font-size: .75rem;
+		line-height: 1.1;
+		font-weight: 400;
+	    }
+
 	}
 	.loose-post-format-icon {
 	    svg {
@@ -258,6 +277,9 @@
 	font-size: 1.15rem;
 	line-height: 1.65;
 	font-weight: 400;
+	.entry-header {
+	    margin-top: $grid-gutter-width/4;
+	}
     }
     .post_format-post-format-image {
 	.featured-image {

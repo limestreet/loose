@@ -407,8 +407,9 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		$custom_css .= '#secondary .widget:nth-of-type(3n+2){background-color:' . esc_attr( get_theme_mod( 'sidebar_bg_color_2', '#fbf5bc' ) ) . ';}';
 		$custom_css .= '#secondary .widget:nth-of-type(3n+3){background-color:' . esc_attr( get_theme_mod( 'sidebar_bg_color_3', '#f5f8fa' ) ) . ';}';
 		$custom_css .= '.home .container, .archive .container, .search .container {max-width:' . absint( get_theme_mod( 'home_page_container_width', 1156 ) ) . 'px;}';
-		$custom_css .= '.home .post_format-post-format-quote, .archive .post_format-post-format-quote, .search .post_format-post-format-quote, .single .post_format-post-format-quote {background-color:' . esc_attr( get_theme_mod( 'quote_post_format_bg', '#ea4848' ) ) . ';}';
+		$custom_css .= '.home .post_format-post-format-quote, .archive .post_format-post-format-quote, .search .post_format-post-format-quote, .single .post_format-post-format-quote blockquote {background-color:' . esc_attr( get_theme_mod( 'quote_post_format_bg', '#ea4848' ) ) . ';}';
 		$custom_css .= '.home .post_format-post-format-link, .archive .post_format-post-format-link, .search .post_format-post-format-link {background-color:' . esc_attr( get_theme_mod( 'link_post_format_bg', '#414244' ) ) . ';}';
+		$custom_css .= '.home .post_format-post-format-aside, .archive .post_format-post-format-aside, .search .post_format-post-format-aside {background-color:' . esc_attr( get_theme_mod( 'aside_post_format_bg', '#ffffff' ) ) . ';}';
 		if ( $hide_title_on_home_archive ) {
 			$custom_css .= '.blog .content-area .entry-title, .archive .content-area .entry-title, .search .content-area .entry-title {display:none;}';
 			}
@@ -609,14 +610,15 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		if ( has_post_format( 'aside' ) || has_post_format( 'link' ) ) {
 			the_content( __( 'Continue reading &rarr;', 'loose' ) );
 		} elseif ( has_post_format( 'quote' ) ) {
-			$content = get_the_content( __( 'Continue reading &rarr;', 'loose' ) );
-			$content = apply_filters( 'the_content', $content );
-			$content = str_replace( ']]>', ']]&gt;', $content );
-			$regex = '/<cite>.*<\/cite>/';
-			$content = preg_replace( $regex, '', $content );
+
 			if ( is_single() ) {
-				echo $content; // WPCS: XSS OK.
+				the_content();
 			} else {
+				$content = get_the_content( __( 'Continue reading &rarr;', 'loose' ) );
+				$content = apply_filters( 'the_content', $content );
+				$content = str_replace( ']]>', ']]&gt;', $content );
+				$regex = '/<cite>.*<\/cite>/';
+				$content = preg_replace( $regex, '', $content );
 				echo '<a href="' . get_permalink() . '">' . $content . '</a>'; // WPCS: XSS OK.
 			}
 		} else {
@@ -644,13 +646,13 @@ if ( ! function_exists( 'loose_comment' ) ) :
 				// Extracting link from the content.
 				$subject = get_the_content();
 				$subject = apply_filters( 'the_content', $subject );
-				$regex = '/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/';
+				$regex = '#<a\s+(?:[^>]*?\s+)?href=[\"\'](.*?)[\"\']#';
 				preg_match( $regex, $subject, $matches );
-				if ( $matches[0] ) {
-					$match = $matches[0];
+				if ( ! empty( $matches[1] ) ) {
+					$match = $matches[1];
 					echo '<span class="loose-post-format loose-link-post-format"><a href="' . esc_url( $match ) . '">' . esc_url( $match ) . '</a></span>';
 				}
-			} elseif ( has_post_format( 'quote' ) ) {
+			} elseif ( ! is_single() && has_post_format( 'quote' ) ) {
 				$subject = get_the_content();
 				$subject = apply_filters( 'the_content', $subject );
 				$regex = '/<cite>.*<\/cite>/';

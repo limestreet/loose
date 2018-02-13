@@ -145,6 +145,24 @@ function loose_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'aside_post_format_bg', array(
+			'type' => 'theme_mod',
+			'default' => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+		$wp_customize, 'aside_post_format_bg', array(
+			'label' => esc_html__( 'Aside Post Format Background Color', 'loose' ),
+			'section' => 'colors',
+			'priority' => 160,
+		)
+		)
+	);
+
 	// Section Blog Home Page.
 	$wp_customize->add_section(
 		'home_page', array(

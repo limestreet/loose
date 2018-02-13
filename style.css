@@ -2215,14 +2215,12 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a,
   line-height: 1.65;
   font-weight: 400; }
 
-.single .post_format-post-format-quote {
+.single .post_format-post-format-quote blockquote {
   color: #fff;
-  padding: 1.25rem;
-  margin-bottom: 1.25rem; }
-  .single .post_format-post-format-quote .loose-post-format-icon {
-    right: 1.25rem;
-    background-color: transparent;
-    fill: #fff; }
+  padding: 1.25rem 1.25rem 0.5rem; }
+  .single .post_format-post-format-quote blockquote cite,
+  .single .post_format-post-format-quote blockquote cite a {
+    color: #fff; }
 
 .page-links {
   clear: both;
@@ -2281,16 +2279,18 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a,
   margin-bottom: -1.5em; }
 .blog .post_format-post-format-quote .loose-post-format-icon,
 .blog .post_format-post-format-link .loose-post-format-icon,
-.blog .post_format-post-format-aside .loose-post-format-icon,
-.blog .post_format-post-format-image .loose-post-format-icon, .archive .post_format-post-format-quote .loose-post-format-icon,
+.blog .post_format-post-format-aside .loose-post-format-icon, .archive .post_format-post-format-quote .loose-post-format-icon,
 .archive .post_format-post-format-link .loose-post-format-icon,
-.archive .post_format-post-format-aside .loose-post-format-icon,
-.archive .post_format-post-format-image .loose-post-format-icon, .search .post_format-post-format-quote .loose-post-format-icon,
+.archive .post_format-post-format-aside .loose-post-format-icon, .search .post_format-post-format-quote .loose-post-format-icon,
 .search .post_format-post-format-link .loose-post-format-icon,
-.search .post_format-post-format-aside .loose-post-format-icon,
-.search .post_format-post-format-image .loose-post-format-icon {
+.search .post_format-post-format-aside .loose-post-format-icon {
   line-height: 1;
   bottom: 0; }
+.blog .post_format-post-format-image .loose-post-format-icon, .archive .post_format-post-format-image .loose-post-format-icon, .search .post_format-post-format-image .loose-post-format-icon {
+  line-height: 1;
+  top: 0; }
+.blog .post_format-post-format-image p, .archive .post_format-post-format-image p, .search .post_format-post-format-image p {
+  margin-top: 1rem; }
 .blog .post_format-post-format-quote, .archive .post_format-post-format-quote, .search .post_format-post-format-quote {
   font-size: 1.2rem;
   color: #ffffff;
@@ -2304,17 +2304,23 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a,
     background-color: transparent; }
     .blog .post_format-post-format-quote .loose-post-format-icon svg, .archive .post_format-post-format-quote .loose-post-format-icon svg, .search .post_format-post-format-quote .loose-post-format-icon svg {
       fill: #fff; }
+  .blog .post_format-post-format-quote .entry-header, .archive .post_format-post-format-quote .entry-header, .search .post_format-post-format-quote .entry-header {
+    margin-top: 0.625rem; }
 .blog .post_format-post-format-link, .archive .post_format-post-format-link, .search .post_format-post-format-link {
-  font-size: 1.2rem;
   color: #ffffff;
-  text-align: center;
-  line-height: 1.6;
-  font-weight: 700; }
+  text-align: center; }
   .blog .post_format-post-format-link a, .blog .post_format-post-format-link a:hover, .archive .post_format-post-format-link a, .archive .post_format-post-format-link a:hover, .search .post_format-post-format-link a, .search .post_format-post-format-link a:hover {
-    color: #ffffff; }
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 700; }
   .blog .post_format-post-format-link .entry-meta, .archive .post_format-post-format-link .entry-meta, .search .post_format-post-format-link .entry-meta {
     color: #ffffff;
     text-align: left; }
+    .blog .post_format-post-format-link .entry-meta a, .archive .post_format-post-format-link .entry-meta a, .search .post_format-post-format-link .entry-meta a {
+      font-size: .75rem;
+      line-height: 1.1;
+      font-weight: 400; }
   .blog .post_format-post-format-link .loose-post-format-icon, .archive .post_format-post-format-link .loose-post-format-icon, .search .post_format-post-format-link .loose-post-format-icon {
     background-color: transparent; }
     .blog .post_format-post-format-link .loose-post-format-icon svg, .archive .post_format-post-format-link .loose-post-format-icon svg, .search .post_format-post-format-link .loose-post-format-icon svg {
@@ -2323,6 +2329,8 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a,
   font-size: 1.15rem;
   line-height: 1.65;
   font-weight: 400; }
+  .blog .post_format-post-format-aside .entry-header, .archive .post_format-post-format-aside .entry-header, .search .post_format-post-format-aside .entry-header {
+    margin-top: 0.625rem; }
 .blog .post_format-post-format-image .featured-image img, .archive .post_format-post-format-image .featured-image img, .search .post_format-post-format-image .featured-image img {
   margin-bottom: 0; }
 .blog .masonry, .archive .masonry, .search .masonry {
