@@ -409,6 +409,7 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		$custom_css .= '.home .container, .archive .container, .search .container {max-width:' . absint( get_theme_mod( 'home_page_container_width', 1156 ) ) . 'px;}';
 		$custom_css .= '.home .post_format-post-format-quote, .archive .post_format-post-format-quote, .search .post_format-post-format-quote, .single .post_format-post-format-quote {background-color:' . esc_attr( get_theme_mod( 'quote_post_format_bg', '#ea4848' ) ) . ';}';
 		$custom_css .= '.home .post_format-post-format-link, .archive .post_format-post-format-link, .search .post_format-post-format-link {background-color:' . esc_attr( get_theme_mod( 'link_post_format_bg', '#414244' ) ) . ';}';
+		$custom_css .= '.home .post_format-post-format-aside, .archive .post_format-post-format-aside, .search .post_format-post-format-aside {background-color:' . esc_attr( get_theme_mod( 'aside_post_format_bg', '#ffffff' ) ) . ';}';
 		if ( $hide_title_on_home_archive ) {
 			$custom_css .= '.blog .content-area .entry-title, .archive .content-area .entry-title, .search .content-area .entry-title {display:none;}';
 			}
@@ -646,7 +647,6 @@ if ( ! function_exists( 'loose_comment' ) ) :
 				$subject = apply_filters( 'the_content', $subject );
 				$regex = '#<a\s+(?:[^>]*?\s+)?href=[\"\'](.*?)[\"\']#';
 				preg_match( $regex, $subject, $matches );
-				//var_dump($matches);
 				if ( ! empty( $matches[1] ) ) {
 					$match = $matches[1];
 					echo '<span class="loose-post-format loose-link-post-format"><a href="' . esc_url( $match ) . '">' . esc_url( $match ) . '</a></span>';

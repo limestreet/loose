@@ -208,11 +208,20 @@
     
     .post_format-post-format-quote,
     .post_format-post-format-link,
-    .post_format-post-format-aside,
-    .post_format-post-format-image {
+    .post_format-post-format-aside {
 	.loose-post-format-icon {
 	    line-height: 1;
 	    bottom:0;
+	}
+    }
+    
+    .post_format-post-format-image {
+	.loose-post-format-icon {
+	    line-height: 1;
+	    top:0;
+	}
+	p {
+	    margin-top: 1rem
 	}
     }
     
@@ -232,6 +241,9 @@
 		fill: #fff;
 	    }
 	    background-color: transparent;
+	}
+	.entry-header {
+	    margin-top: $grid-gutter-width/4;
 	}
     }
     .post_format-post-format-link {
@@ -264,6 +276,9 @@
 	font-size: 1.15rem;
 	line-height: 1.65;
 	font-weight: 400;
+	.entry-header {
+	    margin-top: $grid-gutter-width/4;
+	}
     }
     .post_format-post-format-image {
 	.featured-image {
