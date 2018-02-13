@@ -144,7 +144,7 @@ function loose_customize_register( $wp_customize ) {
 		)
 		)
 	);
-	
+
 	$wp_customize->add_setting(
 		'aside_post_format_bg', array(
 			'type' => 'theme_mod',
