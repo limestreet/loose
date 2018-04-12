@@ -1,5 +1,12 @@
 # Change Log - Loose
 
+## [1.2.5] - 2018-04-12
+
+### Fixed
+- Categories issues in posts.
+### Changed
+- Tested with WordPress 4.9.5
+
 ## [1.2.4] - 2018-02-13
 
 ### Fixed

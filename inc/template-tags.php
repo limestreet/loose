@@ -689,7 +689,7 @@ if ( ! function_exists( 'loose_comment' ) ) :
 		<?php elseif ( ! has_post_format( 'quote' ) ) : ?>
 			<div class="col-md-12">
 				<div class="category-list">
-				<?php get_the_category_list( __( ' &#124; ', 'loose' ) ); ?>
+				<?php the_category( __( ' &#124; ', 'loose' ) ); ?>
 				</div>
 			</div>
 		<?php
