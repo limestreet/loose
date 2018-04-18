@@ -57,8 +57,8 @@
 			<?php
 			endif;
 
-				loose_home_the_title();
-				loose_home_the_content()
+				loose_the_title();
+				loose_the_content()
 			?>
 			<?php if ( 'post' == get_post_type() ) : ?>
 				<div class="entry-meta">

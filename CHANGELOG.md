@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.2.6] - 2018-04-18
+
+### Fixed
+- Fatal error when no featured images in list layout.
+
 ## [1.2.5] - 2018-04-12
 
 ### Fixed
