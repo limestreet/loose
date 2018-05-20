@@ -1,5 +1,16 @@
 # Change Log - Loose
 
+## [1.2.7] - 2018-05-20
+
+### Added
+- Compatibility with WP GDPR Compliance plugin added
+
+### Changed
+- Tested with WordPress 4.9.6
+
+### Fixed
+- Fatal error when no featured images in list layout.
+
 ## [1.2.6] - 2018-04-18
 
 ### Fixed
