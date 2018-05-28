@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.2.8] - 2018-05-28
+
+### Changed
+- Compatibility with gdpr plugins improved
+
 ## [1.2.7] - 2018-05-20
 
 ### Added
