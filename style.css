@@ -2540,7 +2540,10 @@ h1 a, .site-title a, h2 a, h3 a, h4 a, h5 a, h6 a, .entry-meta .byline a,
   font-style: normal;
   text-transform: uppercase; }
 
-.comment-form label {
+.comment-form-comment label,
+.comment-form-author label,
+.comment-form-email label,
+.comment-form-ur label {
   display: none; }
 
 .comment-fields {
