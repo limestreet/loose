@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.2.9] - 2018-06-03
+
+### Added
+- Option to not load Google Fonts from Google servers (GDPR issue)
+
 ## [1.2.8] - 2018-05-28
 
 ### Changed
