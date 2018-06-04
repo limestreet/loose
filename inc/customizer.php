@@ -162,7 +162,7 @@ function loose_customize_register( $wp_customize ) {
 		)
 		)
 	);
-	
+
 	$wp_customize->add_setting(
 		'content_link_color', array(
 			'type' => 'theme_mod',
