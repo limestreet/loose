@@ -1,6 +1,6 @@
 # Change Log - Loose
 
-## [1.3.0] - 2018-06-03
+## [1.2.10] - 2018-06-04
 
 ### Added
 - Option to change link color in content
