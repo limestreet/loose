@@ -58,13 +58,9 @@
 			endif;
 
 				loose_the_title();
-				loose_the_content()
+				loose_the_content();
+				loose_entry_meta();
 			?>
-			<?php if ( 'post' == get_post_type() ) : ?>
-				<div class="entry-meta">
-					<?php loose_posted_on(); ?>
-				</div><!-- .entry-meta -->
-			<?php endif; ?>
 			</div><!-- .title-meta-wrapper -->
 
 		<?php endif; ?>
