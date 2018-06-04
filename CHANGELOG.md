@@ -1,5 +1,13 @@
 # Change Log - Loose
 
+## [1.3.0] - 2018-06-03
+
+### Added
+- Option to change link color in content
+
+### Fixed
+- Regex syntax to handle quote post type
+
 ## [1.2.9] - 2018-06-03
 
 ### Added

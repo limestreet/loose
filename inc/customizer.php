@@ -163,6 +163,24 @@ function loose_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'content_link_color', array(
+			'type' => 'theme_mod',
+			'default' => '#000',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+		$wp_customize, 'content_link_color', array(
+			'label' => esc_html__( 'Content Link Color', 'loose' ),
+			'section' => 'colors',
+			'priority' => 170,
+		)
+		)
+	);
+
 	// Section Blog Home Page.
 	$wp_customize->add_section(
 		'home_page', array(
