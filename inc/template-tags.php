@@ -618,7 +618,7 @@ if ( ! function_exists( 'loose_comment' ) ) :
 				$content = get_the_content( __( 'Continue reading &rarr;', 'loose' ) );
 				$content = apply_filters( 'the_content', $content );
 				$content = str_replace( ']]>', ']]&gt;', $content );
-				$regex = '/<cite>.*<\/cite>/';
+				$regex = '/<cite>.*<\/cite>/s';
 				$content = preg_replace( $regex, '', $content );
 				echo '<a href="' . get_permalink() . '">' . $content . '</a>'; // WPCS: XSS OK.
 			}
