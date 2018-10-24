@@ -16,17 +16,21 @@ if ( ! function_exists( 'loose_posted_on' ) ) :
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
 		$time_string = sprintf(
-			$time_string, esc_attr( get_the_date( 'c' ) ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
+			$time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
 		);
 
 		$posted_on = sprintf(
 			/* translators: time ago */
-			esc_html_x( '%s ago', 'post date', 'loose' ), '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			esc_html_x( '%s ago', 'post date', 'loose' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
 			/* translators: post author */
-			esc_html_x( ' by %s', 'post author', 'loose' ), '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+			esc_html_x( ' by %s', 'post author', 'loose' ),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
 		echo '<span class="byline"> ' . $byline . '</span><span class="posted-on"> / ' . $posted_on . '</span>'; // WPCS: XSS OK.
@@ -151,7 +155,8 @@ if ( ! function_exists( 'loose_comment' ) ) :
 					<?php
 					comment_reply_link(
 						array_merge(
-							$args, array(
+							$args,
+							array(
 								'depth' => $depth,
 								'max_depth' => $args['max_depth'],
 								'reply_text' => 'REPLY',
