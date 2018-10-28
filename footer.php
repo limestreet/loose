@@ -68,7 +68,7 @@
 			<span class="sep"> | </span>
 			<?php
 			// translators: theme neame and theme author..
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'loose' ), 'Loose', '<a href="https://fatthemes.com/" rel="designer">Fat Themes</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'loose' ), 'Loose', '<a href="https://blogonyourown.com/" rel="designer">BlogOnYourOwn.com</a>' );
 				?>
 			</p>
 		</div><!-- .site-info -->
