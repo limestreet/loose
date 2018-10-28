@@ -1565,7 +1565,7 @@ img, figure {
   content: " -"; }
 
 @media (min-width: 48em) {
-  .post blockquote, .post q, .post .entry-content img.alignleft, .post .entry-content img.alignnone, .post .entry-content figure.alignleft, .post .entry-content figure.alignnone {
+  .post blockquote, .post q, .post .entry-content img.alignleft, .post .entry-content img.alignnone, .post .entry-content figure.alignleft, .post .entry-content figure.alignnone, .post .entry-content .video-wrapped.alignnone, .post .entry-content .video-wrapped.alignleft {
     margin-left: -21.666%; }
 
   .post .entry-content img.alignnone, .post .entry-content figure.alignnone {
