@@ -316,7 +316,7 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Some meta fields for category styling.
  */
-require get_template_directory() . '/inc/class-loose-category-meta.php';
+require get_template_directory() . '/inc/class-loose-meta-for-categories.php';
 
 /**
  * Load TGMPA recommended plugins.
