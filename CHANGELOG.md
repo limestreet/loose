@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.2.11] - 2018-10-28
+
+### Fixed
+- Video alignment issue
+
 ## [1.2.10] - 2018-06-04
 
 ### Added

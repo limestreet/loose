@@ -56,7 +56,8 @@ if ( ! function_exists( 'loose_setup' ) ) :
 		 * to output valid HTML5.
 		 */
 		add_theme_support(
-			'html5', array(
+			'html5',
+			array(
 				'search-form',
 				'comment-form',
 				'comment-list',
@@ -70,7 +71,8 @@ if ( ! function_exists( 'loose_setup' ) ) :
 		 * See https://developer.wordpress.org/themes/functionality/post-formats/
 		 */
 		add_theme_support(
-			'post-formats', array(
+			'post-formats',
+			array(
 				'audio',
 				'video',
 				'gallery',
@@ -83,8 +85,10 @@ if ( ! function_exists( 'loose_setup' ) ) :
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support(
-			'custom-background', apply_filters(
-				'loose_custom_background_args', array(
+			'custom-background',
+			apply_filters(
+				'loose_custom_background_args',
+				array(
 					'default-color' => 'ffffff',
 					'default-image' => '',
 				)
@@ -218,7 +222,8 @@ if ( ! function_exists( 'loose_fonts_url' ) ) :
 					array(
 						'family' => urlencode( implode( '|', $fonts ) ),
 						'subset' => urlencode( $subsets ),
-					), 'https://fonts.googleapis.com/css'
+					),
+					'https://fonts.googleapis.com/css'
 				)
 			);
 		}
@@ -235,7 +240,7 @@ function loose_scripts() {
 
 	$loose_theme_info = wp_get_theme();
 	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'loose-fonts', loose_fonts_url(), array(), null );
+	wp_enqueue_style( 'loose-fonts', loose_fonts_url(), array(), $loose_theme_info->get( 'Version' ) );
 
 	wp_enqueue_style( 'loose-style', get_stylesheet_uri(), array(), $loose_theme_info->get( 'Version' ) );
 
@@ -263,7 +268,9 @@ function loose_scripts() {
 
 	// Passing theme options to loose.js.
 	wp_localize_script(
-		'loose-scripts', 'loose', array(
+		'loose-scripts',
+		'loose',
+		array(
 			'home_page_slider_img_number' => get_theme_mod( 'home_page_slider_img_number', 1 ),
 			'loadingText' => '',
 			'noMorePostsText' => '',
@@ -309,7 +316,7 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Some meta fields for category styling.
  */
-require get_template_directory() . '/inc/class-loose-category-meta.php';
+require get_template_directory() . '/inc/class-loose-meta-for-categories.php';
 
 /**
  * Load TGMPA recommended plugins.
