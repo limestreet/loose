@@ -67,7 +67,7 @@ function loose_register_required_plugins() {
 			'slug'      => 'user-social-profiles',
 			'required'  => false,
 		),
-		
+
 		// AMP from WordPress Plugin Repository.
 		array(
 			'name'      => esc_html__( 'AMP', 'loose' ),
