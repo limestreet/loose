@@ -394,8 +394,8 @@ if ( ! function_exists( 'loose_comment' ) ) :
 	endif;
 
 	/*
-     * CSS output from customizer settings
-     */
+	 * CSS output from customizer settings
+	 */
 	if ( ! function_exists( 'loose_customize_css' ) ) :
 
 	/**

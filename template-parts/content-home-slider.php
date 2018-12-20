@@ -48,7 +48,7 @@ if ( ! empty( $loose_sticky_posts ) ) :
 									<span class="featured-category">
 										<?php the_category( __( '<span> &#124; </span>', 'loose' ), '', $slide->ID ); ?>
 									</span>
-									<h2 class="loose-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
+									<h2 class="loose-featured-slider-header"><a href="<?php the_permalink( $slide->ID ); ?>" rel="bookmark"><?php echo wp_kses_post( get_the_title( $slide->ID ) ); ?></a></h2>
 								</div>
 							</div>
 							<?php else : ?>
@@ -57,7 +57,7 @@ if ( ! empty( $loose_sticky_posts ) ) :
 									<span class="featured-category">
 									<?php the_category( __( '<span> &#124; </span>', 'loose' ), '', $slide->ID ); ?>
 									</span>
-									<h2 class="loose-featured-slider-header"><a href="<?php echo esc_url( get_permalink( $slide->ID ) ); ?>" rel="bookmark"><?php echo get_the_title( $slide->ID ); ?></a></h2>
+									<h2 class="loose-featured-slider-header"><a href="<?php the_permalink( $slide->ID ); ?>" rel="bookmark"><?php echo wp_kses_post( get_the_title( $slide->ID ) ); ?></a></h2>
 								</div>
 							</div>
 							<?php endif; ?>

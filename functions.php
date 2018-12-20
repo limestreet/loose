@@ -322,3 +322,8 @@ require get_template_directory() . '/inc/class-loose-meta-for-categories.php';
  * Load TGMPA recommended plugins.
  */
 require_once get_template_directory() . '/inc/tgmpa-plugins.php';
+
+/**
+ * AMP.
+ */
+require_once get_template_directory() . '/inc/amp.php';

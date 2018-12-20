@@ -4,8 +4,8 @@ Theme Name: Loose
 Theme URI: https://blogonyourown.com/themes/loose/
 Author: BlogOnYourOwn.com
 Author URI: https://blogonyourown.com
-Description: Loose is a simply, elegant & modern WordPress Blog Theme. Elegantly showcase your articles, photos, videos and more. This clean layout suitable for any type of site. Can be used for blog, magazine, news or fashion website. Loose is a minimal blog and magazine WordPress theme focused on content. With Loose you can create your own unique layout and style. Loose is fully responsive and looks great on any device. Loose have many features including: 3 Homepage Layouts, 4 Post Formats, 2 Page Layouts, 2 Single Post Layouts, 3 Widget Areas: Right Sidebar, Left Sidebar / Left Menu & Top, Sticky Sidebar, 2 Menus: Top Menu & Left Menu (main, mobile menu – toggled with button), all Theme Options Easily Customized by Native WordPress Customizer (Live Preview), Translation Ready, Child Template Included and much much more. Loose is easy to customize and well documented with great support and friendly help:) Enjoy:)
-Version: 0.0
+Description: Loose is a simply, elegant & modern WordPress Blog Theme. Elegantly showcase your articles, photos, videos and more. This clean layout suitable for any type of site. Can be used for blog, magazine, news or fashion website. Loose is a minimal blog and magazine WordPress theme focused on content. With Loose you can create your own unique layout and style. Loose is fully responsive and looks great on any device. Loose have many features including: 3 Homepage Layouts, 4 Post Formats, 2 Page Layouts, 2 Single Post Layouts, 3 Widget Areas: Right Sidebar, Left Sidebar / Left Menu & Top, Sticky Sidebar, 2 Menus: Top Menu & Left Menu (main, mobile menu – toggled with button), all Theme Options Easily Customized by Native WordPress Customizer (Live Preview), Translation Ready and much much more. Child Template may be downloaded from our website. Tested with block editor (Gutenberg). Support for AMP. Loose is easy to customize and well documented with great support and friendly help:) Enjoy:)
+Version: 1.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: loose
@@ -1565,7 +1565,7 @@ img, figure {
   content: " -"; }
 
 @media (min-width: 48em) {
-  .post blockquote, .post q, .post .entry-content img.alignleft, .post .entry-content img.alignnone, .post .entry-content figure.alignleft, .post .entry-content figure.alignnone, .post .entry-content .video-wrapped.alignnone, .post .entry-content .video-wrapped.alignleft {
+  .post blockquote, .post q, .post .entry-content img.alignleft, .post .entry-content img.alignnone, .post .entry-content figure.alignleft, .post .entry-content figure.alignnone {
     margin-left: -21.666%; }
 
   .post .entry-content img.alignnone, .post .entry-content figure.alignnone {
@@ -2697,6 +2697,24 @@ object {
 
 .gallery-item.slick-slide img {
   width: 100%; }
+
+/*--------------------------------------------------------------
+# Bloc editor
+--------------------------------------------------------------*/
+p.has-drop-cap:not(:focus)::first-letter {
+  float: left;
+  font-size: 4em;
+  line-height: 1;
+  font-weight: 700;
+  margin-right: 5px;
+  text-transform: none;
+  font-style: normal; }
+
+.wp-block-separator.is-style-default {
+  width: 120px; }
+
+.entry-content .wp-block-button__link {
+  color: inherit; }
 
 /*--------------------------------------------------------------
 # External assets

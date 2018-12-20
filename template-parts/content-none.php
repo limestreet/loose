@@ -17,7 +17,7 @@
 			<p>
 			<?php
 				printf(
-					 wp_kses( // translators: admin url.
+					wp_kses( // translators: admin url.
 					 __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'loose' ),
 						 array(
 							 'a' => array(
