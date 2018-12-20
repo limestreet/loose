@@ -1,5 +1,11 @@
 # Change Log - Loose
 
+## [1.3] - 2018-12-20
+
+### Added
+- support for AMP plugin
+- Block editor (Gutenberg) support
+
 ## [1.2.11] - 2018-10-28
 
 ### Fixed
