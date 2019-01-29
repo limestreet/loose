@@ -29,12 +29,12 @@
 					<nav id="site-navigation" class="main-navigation" role="navigation">
 								<?php
 								wp_nav_menu(
-									 array(
-										 'theme_location' => 'primary',
-										 'menu_id' => 'primary-menu',
-									 )
-									);
-?>
+									array(
+										'theme_location' => 'primary',
+										'menu_id' => 'primary-menu',
+									)
+								);
+								?>
 					</nav><!-- #site-navigation -->
 					<div class="left-nav-social">
 						<?php echo loose_social_profiles(); // WPCS: XSS OK. ?>
@@ -60,16 +60,16 @@
 			?>
 			</a></p>
 			<p><a href="<?php echo esc_url( __( 'https://wordpress.org/', 'loose' ) ); ?>">
-								   <?php
-				// translators: WordPress.
-				printf( esc_html__( 'Proudly powered by %s', 'loose' ), 'WordPress' );
-				?>
+									<?php
+									// translators: WordPress.
+									printf( esc_html__( 'Proudly powered by %s', 'loose' ), 'WordPress' );
+									?>
 				</a>
 			<span class="sep"> | </span>
 			<?php
 			// translators: theme neame and theme author..
 				printf( esc_html__( 'Theme: %1$s by %2$s', 'loose' ), 'Loose', '<a href="https://blogonyourown.com/" rel="designer">BlogOnYourOwn.com</a>' );
-				?>
+			?>
 			</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

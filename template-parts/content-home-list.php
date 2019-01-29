@@ -14,14 +14,14 @@
 		<?php
 		if ( has_post_format( 'image' ) ) :
 			get_the_image(
-				 array(
-					 'scan' => true,
-					 'scan_raw' => true,
-					 'size' => 'medium',
-				 )
-				);
+				array(
+					'scan' => true,
+					'scan_raw' => true,
+					'size' => 'medium',
+				)
+			);
 		elseif ( has_post_thumbnail() ) :
-		?>
+			?>
 
 			<div class="featured-image col-xs-12 col-sm-6">
 			<a href="<?php the_permalink(); ?>" rel="bookmark">
@@ -54,7 +54,7 @@
 				<div class="featured-image-cat">
 					<?php the_category( __( '<span> &#124; </span>', 'loose' ) ); ?>
 				</div>
-			<?php
+				<?php
 			endif;
 
 				loose_the_title();

@@ -110,7 +110,7 @@ add_action( 'after_setup_theme', 'loose_setup' );
  * @global int $content_width
  */
 function loose_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'loose_content_width', 732 );
+	$GLOBALS['content_width'] = apply_filters( 'loose_content_width', 732 ); // WPCS: prefix ok.
 }
 
 add_action( 'after_setup_theme', 'loose_content_width', 0 );

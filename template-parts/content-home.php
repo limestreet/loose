@@ -14,14 +14,14 @@
 		<?php
 		if ( has_post_format( 'image' ) ) :
 			get_the_image(
-				 array(
-					 'scan' => true,
-					 'scan_raw' => true,
-					 'size' => 'medium',
-				 )
-				);
+				array(
+					'scan' => true,
+					'scan_raw' => true,
+					'size' => 'medium',
+				)
+			);
 		elseif ( has_post_thumbnail() ) :
-		?>
+			?>
 			<div class="featured-image">
 			<a href="<?php the_permalink(); ?>" rel="bookmark">
 				<?php the_post_thumbnail( 'medium' ); ?>   
