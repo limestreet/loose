@@ -41,7 +41,7 @@
 					</div>
 					<?php get_sidebar( 'left' ); ?>
 					<div class="site-info">
-			<?php echo '<p>&copy; ' . esc_html( date( 'Y' ) ) . ' ' . esc_html( get_bloginfo( 'name' ) ) . '</p>'; ?>
+			<?php echo '<p>&copy; ' . esc_html( date_i18n( __( 'Y', 'loose' ) ) ) . ' ' . esc_html( get_bloginfo( 'name' ) ) . '</p>'; ?>
 					</div><!-- .site-info -->
 				</div>
 			</div> 
@@ -68,7 +68,7 @@
 			<span class="sep"> | </span>
 			<?php
 			// translators: theme neame and theme author..
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'loose' ), 'Loose', '<a href="https://blogonyourown.com/" rel="designer">BlogOnYourOwn.com</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s', 'loose' ), 'Loose', '<a href="https://blogonyourown.com/" rel="designer">BlogOnYourOwn.com</a>' );
 				?>
 			</p>
 		</div><!-- .site-info -->
