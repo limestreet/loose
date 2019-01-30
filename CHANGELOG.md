@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.3.1] - 2019-01-29
+
+### Fixed
+- Block editor (Gutenberg) and Slick gallery compatibility issue
+
 ## [1.3] - 2018-12-20
 
 ### Added

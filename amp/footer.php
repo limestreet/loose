@@ -1,8 +1,8 @@
 <?php
 /**
- * Blover Theme Customizer.
+ * Loose Theme Customizer.
  *
- * @package blover
+ * @package loose
  */
 
 ?>
@@ -11,6 +11,6 @@
 		<p>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">&copy; <?php bloginfo( 'name' ); ?></a>
 		</p>
-		<a href="#top" class="back-to-top"><?php esc_html_e( 'Back to top', 'blover' ); ?></a>
+		<a href="#top" class="back-to-top"><?php esc_html_e( 'Back to top', 'loose' ); ?></a>
 	</div>
 </footer>

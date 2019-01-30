@@ -50,7 +50,7 @@ function loose_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-		$wp_customize,
+			$wp_customize,
 			'header_bg_color',
 			array(
 				'label' => esc_html__( 'Header Background Color', 'loose' ),
@@ -71,7 +71,7 @@ function loose_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-		$wp_customize,
+			$wp_customize,
 			'sidebar_bg_color_1',
 			array(
 				'label' => esc_html__( 'Sidebar Background Color 1', 'loose' ),
@@ -92,7 +92,7 @@ function loose_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-		$wp_customize,
+			$wp_customize,
 			'sidebar_bg_color_2',
 			array(
 				'label' => esc_html__( 'Sidebar Background Color 2', 'loose' ),
@@ -113,7 +113,7 @@ function loose_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-		$wp_customize,
+			$wp_customize,
 			'sidebar_bg_color_3',
 			array(
 				'label' => esc_html__( 'Sidebar Background Color 3', 'loose' ),
@@ -134,7 +134,7 @@ function loose_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-		$wp_customize,
+			$wp_customize,
 			'quote_post_format_bg',
 			array(
 				'label' => esc_html__( 'Quote Post Format Background Color', 'loose' ),
@@ -155,7 +155,7 @@ function loose_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-		$wp_customize,
+			$wp_customize,
 			'link_post_format_bg',
 			array(
 				'label' => esc_html__( 'Link Post Format Background Color', 'loose' ),
@@ -176,7 +176,7 @@ function loose_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-		$wp_customize,
+			$wp_customize,
 			'aside_post_format_bg',
 			array(
 				'label' => esc_html__( 'Aside Post Format Background Color', 'loose' ),
@@ -197,7 +197,7 @@ function loose_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-		$wp_customize,
+			$wp_customize,
 			'content_link_color',
 			array(
 				'label' => esc_html__( 'Content Link Color', 'loose' ),

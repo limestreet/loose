@@ -16,20 +16,20 @@ get_header(); ?>
 
 		<?php if ( is_front_page() && is_home() ) : ?>
 
-		<?php get_template_part( 'template-parts/content', 'home-slider' ); ?>
+			<?php get_template_part( 'template-parts/content', 'home-slider' ); ?>
 
 	<?php endif; ?>
-		 <?php get_sidebar( 'top' ); ?>
+			<?php get_sidebar( 'top' ); ?>
 	<div class="row">
 
 	<div id="primary" class="content-area
 	<?php
 	$loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 			echo ( empty( $loose_home_page_layout ) ) ? ' col-md-12' : ' col-lg-8';
-			if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
-	echo ' col-lg-push-2';
+	if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
+		echo ' col-lg-push-2';
 			endif;
-			?>
+	?>
 			">
 			<?php if ( get_theme_mod( 'home_page_latest_posts_text', 1 ) ) : ?>
 			<div class="loose-page-intro">
@@ -55,7 +55,7 @@ get_header(); ?>
 					 */
 					get_template_part( 'template-parts/content-home', get_theme_mod( 'home_page_layout', 'masonry' ) );
 				 endif;
-				 ?>
+				?>
 			<?php endwhile; ?>
 
 			<?php the_posts_navigation(); ?>
@@ -71,7 +71,7 @@ get_header(); ?>
 
 <?php
 if ( ! empty( $loose_home_page_layout ) ) {
-get_sidebar();}
+	get_sidebar();}
 ?>
 	</div><!-- .row -->
 <?php get_footer(); ?>

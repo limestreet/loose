@@ -1,7 +1,7 @@
 === Loose ===
 
 Requires at least: 4.4
-Tested up to: 5.0.2
+Tested up to: 5.0.3
 
 == Installation ==
 

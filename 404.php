@@ -13,10 +13,10 @@ get_header(); ?>
 	<?php
 	$loose_home_page_layout = get_theme_mod( 'home_page_layout', 'masonry' );
 				echo ( empty( $loose_home_page_layout ) ) ? ' col-md-12' : ' col-lg-8';
-				if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
-echo ' col-lg-push-2';
+	if ( ! empty( $loose_home_page_layout ) && ! is_active_sidebar( 'sidebar-1' ) ) :
+		echo ' col-lg-push-2';
 				endif;
-				?>
+	?>
 				">
 
 			<div class="loose-page-intro">
@@ -42,7 +42,7 @@ echo ' col-lg-push-2';
 
 <?php
 if ( ! empty( $loose_home_page_layout ) ) {
-get_sidebar(); }
+	get_sidebar(); }
 ?>
 	</div><!-- .row -->
 <?php get_footer(); ?>
