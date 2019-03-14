@@ -33,13 +33,6 @@ function loose_register_required_plugins() {
 			'required'  => false,
 		),
 
-		// Shareaholic from WordPress Plugin Repository.
-		array(
-			'name'      => esc_html__( 'Shareaholic | share buttons, related posts, social analytics & more', 'loose' ),
-			'slug'      => 'shareaholic',
-			'required'  => false,
-		),
-
 		// Instagram Slider Widget from WordPress Plugin Repository.
 		array(
 			'name'      => esc_html__( 'Instagram Slider Widget', 'loose' ),

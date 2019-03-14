@@ -1,7 +1,17 @@
 === Loose ===
-
+Contributors: limestreet, moniula
 Requires at least: 4.4
-Tested up to: 5.0.3
+Tested up to: 5.1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: translation-ready, grid-layout, blog, news, left-sidebar, right-sidebar, custom-background, two-columns, three-columns, featured-images, full-width-template, post-formats, sticky-post, theme-options, threaded-comments
+
+
+Loose WordPress Theme, Copyright 2016-2019, BlogOnYourOwn.com
+Loose is distributed under the terms of the GNU GPL v2 or later
+
+== Description ==
+Loose is a simply, elegant & modern WordPress Blog Theme. Elegantly showcase your articles, photos, videos and more. This clean layout suitable for any type of site. Can be used for blog, magazine, news or fashion website. Loose is a minimal blog and magazine WordPress theme focused on content. With Loose you can create your own unique layout and style. Loose is fully responsive and looks great on any device. Loose have many features including: 3 Homepage Layouts, 4 Post Formats, 2 Page Layouts, 2 Single Post Layouts, 3 Widget Areas: Right Sidebar, Left Sidebar / Left Menu & Top, Sticky Sidebar, 2 Menus: Top Menu & Left Menu (main, mobile menu – toggled with button), all Theme Options Easily Customized by Native WordPress Customizer (Live Preview), Translation Ready and much much more. Child Template may be downloaded from our website. Tested with block editor (Gutenberg). Support for AMP. Loose is easy to customize and well documented with great support and friendly help:) Enjoy:)
 
 == Installation ==
 
@@ -9,7 +19,7 @@ Tested up to: 5.0.3
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
-== Credits ==
+== Resources ==
 
 * Underscores - (C) 2012-2015 Automattic, Inc. License: GPL-2.0+
 * Bootstrap v4.0.0-alpha - Copyright 2011-2015 Twitter, Inc. Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -32,4 +42,4 @@ Tested up to: 5.0.3
 
 == Changelog ==
 
-Please look at CHANGELOG.md
+Please see CHANGELOG.md
