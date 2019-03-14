@@ -1,5 +1,13 @@
 # Change Log - Loose
 
+## [1.3.2] - 2019-03-14
+
+### Changed
+- readme file format
+
+### Removed
+- Shareaholic removed from recommended plugins
+
 ## [1.3.1] - 2019-01-29
 
 ### Fixed

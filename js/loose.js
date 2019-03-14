@@ -15,9 +15,9 @@
 
 	if ( typeof $.fn.slick === 'function' ) {
 
-	    var $lousFeaturedSliderImage = $( '.loose-featured-slider-wrapper' );
+	    var $looseFeaturedSliderImage = $( '.loose-featured-slider-wrapper' );
 
-	    $lousFeaturedSliderImage.show();
+	    $looseFeaturedSliderImage.show();
 // // Slick slider
 	    $( '.gallery' ).slick( {
 		infinite: true,
