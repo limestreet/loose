@@ -33,13 +33,6 @@ function loose_register_required_plugins() {
 			'required'  => false,
 		),
 
-		// Instagram Slider Widget from WordPress Plugin Repository.
-		array(
-			'name'      => esc_html__( 'Instagram Slider Widget', 'loose' ),
-			'slug'      => 'instagram-slider-widget',
-			'required'  => false,
-		),
-
 		// MailChimp for WordPress from WordPress Plugin Repository.
 		array(
 			'name'      => esc_html__( 'MailChimp for WordPress', 'loose' ),
