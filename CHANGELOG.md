@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.3.3] - 2019-10-07
+
+### Removed
+- recommendation for using Instagram Slider Widget
+
 ## [1.3.2] - 2019-03-14
 
 ### Changed
