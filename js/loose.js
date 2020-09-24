@@ -38,25 +38,6 @@
 		]
 	    } );
 
-// Block editor
-	    $( '.wp-block-gallery' ).slick( {
-		//dots: true,
-		infinite: true,
-		//autoplay: true,
-		speed: 1000,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		responsive: [
-		    {
-			breakpoint: 480,
-			settings: {
-			    slidesToShow: 1,
-			    slidesToScroll: 1
-			}
-		    }
-		]
-	    } );
-
 	    $( '.loose-featured-slider' ).slick( {
 		dots: true,
 		infinite: true,

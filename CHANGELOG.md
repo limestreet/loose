@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.3.4] - 2020-09-22
+
+### Fixed
+- displaying issue in gallery block
+
 ## [1.3.3] - 2019-10-07
 
 ### Removed
