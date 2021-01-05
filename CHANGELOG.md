@@ -1,5 +1,10 @@
 # Change Log - Loose
 
+## [1.3.5] - 2021-01-05
+
+### Fixed
+- image and gallery captions
+
 ## [1.3.4] - 2020-09-22
 
 ### Fixed
